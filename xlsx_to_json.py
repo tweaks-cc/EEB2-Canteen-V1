@@ -1,54 +1,74 @@
 import pandas as pd
 import json
+import os
 
-excel_data_df = pd.read_excel('octobre.xlsx')
+allweeks = os.listdir("menues")
+a = allweeks[0]
+b = allweeks[1]
+c = allweeks[2]
+d = allweeks[3]
 
-json_str = excel_data_df.to_json()
+allweeks = [d,c,b,a]
 
-jsondict = json_str
+print(allweeks)
 
-f = open("octobre.json", "w")
-f.write(json_str)
-f.close()
+os.remove("octobre.json")
 
-f = open("octobre.json", "r")
-jsondict = json.loads(f.read())
-f.close()
+for file in allweeks:
+    print(file)
 
-f = open("octobre.json", "w")
+    excel_data_df = pd.read_excel("menues/" + file)
 
+    json_str = excel_data_df.to_json()
 
-jsondict.pop("Gluten")
-jsondict.pop("Crustacés")
-jsondict.pop("Oeuf")
-jsondict.pop("Poisson")
-jsondict.pop("Arachides")
-jsondict.pop("Soja")
-jsondict.pop("Lait")
-jsondict.pop("Fruits à coques")
-jsondict.pop("Céleri")
-jsondict.pop("Moutarde")
-jsondict.pop("Graine de sésame")
-jsondict.pop("Sulfite")
-jsondict.pop("Mollusques")
-jsondict.pop("Lupin")
+    jsondict = json_str
 
-jsondict.pop("Date")
+    f = open("zwischenspeicher.json", "w")
+    f.write(json_str)
+    f.close()
 
-names = [
-"Semaine-40-03-octo-2022-07-octo-2022.xlsx",
-"Semaine-41-10-octo-2022-14-octo-2022.xlsx",
-"Semaine-42-17-octo-2022-21-octo-2022.xlsx",
-"Semaine-43-24-octo-2022-28-octo-2022.xlsx"
-]
-for name in names:
-    name = name[11:-10]
-    name = [name[0:2], name[13:15]]
-    name = [name[0], name[0]+1, name[1]-1, name[]]
-    print(name)
+    f = open("zwischenspeicher.json", "r")
+    jsondict = json.loads(f.read())
+    f.close()
+
+    f = open("octobre.json", "a")
 
 
-dates = {}
-jsondict["Date"] = {}
+    jsondict.pop("Gluten")
+    jsondict.pop("Crustacés")
+    jsondict.pop("Oeuf")
+    jsondict.pop("Poisson")
+    jsondict.pop("Arachides")
+    jsondict.pop("Soja")
+    jsondict.pop("Lait")
+    jsondict.pop("Fruits à coques")
+    jsondict.pop("Céleri")
+    jsondict.pop("Moutarde")
+    jsondict.pop("Graine de sésame")
+    jsondict.pop("Sulfite")
+    jsondict.pop("Mollusques")
+    jsondict.pop("Lupin")
 
-f.write(json.dumps(jsondict))
+    jsondict.pop("Date")
+
+    dates = {}
+    jsondict["Date"] = {}
+
+    f.write(json.dumps(jsondict))
+
+    """
+
+    Datum müsste man halt mal noch machen ka mit kalender oder so
+
+    names = [
+    "Semaine-40-03-octo-2022-07-octo-2022.xlsx",
+    "Semaine-41-10-octo-2022-14-octo-2022.xlsx",
+    "Semaine-42-17-octo-2022-21-octo-2022.xlsx",
+    "Semaine-43-24-octo-2022-28-octo-2022.xlsx"
+    ]
+    for name in names:
+        name = name[11:-10]
+        name = [name[0:2], name[13:15]]
+        name = [name[0], name[0]+1, name[1]-1, name[1]]
+        print(name)
+    """

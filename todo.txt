@@ -1,1 +1,8 @@
-hello
+octobre.json datei richtig machen, kommas und klammern halt
+Datums in xlsx_to_json.py
+
+
+
+
+Irgendwann mal:
+Englische Version, translator oder so
