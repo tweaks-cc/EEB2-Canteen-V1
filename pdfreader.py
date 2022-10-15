@@ -5,27 +5,28 @@ import os
 try: os.system("cls")
 except: os.system("clear")
 filename = os.listdir("menues")
-print(filename)
 
-monate = {
-  "octobre": True
-}
+months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
+
 
 def processrawtext(rawtext):
   #print("Converting... beep boop")
   splittext = rawtext.split()
-  print(splittext)
   dates = []
   i = 0
   for item in splittext:
-    if item == filename[0].replace(".pdf", ""):
-      date = " ".join(splittext[i-2: i+1])
-      dates.append(date)
+    for month in months:
+      if item == month:
+        date = " ".join(splittext[i-2: i+1])
+        dates.append(date)
     i += 1
+  return dates
 
-  print(dates)
-  print(soups)
+for file in filename:
+  if file.endswith(".pdf"):
+    with pdfplumber.open(f"menues/{filename[0]}") as rawpdf:
+      rawtext = rawpdf.pages[0].extract_text()
+      dates = processrawtext(rawtext)
 
-with pdfplumber.open(f"menues/{filename[0]}") as rawpdf:
-  rawtext = rawpdf.pages[0].extract_text()
-  processedtext = processrawtext(rawtext)
+for date in dates:
+  print(date)

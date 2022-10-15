@@ -3,17 +3,22 @@ import json
 import os
 
 allweeks = os.listdir("menues")
+"""
 a = allweeks[0]
 b = allweeks[1]
 c = allweeks[2]
 d = allweeks[3]
 
 allweeks = [d,c,b,a]
-
-print(allweeks)
+"""
 
 os.remove("octobre.json")
 
+f = open("octobre.json", "w")
+f.write('{')
+f.close()
+
+i = 1
 for file in allweeks:
     print(file)
 
@@ -33,6 +38,8 @@ for file in allweeks:
 
     f = open("octobre.json", "a")
 
+    jsondict[f"Plat{i}"] = jsondict["Plat"]
+    del jsondict["Plat"]
 
     jsondict.pop("Gluten")
     jsondict.pop("Crustacés")
@@ -52,23 +59,35 @@ for file in allweeks:
     jsondict.pop("Date")
 
     dates = {}
-    jsondict["Date"] = {}
+    jsondict[f"Date{i}"] = {}
 
-    f.write(json.dumps(jsondict))
+    dictstring = json.dumps(jsondict)
+    dictstring = dictstring[1:-1]
+    if i != len(allweeks):
+        dictstring += ","
 
-    """
+    f.write(dictstring)
+    f.close()
+    i += 1
 
-    Datum müsste man halt mal noch machen ka mit kalender oder so
+f = open("octobre.json", "a")
+f.write("}")
+f.close()
 
-    names = [
-    "Semaine-40-03-octo-2022-07-octo-2022.xlsx",
-    "Semaine-41-10-octo-2022-14-octo-2022.xlsx",
-    "Semaine-42-17-octo-2022-21-octo-2022.xlsx",
-    "Semaine-43-24-octo-2022-28-octo-2022.xlsx"
-    ]
-    for name in names:
-        name = name[11:-10]
-        name = [name[0:2], name[13:15]]
-        name = [name[0], name[0]+1, name[1]-1, name[1]]
-        print(name)
-    """
+
+"""
+
+Datum müsste man halt mal noch machen ka mit kalender oder so
+
+names = [
+"Semaine-40-03-octo-2022-07-octo-2022.xlsx",
+"Semaine-41-10-octo-2022-14-octo-2022.xlsx",
+"Semaine-42-17-octo-2022-21-octo-2022.xlsx",
+"Semaine-43-24-octo-2022-28-octo-2022.xlsx"
+]
+for name in names:
+    name = name[11:-10]
+    name = [name[0:2], name[13:15]]
+    name = [name[0], name[0]+1, name[1]-1, name[1]]
+    print(name)
+"""
