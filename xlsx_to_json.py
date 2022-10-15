@@ -1,78 +1,98 @@
 import pandas as pd
+import pdfplumber
 import json
 import os
 
-allweeks = os.listdir("menues")
-"""
-a = allweeks[0]
-b = allweeks[1]
-c = allweeks[2]
-d = allweeks[3]
+#Debbuging
+try : os.system("clear")
+except: os.system("cls")
+filename = os.listdir("menues")
 
-allweeks = [d,c,b,a]
-"""
+allweeks = os.listdir("menues")
+allweeks.sort()
 
 os.remove("octobre.json")
 
+#Schreibt öffnende Klammer für die JSON
 f = open("octobre.json", "w")
 f.write('{')
 f.close()
 
+
+#Wertet alle xlsx Tabellen aus
+#Packt alle Tabellen in eine JSON
 i = 1
 for file in allweeks:
-    print(file)
+    if file.endswith(".xlsx"):
+        print(file) #Dateiname
 
-    excel_data_df = pd.read_excel("menues/" + file)
+        #Extrahiert text aus Datei
+        #Macht es zu einem Dictionary
+        #TODO muss das so oder kann das einfacher aka schneller
+        excel_data_df = pd.read_excel("menues/" + file)
 
-    json_str = excel_data_df.to_json()
+        json_str = excel_data_df.to_json()
 
-    jsondict = json_str
+        jsondict = json_str
 
-    f = open("zwischenspeicher.json", "w")
-    f.write(json_str)
-    f.close()
+        f = open("zwischenspeicher.json", "w")
+        f.write(json_str)
+        f.close()
 
-    f = open("zwischenspeicher.json", "r")
-    jsondict = json.loads(f.read())
-    f.close()
+        f = open("zwischenspeicher.json", "r")
+        jsondict = json.loads(f.read())
+        f.close()
+        #bis hier
 
-    f = open("octobre.json", "a")
+        #Öffnet ZielJSON und formatiert den Dict
+        #Entfernt unnötige Allergene
+        f = open("octobre.json", "a")
 
-    jsondict[f"Plat{i}"] = jsondict["Plat"]
-    del jsondict["Plat"]
+        jsondict[f"Plat{i}"] = jsondict["Plat"]
+        del jsondict["Plat"]
 
-    jsondict.pop("Gluten")
-    jsondict.pop("Crustacés")
-    jsondict.pop("Oeuf")
-    jsondict.pop("Poisson")
-    jsondict.pop("Arachides")
-    jsondict.pop("Soja")
-    jsondict.pop("Lait")
-    jsondict.pop("Fruits à coques")
-    jsondict.pop("Céleri")
-    jsondict.pop("Moutarde")
-    jsondict.pop("Graine de sésame")
-    jsondict.pop("Sulfite")
-    jsondict.pop("Mollusques")
-    jsondict.pop("Lupin")
+        jsondict.pop("Gluten")
+        jsondict.pop("Crustacés")
+        jsondict.pop("Oeuf")
+        jsondict.pop("Poisson")
+        jsondict.pop("Arachides")
+        jsondict.pop("Soja")
+        jsondict.pop("Lait")
+        jsondict.pop("Fruits à coques")
+        jsondict.pop("Céleri")
+        jsondict.pop("Moutarde")
+        jsondict.pop("Graine de sésame")
+        jsondict.pop("Sulfite")
+        jsondict.pop("Mollusques")
+        jsondict.pop("Lupin")
 
-    jsondict.pop("Date")
+        jsondict.pop("Date")
 
-    dates = {}
-    jsondict[f"Date{i}"] = {}
+        dates = {}
+        jsondict[f"Date{i}"] = {}
 
-    dictstring = json.dumps(jsondict)
-    dictstring = dictstring[1:-1]
-    if i != len(allweeks):
-        dictstring += ","
+        #Sorgt dafür das die verschiedenen Wochen/Tabellen/Dicts in eine JSON gehen (fehlerfrei)
+        dictstring = json.dumps(jsondict)
+        dictstring = dictstring[1:-1]
+        if i != len(allweeks)-1:
+            dictstring += ","
 
-    f.write(dictstring)
-    f.close()
-    i += 1
+        f.write(dictstring)
+        f.close()
+        i += 1
 
+#Schliesst JSON mit End-Klammer
 f = open("octobre.json", "a")
 f.write("}")
 f.close()
+
+
+
+
+
+
+
+
 
 
 """

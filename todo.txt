@@ -1,6 +1,6 @@
-octobre.json datei richtig machen, kommas und klammern halt
-Datums in xlsx_to_json.py
-
+--In xlsx_to_json.py:
+Datums
+Tabelle zu dict verbessern wenn möglich 
 
 
 

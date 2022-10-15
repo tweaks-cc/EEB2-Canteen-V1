@@ -2,18 +2,18 @@ import pdfplumber
 import os
 
 #Debbuging
-try: os.system("cls")
-except: os.system("clear")
+try : os.system("clear")
+except: os.system("cls")
 filename = os.listdir("menues")
 
 months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
 
-
 def processrawtext(rawtext):
-  #print("Converting... beep boop")
+  #Nimmt sich den text des ganzen PDFs und filtert Wochentag und Datum raus
   splittext = rawtext.split()
   dates = []
   i = 0
+  #Geht durch alle Elemente des PDFtextes und holt sich die Datums raus
   for item in splittext:
     for month in months:
       if item == month:
@@ -22,9 +22,11 @@ def processrawtext(rawtext):
     i += 1
   return dates
 
+
+#Geht durch alle Dateien im Verzeichnis und verarbeitet nur die erste PDF
 for file in filename:
   if file.endswith(".pdf"):
-    with pdfplumber.open(f"menues/{filename[0]}") as rawpdf:
+    with pdfplumber.open(f"menues/{file}") as rawpdf:
       rawtext = rawpdf.pages[0].extract_text()
       dates = processrawtext(rawtext)
 
