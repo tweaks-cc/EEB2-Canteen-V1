@@ -4,7 +4,7 @@ import os
 #Debbuging
 try : os.system("clear")
 except: os.system("cls")
-filename = os.listdir("menues")
+filelist = os.listdir("menues")
 
 months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
 
@@ -24,7 +24,7 @@ def processrawtext(rawtext):
 
 
 #Geht durch alle Dateien im Verzeichnis und verarbeitet nur die erste PDF
-for file in filename:
+for file in filelist:
   if file.endswith(".pdf"):
     with pdfplumber.open(f"menues/{file}") as rawpdf:
       rawtext = rawpdf.pages[0].extract_text()
