@@ -1,4 +1,4 @@
-# Kantine
+# Kantine TODO
 
 --In xlsx_to_json.py: Datums Tabelle zu dict verbessern wenn möglich
 
