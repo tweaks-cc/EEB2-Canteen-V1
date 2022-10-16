@@ -133,7 +133,9 @@ with open("octobre.json", "w") as f:
 
 with open("octobre.json", "r") as f:
     jsonfile = json.loads(f.read())
-    
+
+
+#Muss noch alle vier wochen machen
 for k in range(3):
 	speicher = {}
 	for i in range(20):
