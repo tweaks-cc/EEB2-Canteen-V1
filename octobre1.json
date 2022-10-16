@@ -1,0 +1,122 @@
+{
+    "Plat1": {
+        "0": [
+            "Minestrone",
+            "Poëlee de poulet aux légumes",
+            "Cœur de blé",
+            null,
+            "Fruit"
+        ],
+        "1": [
+            "Potage cerfeuil",
+            "Veau marengo",
+            "légumes oubliés",
+            "Pommes vapeur",
+            "Laitage"
+        ],
+        "2": [
+            "Potage champignons",
+            "Nuggets végétarien",
+            "Légumes grillés / riz",
+            null,
+            "Biscuit"
+        ],
+        "3": [
+            "Potage choux verts",
+            "Mezze",
+            "Baguette",
+            null,
+            "Fruit"
+        ]
+    },
+    "Date1": {
+        "1": "Lundi 3 octobre",
+        "2": "Mardi 4 octobre",
+        "3": "Jeudi 6 octobre",
+        "4": "Vendredi 7 octobre"
+    },
+    "Plat2": {
+        "0": "Potage potiron",
+        "1": null,
+        "2": "Pâtes veggie",
+        "3": null,
+        "4": "Fruit",
+        "5": "Crème de volaille",
+        "6": "Carbonnade de bœuf",
+        "7": "Carottes",
+        "8": "Purées",
+        "9": "Fruit",
+        "10": "Potage courgettes",
+        "11": "Sauté de veau",
+        "12": "Haricots verts tomatés",
+        "13": "Pépinettes",
+        "14": "Biscuit",
+        "15": "Potage carottes",
+        "16": "Saucisse porc fromage",
+        "17": "Brocolis",
+        "18": "Quartier pdt",
+        "19": "Fruit"
+    },
+    "Date2": {
+        "1": "Lundi 10 octobre",
+        "2": "Mardi 11 octobre",
+        "3": "Jeudi 13 octobre",
+        "4": "Vendredi 14 octobre"
+    },
+    "Plat3": {
+        "0": "Potage tomate mascarpone",
+        "1": "Burger de légumes",
+        "2": "Salade",
+        "3": null,
+        "4": "Fruit",
+        "5": "Potage épinards",
+        "6": null,
+        "7": "Gratin de pâtes",
+        "8": null,
+        "9": "Fruit",
+        "10": "Potage à l'oignon",
+        "11": "Blanquette dinde",
+        "12": "Légumes assortis",
+        "13": "Riz",
+        "14": "Fruit",
+        "15": "Potage de saison",
+        "16": "Lard",
+        "17": "Potiron",
+        "18": "Pomme vapeur",
+        "19": "Laitage"
+    },
+    "Date3": {
+        "1": "Lundi 17 octobre",
+        "2": "Mardi 18 octobre",
+        "3": "Jeudi 20 octobre",
+        "4": "Vendredi 21 octobre"
+    },
+    "Plat4": {
+        "0": "Potage andalou",
+        "1": null,
+        "2": "Penne fromage épinard",
+        "3": null,
+        "4": "Fruit",
+        "5": "Potage thaï coco",
+        "6": "Boulette liégeoise",
+        "7": "purée carottes",
+        "8": null,
+        "9": "Laitage",
+        "10": "Potage choux-fleurs",
+        "11": null,
+        "12": "Paëlla poulet",
+        "13": null,
+        "14": "Biscuit",
+        "15": "Potage céleri-rave",
+        "16": "Filet de poisson",
+        "17": "Ratatouille",
+        "18": "Pommes vapeur",
+        "19": "Fruit"
+    },
+    "Date4": {
+        "1": "Lundi 24 octobre",
+        "2": "Mardi 25 octobre",
+        "3": "Jeudi 27 octobre",
+        "4": "Vendredi 28 octobre"
+    }
+}

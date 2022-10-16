@@ -131,22 +131,16 @@ for j in range(len(datelist)-3):
 with open("octobre.json", "w") as f:
     f.write(json.dumps(jsonfile))
 
+with open("octobre.json", "r") as f:
+    jsonfile = json.loads(f.read())
+    
+for k in range(3):
+	speicher = {}
+	for i in range(20):
+		if i % 5 == 0:
+			speicher[int(i/5)] = [jsonfile["Plat1"][str(i)],jsonfile["Plat1"][str(i+1)],jsonfile["Plat1"][str(i+2)],jsonfile["Plat1"][str(i+3)],jsonfile[f"Plat{k}"][str(i+4)]]
 
+	jsonfile["Plat1"] = speicher
 
-
-"""
-
-Datum müsste man halt mal noch machen ka mit kalender oder so
-
-names = [
-"Semaine-40-03-octo-2022-07-octo-2022.xlsx",
-"Semaine-41-10-octo-2022-14-octo-2022.xlsx",
-"Semaine-42-17-octo-2022-21-octo-2022.xlsx",
-"Semaine-43-24-octo-2022-28-octo-2022.xlsx"
-]
-for name in names:
-    name = name[11:-10]
-    name = [name[0:2], name[13:15]]
-    name = [name[0], name[0]+1, name[1]-1, name[1]]
-    print(name)
-"""
+with open("octobre1.json", "w") as f:
+	f.write(json.dumps(jsonfile))
