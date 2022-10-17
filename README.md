@@ -1,6 +1,5 @@
 # Kantine TODO
 
-<h2>Allgemeine Aufaben</h2>
 <br>HTML Seite machen
 <br>Wenn möglich Zwischenspeicher.json entfernen ist halt eig unnötig
 
