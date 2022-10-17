@@ -1,6 +1,6 @@
 # Kantine TODO
 
---In xlsx_to_json.py:
+<h2>Allgemeine Aufaben<h2>
 <br>HTML Seite machen
 <br>Wenn möglich Zwischenspeicher.json entfernen ist halt eig unnötig
 
