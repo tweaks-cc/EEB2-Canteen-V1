@@ -1,1 +1,138 @@
-{"Week1": {"0": ["Lundi 3 octobre", "Minestrone", "Po\u00eblee de poulet aux l\u00e9gumes", "C\u0153ur de bl\u00e9", null, "Fruit"], "1": ["Mardi 4 octobre", "Potage cerfeuil", "Veau marengo", "l\u00e9gumes oubli\u00e9s", "Pommes vapeur", "Laitage"], "2": ["Jeudi 6 octobre", "Potage champignons", "Nuggets v\u00e9g\u00e9tarien", "L\u00e9gumes grill\u00e9s / riz", null, "Biscuit"], "3": ["Vendredi 7 octobre", "Potage choux verts", "Mezze", "Baguette", null, "Fruit"]}, "Week2": {"0": ["Lundi 10 octobre", "Potage potiron", null, "P\u00e2tes veggie", null, "Fruit"], "1": ["Mardi 11 octobre", "Cr\u00e8me de volaille", "Carbonnade de b\u0153uf", "Carottes", "Pur\u00e9es", "Fruit"], "2": ["Jeudi 13 octobre", "Potage courgettes", "Saut\u00e9 de veau", "Haricots verts tomat\u00e9s", "P\u00e9pinettes", "Biscuit"], "3": ["Vendredi 14 octobre", "Potage carottes", "Saucisse porc fromage", "Brocolis", "Quartier pdt", "Fruit"]}, "Week3": {"0": ["Lundi 17 octobre", "Potage tomate mascarpone", "Burger de l\u00e9gumes", "Salade", null, "Fruit"], "1": ["Mardi 18 octobre", "Potage \u00e9pinards", null, "Gratin de p\u00e2tes", null, "Fruit"], "2": ["Jeudi 20 octobre", "Potage \u00e0 l'oignon", "Blanquette dinde", "L\u00e9gumes assortis", "Riz", "Fruit"], "3": ["Vendredi 21 octobre", "Potage de saison", "Lard", "Potiron", "Pomme vapeur", "Laitage"]}, "Week4": {"0": ["Lundi 24 octobre", "Potage andalou", null, "Penne fromage \u00e9pinard", null, "Fruit"], "1": ["Mardi 25 octobre", "Potage tha\u00ef coco", "Boulette li\u00e9geoise", "pur\u00e9e carottes", null, "Laitage"], "2": ["Jeudi 27 octobre", "Potage choux-fleurs", null, "Pa\u00eblla poulet", null, "Biscuit"], "3": ["Vendredi 28 octobre", "Potage c\u00e9leri-rave", "Filet de poisson", "Ratatouille", "Pommes vapeur", "Fruit"]}}
+{
+    "Week1": {
+        "0": [
+            "Lundi 3 octobre",
+            "Minestrone",
+            "Poëlee de poulet aux légumes",
+            "Cœur de blé",
+            null,
+            "Fruit"
+        ],
+        "1": [
+            "Mardi 4 octobre",
+            "Potage cerfeuil",
+            "Veau marengo",
+            "légumes oubliés",
+            "Pommes vapeur",
+            "Laitage"
+        ],
+        "2": [
+            "Jeudi 6 octobre",
+            "Potage champignons",
+            "Nuggets végétarien",
+            "Légumes grillés / riz",
+            null,
+            "Biscuit"
+        ],
+        "3": [
+            "Vendredi 7 octobre",
+            "Potage choux verts",
+            "Mezze",
+            "Baguette",
+            null,
+            "Fruit"
+        ]
+    },
+    "Week2": {
+        "0": [
+            "Lundi 10 octobre",
+            "Potage potiron",
+            null,
+            "Pâtes veggie",
+            null,
+            "Fruit"
+        ],
+        "1": [
+            "Mardi 11 octobre",
+            "Crème de volaille",
+            "Carbonnade de bœuf",
+            "Carottes",
+            "Purées",
+            "Fruit"
+        ],
+        "2": [
+            "Jeudi 13 octobre",
+            "Potage courgettes",
+            "Sauté de veau",
+            "Haricots verts tomatés",
+            "Pépinettes",
+            "Biscuit"
+        ],
+        "3": [
+            "Vendredi 14 octobre",
+            "Potage carottes",
+            "Saucisse porc fromage",
+            "Brocolis",
+            "Quartier pdt",
+            "Fruit"
+        ]
+    },
+    "Week3": {
+        "0": [
+            "Lundi 17 octobre",
+            "Potage tomate mascarpone",
+            "Burger de légumes",
+            "Salade",
+            null,
+            "Fruit"
+        ],
+        "1": [
+            "Mardi 18 octobre",
+            "Potage épinards",
+            null,
+            "Gratin de pâtes",
+            null,
+            "Fruit"
+        ],
+        "2": [
+            "Jeudi 20 octobre",
+            "Potage à l'oignon",
+            "Blanquette dinde",
+            "Légumes assortis",
+            "Riz",
+            "Fruit"
+        ],
+        "3": [
+            "Vendredi 21 octobre",
+            "Potage de saison",
+            "Lard",
+            "Potiron",
+            "Pomme vapeur",
+            "Laitage"
+        ]
+    },
+    "Week4": {
+        "0": [
+            "Lundi 24 octobre",
+            "Potage andalou",
+            null,
+            "Penne fromage épinard",
+            null,
+            "Fruit"
+        ],
+        "1": [
+            "Mardi 25 octobre",
+            "Potage thaï coco",
+            "Boulette liégeoise",
+            "purée carottes",
+            null,
+            "Laitage"
+        ],
+        "2": [
+            "Jeudi 27 octobre",
+            "Potage choux-fleurs",
+            null,
+            "Paëlla poulet",
+            null,
+            "Biscuit"
+        ],
+        "3": [
+            "Vendredi 28 octobre",
+            "Potage céleri-rave",
+            "Filet de poisson",
+            "Ratatouille",
+            "Pommes vapeur",
+            "Fruit"
+        ]
+    }
+}
