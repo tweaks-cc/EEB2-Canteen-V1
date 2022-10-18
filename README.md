@@ -1,6 +1,7 @@
 # Kantine TODO
 
 <br>HTML Seite machen
+<br>Bash script (fetchen)
 <br>Wenn möglich Zwischenspeicher.json entfernen ist halt eig unnötig
 
 <br>Unwichtiger ig:
