@@ -1,11 +1,13 @@
 # Kantine TODO
 
-<br>HTML Seite machen
 <br>Bash script (fetchen)
-<br>Wenn möglich Zwischenspeicher.json entfernen ist halt eig unnötig
+<br>HTML Seite machen
 
-<br>Unwichtiger ig:
-<br>Über databases informieren
-<br>Datums Tabelle zu dict verbessern wenn möglich
+<br>--Andere TODOs:
+<br>Über databases informieren (wird geamcht)
 
-<br>Irgendwann mal: Englische Version, translator oder so
+<br>--Unwichtiger ig:
+<br>Datums Tabelle zu dict verbessern wenn möglich??? ka was damit gemeint ist
+
+<br>--Irgendwann mal:
+<br>Englische Version, translator oder so
