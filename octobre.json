@@ -1,5 +1,5 @@
 {
-    "Plat1": {
+    "Week1": {
         "0": "Minestrone",
         "1": "Poëlee de poulet aux légumes",
         "2": "Cœur de blé",
@@ -27,7 +27,7 @@
         "3": "Jeudi 6 octobre",
         "4": "Vendredi 7 octobre"
     },
-    "Plat2": {
+    "Week2": {
         "0": "Potage potiron",
         "1": null,
         "2": "Pâtes veggie",
@@ -55,7 +55,7 @@
         "3": "Jeudi 13 octobre",
         "4": "Vendredi 14 octobre"
     },
-    "Plat3": {
+    "Week3": {
         "0": "Potage tomate mascarpone",
         "1": "Burger de légumes",
         "2": "Salade",
@@ -83,7 +83,7 @@
         "3": "Jeudi 20 octobre",
         "4": "Vendredi 21 octobre"
     },
-    "Plat4": {
+    "Week4": {
         "0": "Potage andalou",
         "1": null,
         "2": "Penne fromage épinard",

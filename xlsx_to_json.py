@@ -73,7 +73,7 @@ for file in filelist:
         #Entfernt unnötige Allergene
         f = open("octobre.json", "a")
 
-        jsondict[f"Plat{i}"] = jsondict["Plat"]
+        jsondict[f"Week{i}"] = jsondict["Plat"]
         del jsondict["Plat"]
 
         jsondict.pop("Gluten")
@@ -135,14 +135,15 @@ with open("octobre.json", "r") as f:
     jsonfile = json.loads(f.read())
 
 
-#Muss noch alle vier wochen machen
+
+#Formatiert die Infos in der JSON schöner
 for k in range(3):
 	speicher = {}
 	for i in range(20):
 		if i % 5 == 0:
-			speicher[int(i/5)] = [jsonfile["Plat1"][str(i)],jsonfile["Plat1"][str(i+1)],jsonfile["Plat1"][str(i+2)],jsonfile["Plat1"][str(i+3)],jsonfile[f"Plat{k}"][str(i+4)]]
+			speicher[int(i/5)] = [jsonfile["Week1"][str(i)],jsonfile["Week1"][str(i+1)],jsonfile["Week1"][str(i+2)],jsonfile["Week1"][str(i+3)],jsonfile[f"Week{k}"][str(i+4)]]
 
-	jsonfile["Plat1"] = speicher
+	jsonfile["Week1"] = speicher
 
 with open("octobre1.json", "w") as f:
 	f.write(json.dumps(jsonfile))
