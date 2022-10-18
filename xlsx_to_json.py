@@ -56,18 +56,7 @@ for file in filelist:
         #TODO muss das so oder kann das einfacher aka schneller
         excel_data_df = pd.read_excel("menues/" + file)
 
-        json_str = excel_data_df.to_json()
-
-        jsondict = json_str
-
-        f = open("zwischenspeicher.json", "w")
-        f.write(json_str)
-        f.close()
-
-        f = open("zwischenspeicher.json", "r")
-        jsondict = json.loads(f.read())
-        f.close()
-        #bis hier
+        jsondict = json.loads(excel_data_df.to_json())
 
         #Öffnet ZielJSON und formatiert den Dict
         #Entfernt unnötige Allergene
