@@ -56,24 +56,13 @@ for file in filelist:
         #TODO muss das so oder kann das einfacher aka schneller
         excel_data_df = pd.read_excel("menues/" + file)
 
-        json_str = excel_data_df.to_json()
-
-        jsondict = json_str
-
-        f = open("zwischenspeicher.json", "w")
-        f.write(json_str)
-        f.close()
-
-        f = open("zwischenspeicher.json", "r")
-        jsondict = json.loads(f.read())
-        f.close()
-        #bis hier
+        jsondict = json.loads(excel_data_df.to_json())
 
         #Öffnet ZielJSON und formatiert den Dict
         #Entfernt unnötige Allergene
         f = open("octobre.json", "a")
 
-        jsondict[f"Plat{i}"] = jsondict["Plat"]
+        jsondict[f"Week{i}"] = jsondict["Plat"]
         del jsondict["Plat"]
 
         jsondict.pop("Gluten")
@@ -135,21 +124,22 @@ with open("octobre.json", "r") as f:
     jsonfile = json.loads(f.read())
 
 
-#Muss noch alle vier wochen machen
+
+#Formatiert die Infos in der JSON schöner
 for k in range(4):
 	speicher, d = {}, 1
 	for i in range(20):
 		if i % 5 == 0:
 			speicher[int(i/5)] = [
             jsonfile[f"Date{k+1}"][str(d)],
-            jsonfile[f"Plat{k+1}"][str(i)],
-            jsonfile[f"Plat{k+1}"][str(i+1)],
-            jsonfile[f"Plat{k+1}"][str(i+2)],
-            jsonfile[f"Plat{k+1}"][str(i+3)],
-            jsonfile[f"Plat{k+1}"][str(i+4)]]
+            jsonfile[f"Week{k+1}"][str(i)],
+            jsonfile[f"Week{k+1}"][str(i+1)],
+            jsonfile[f"Week{k+1}"][str(i+2)],
+            jsonfile[f"Week{k+1}"][str(i+3)],
+            jsonfile[f"Week{k+1}"][str(i+4)]]
 			d += 1
 
-	jsonfile[f"Plat{k+1}"] = speicher
+	jsonfile[f"Week{k+1}"] = speicher
 	if k <= 3: del jsonfile[f"Date{k+1}"]
 
 with open("octobre.json", "w") as f:
