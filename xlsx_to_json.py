@@ -137,13 +137,21 @@ with open("octobre.json", "r") as f:
 
 
 #Formatiert die Infos in der JSON schöner
-for k in range(3):
-	speicher = {}
+for k in range(4):
+	speicher, d = {}, 1
 	for i in range(20):
 		if i % 5 == 0:
-			speicher[int(i/5)] = [jsonfile["Week1"][str(i)],jsonfile["Week1"][str(i+1)],jsonfile["Week1"][str(i+2)],jsonfile["Week1"][str(i+3)],jsonfile[f"Week{k}"][str(i+4)]]
+			speicher[int(i/5)] = [
+            jsonfile[f"Date{k+1}"][str(d)],
+            jsonfile[f"Week{k+1}"][str(i)],
+            jsonfile[f"Week{k+1}"][str(i+1)],
+            jsonfile[f"Week{k+1}"][str(i+2)],
+            jsonfile[f"Week{k+1}"][str(i+3)],
+            jsonfile[f"Week{k+1}"][str(i+4)]]
+			d += 1
 
-	jsonfile["Week1"] = speicher
+	jsonfile[f"Week{k+1}"] = speicher
+	if k <= 3: del jsonfile[f"Date{k+1}"]
 
-with open("octobre1.json", "w") as f:
+with open("octobre.json", "w") as f:
 	f.write(json.dumps(jsonfile))
