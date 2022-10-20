@@ -1,10 +1,10 @@
 # Kantine TODO
 
 <br>HTML Seite machen
-<br>Wenn möglich Zwischenspeicher.json entfernen ist halt eig unnötig
+<br>Zuerst JS innerhalb der Seite dann als externes script
+<br>CSS immer extern
 
 <br>Unwichtiger ig:
-<br>Über databases informieren
 <br>Datums Tabelle zu dict verbessern wenn möglich
 
 <br>Irgendwann mal: Englische Version, translator oder so
