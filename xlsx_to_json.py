@@ -12,7 +12,20 @@ except: "what?"
 filelist = os.listdir("menues")
 filelist.sort()
 
-months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
+months = {
+    "janvier":   1,
+    "février":   2,
+    "mars":      3,
+    "avril":     4,
+    "mai":       5,
+    "juin":      6,
+    "juillet":   7,
+    "août":      8,
+    "septembre": 9,
+    "octobre":   10,
+    "novembre":  11,
+    "décembre":  12
+}
 
 os.remove("aktuellermonat.json")
 
@@ -53,7 +66,6 @@ for file in filelist:
 
         #Extrahiert text aus Datei
         #Macht es zu einem Dictionary
-        #TODO muss das so oder kann das einfacher aka schneller
         excel_data_df = pd.read_excel("menues/" + file)
 
         jsondict = json.loads(excel_data_df.to_json())
@@ -142,29 +154,17 @@ for k in range(4):
 	jsonfile[f"Week{k+1}"] = speicher
 	if k <= 3: del jsonfile[f"Date{k+1}"]
 
-"""
-jsonfile[tag[Tag.tomonat(tag[2][1])]]
-<
+def monthtoint(monthstr):
+	return months[monthstr]
 
-speicher = {
-    jsonfile["Week1"]["0"],
-    jsonfile["Week1"]["1"],
-    jsonfile["Week1"]["2"],
-    jsonfile["Week1"]["3"],
-    jsonfile["Week2"]["0"],
-    jsonfile["Week2"]["1"],
-    jsonfile["Week2"]["2"],
-    jsonfile["Week2"]["3"],
-    jsonfile["Week3"]["0"],
-    jsonfile["Week3"]["1"],
-    jsonfile["Week3"]["2"],
-    jsonfile["Week3"]["3"],
-    jsonfile["Week4"]["0"],
-    jsonfile["Week4"]["1"],
-    jsonfile["Week4"]["2"],
-    jsonfile["Week4"]["3"]
-}
-"""
+for wint in range(4):
+	for dint in range(4):
+		day = jsonfile[f"Week{wint+1}"][dint][0][1]
+		month = monthtoint(jsonfile[f"Week{wint+1}"][dint][0][2])
+		jsonfile[f"{day}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
+		jsonfile[f"Week{wint+1}"][dint].pop(0)
+	
+	del jsonfile[f"Week{wint+1}"]
 
 with open("aktuellermonat.json", "w") as f:
 	f.write(json.dumps(jsonfile))
