@@ -70,9 +70,8 @@ for file in filelist:
 
         jsondict = json.loads(excel_data_df.to_json())
 
-        #Öffnet ZielJSON und formatiert den Dict
         #Entfernt unnötige Allergene
-        f = open("aktuellermonat.json", "a")
+        #Und formatiert den Dict
 
         jsondict[f"Week{i}"] = jsondict["Plat"]
         del jsondict["Plat"]
@@ -103,6 +102,7 @@ for file in filelist:
         if i != len(filelist)-1:
             dictstring += ","
 
+        f = open("aktuellermonat.json", "a")
         f.write(dictstring)
         f.close()
         i += 1
