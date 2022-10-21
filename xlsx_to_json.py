@@ -14,10 +14,10 @@ filelist.sort()
 
 months = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
 
-os.remove("octobre.json")
+os.remove("aktuellermonat.json")
 
 #Schreibt öffnende Klammer für die JSON
-f = open("octobre.json", "w")
+f = open("aktuellermonat.json", "w")
 f.write('{')
 f.close()
 
@@ -60,7 +60,7 @@ for file in filelist:
 
         #Öffnet ZielJSON und formatiert den Dict
         #Entfernt unnötige Allergene
-        f = open("octobre.json", "a")
+        f = open("aktuellermonat.json", "a")
 
         jsondict[f"Week{i}"] = jsondict["Plat"]
         del jsondict["Plat"]
@@ -96,11 +96,11 @@ for file in filelist:
         i += 1
 
 #Schliesst JSON mit End-Klammer
-with open("octobre.json", "a") as f:
+with open("aktuellermonat.json", "a") as f:
     f.write("}")
 
 #Datums werden in die JSON eingetragen
-with open("octobre.json", "r") as f:
+with open("aktuellermonat.json", "r") as f:
     jsonfile = json.loads(f.read())
 
 #Mantag = 1
@@ -117,10 +117,10 @@ for j in range(len(datelist)-3):
             4: datelist[j+3]
         }
 
-with open("octobre.json", "w") as f:
+with open("aktuellermonat.json", "w") as f:
     f.write(json.dumps(jsonfile))
 
-with open("octobre.json", "r") as f:
+with open("aktuellermonat.json", "r") as f:
     jsonfile = json.loads(f.read())
 
 
@@ -131,7 +131,7 @@ for k in range(4):
 	for i in range(20):
 		if i % 5 == 0:
 			speicher[int(i/5)] = [
-            jsonfile[f"Date{k+1}"][str(d)],
+            jsonfile[f"Date{k+1}"][str(d)].split(),
             jsonfile[f"Week{k+1}"][str(i)],
             jsonfile[f"Week{k+1}"][str(i+1)],
             jsonfile[f"Week{k+1}"][str(i+2)],
@@ -142,5 +142,29 @@ for k in range(4):
 	jsonfile[f"Week{k+1}"] = speicher
 	if k <= 3: del jsonfile[f"Date{k+1}"]
 
-with open("octobre.json", "w") as f:
+"""
+jsonfile[tag[Tag.tomonat(tag[2][1])]]
+<
+
+speicher = {
+    jsonfile["Week1"]["0"],
+    jsonfile["Week1"]["1"],
+    jsonfile["Week1"]["2"],
+    jsonfile["Week1"]["3"],
+    jsonfile["Week2"]["0"],
+    jsonfile["Week2"]["1"],
+    jsonfile["Week2"]["2"],
+    jsonfile["Week2"]["3"],
+    jsonfile["Week3"]["0"],
+    jsonfile["Week3"]["1"],
+    jsonfile["Week3"]["2"],
+    jsonfile["Week3"]["3"],
+    jsonfile["Week4"]["0"],
+    jsonfile["Week4"]["1"],
+    jsonfile["Week4"]["2"],
+    jsonfile["Week4"]["3"]
+}
+"""
+
+with open("aktuellermonat.json", "w") as f:
 	f.write(json.dumps(jsonfile))

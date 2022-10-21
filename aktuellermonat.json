@@ -1,7 +1,11 @@
 {
     "Week1": {
         "0": [
-            "Lundi 3 octobre",
+            [
+                "Lundi",
+                "3",
+                "octobre"
+            ],
             "Minestrone",
             "Poëlee de poulet aux légumes",
             "Cœur de blé",
@@ -9,7 +13,11 @@
             "Fruit"
         ],
         "1": [
-            "Mardi 4 octobre",
+            [
+                "Mardi",
+                "4",
+                "octobre"
+            ],
             "Potage cerfeuil",
             "Veau marengo",
             "légumes oubliés",
@@ -17,7 +25,11 @@
             "Laitage"
         ],
         "2": [
-            "Jeudi 6 octobre",
+            [
+                "Jeudi",
+                "6",
+                "octobre"
+            ],
             "Potage champignons",
             "Nuggets végétarien",
             "Légumes grillés / riz",
@@ -25,7 +37,11 @@
             "Biscuit"
         ],
         "3": [
-            "Vendredi 7 octobre",
+            [
+                "Vendredi",
+                "7",
+                "octobre"
+            ],
             "Potage choux verts",
             "Mezze",
             "Baguette",
@@ -35,7 +51,11 @@
     },
     "Week2": {
         "0": [
-            "Lundi 10 octobre",
+            [
+                "Lundi",
+                "10",
+                "octobre"
+            ],
             "Potage potiron",
             null,
             "Pâtes veggie",
@@ -43,7 +63,11 @@
             "Fruit"
         ],
         "1": [
-            "Mardi 11 octobre",
+            [
+                "Mardi",
+                "11",
+                "octobre"
+            ],
             "Crème de volaille",
             "Carbonnade de bœuf",
             "Carottes",
@@ -51,7 +75,11 @@
             "Fruit"
         ],
         "2": [
-            "Jeudi 13 octobre",
+            [
+                "Jeudi",
+                "13",
+                "octobre"
+            ],
             "Potage courgettes",
             "Sauté de veau",
             "Haricots verts tomatés",
@@ -59,7 +87,11 @@
             "Biscuit"
         ],
         "3": [
-            "Vendredi 14 octobre",
+            [
+                "Vendredi",
+                "14",
+                "octobre"
+            ],
             "Potage carottes",
             "Saucisse porc fromage",
             "Brocolis",
@@ -69,7 +101,11 @@
     },
     "Week3": {
         "0": [
-            "Lundi 17 octobre",
+            [
+                "Lundi",
+                "17",
+                "octobre"
+            ],
             "Potage tomate mascarpone",
             "Burger de légumes",
             "Salade",
@@ -77,7 +113,11 @@
             "Fruit"
         ],
         "1": [
-            "Mardi 18 octobre",
+            [
+                "Mardi",
+                "18",
+                "octobre"
+            ],
             "Potage épinards",
             null,
             "Gratin de pâtes",
@@ -85,7 +125,11 @@
             "Fruit"
         ],
         "2": [
-            "Jeudi 20 octobre",
+            [
+                "Jeudi",
+                "20",
+                "octobre"
+            ],
             "Potage à l'oignon",
             "Blanquette dinde",
             "Légumes assortis",
@@ -93,7 +137,11 @@
             "Fruit"
         ],
         "3": [
-            "Vendredi 21 octobre",
+            [
+                "Vendredi",
+                "21",
+                "octobre"
+            ],
             "Potage de saison",
             "Lard",
             "Potiron",
@@ -103,7 +151,11 @@
     },
     "Week4": {
         "0": [
-            "Lundi 24 octobre",
+            [
+                "Lundi",
+                "24",
+                "octobre"
+            ],
             "Potage andalou",
             null,
             "Penne fromage épinard",
@@ -111,7 +163,11 @@
             "Fruit"
         ],
         "1": [
-            "Mardi 25 octobre",
+            [
+                "Mardi",
+                "25",
+                "octobre"
+            ],
             "Potage thaï coco",
             "Boulette liégeoise",
             "purée carottes",
@@ -119,7 +175,11 @@
             "Laitage"
         ],
         "2": [
-            "Jeudi 27 octobre",
+            [
+                "Jeudi",
+                "27",
+                "octobre"
+            ],
             "Potage choux-fleurs",
             null,
             "Paëlla poulet",
@@ -127,7 +187,11 @@
             "Biscuit"
         ],
         "3": [
-            "Vendredi 28 octobre",
+            [
+                "Vendredi",
+                "28",
+                "octobre"
+            ],
             "Potage céleri-rave",
             "Filet de poisson",
             "Ratatouille",
