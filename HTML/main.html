@@ -3,9 +3,24 @@
 <html>
     <head>
         <title>Kantinenmenü</title>
-        <script src="main.js"></script>
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <py-script>
+            print("Hello World")
+            pyscript.write("pythontext", "Deine Mudda")
+
+            #here starts the fun part
+            with open("octobre.json", "r") as file:
+                jsonfile = json.loads(file.read())
+            pyscript.write("pythontext", jsonfile["10.10"])
+
+        </py-script>
     </head>
 
+    <body>
+        <p>Hello</p>
+        <p id="pythontext"></p>
+    </body>
 
 </html>
