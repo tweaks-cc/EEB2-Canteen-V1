@@ -1,6 +1,5 @@
 # Kantine TODO
 
-<br>Bash script (fetchen)
 <br>HTML Seite machen
 
 <br>--Andere TODOs:
