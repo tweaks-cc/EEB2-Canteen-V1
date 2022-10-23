@@ -2,7 +2,7 @@
 
 # Wie die XLSX heißen soll, nachdem sie heruntergeladen wurde.
 
-danach=input.xlsx
+danach=../auswerten-python/menues/input.xlsx
 
 # Definitionen der Farben.
 

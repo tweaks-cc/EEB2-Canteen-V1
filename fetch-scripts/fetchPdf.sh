@@ -2,7 +2,7 @@
 
 # Wie die PDF heißen soll, nachdem sie heruntergeladen wurde.
 
-danach=input.pdf
+danach=../auswerten-python/menues/input.pdf
 
 # Definitionen der Farben
 
