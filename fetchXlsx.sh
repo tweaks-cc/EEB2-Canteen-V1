@@ -4,10 +4,6 @@
 
 danach=input.xlsx
 
-# Wie die XLSX heißt, bevor sie heruntergeladen wird.
-
-davor=https://www.woluweparents.org/wp-content/uploads/2022/09/Semaine-$(date '+%W')-03-$monat-$(date '+%Y')-07-$monat-$(date '+%Y').xlsx
-
 # Definitionen der Farben.
 
 BGreen='\033[1;32m' # Bold Green
@@ -76,11 +72,15 @@ then
     monat="janv"
 fi
 
-# Falls es schon eine input.pdf im Ordner gibt, muss sie gelöscht werden, sonst wird das Skript nicht funktionieren.
+# Wie die XLSX heißt, bevor sie heruntergeladen wird.
+
+davor=https://www.woluweparents.org/wp-content/uploads/2022/09/Semaine-$(date '+%W')-$(date --date="this Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="this Friday" +"%d")-$monat-$(date '+%Y').xlsx
+
+# Falls es schon eine input.xlsx im Ordner gibt, muss sie gelöscht werden, sonst wird das Skript nicht funktionieren.
 
 rm $danach
 
-# Die Kantine hat immer mehrere Version von dem Menu, meistens zwischen 1 und 10, deswegen gehe ich durch verschieden Versionen von 10 aus runter bis ich die aktuellste Version finde.
+# Die XLSX wird gefetcht.
 
 if [ -f "$danach" ];
 then
@@ -89,5 +89,6 @@ else
     echo
     echo -e "${BRed}VERSUCHE${NC}"
     wget -nv https://www.woluweparents.org/wp-content/uploads/2022/09/$davor
-    mv -v $davor $danach && echo -e "${BGreen}ERFOLGREICH${NC}" && echo
+    mv -v $davor $danach && echo -e "${BGreen}ERFOLGREICH${NC}"
+    echo
 fi
