@@ -4,7 +4,7 @@
 
 <br>--Andere TODOs:
 
-<br>--Unwichtiger ig:
+<br>--Wäre nice, muss aber nicht:
 <br>XLSX zu JSON Kernoptimierung (weniger Datein öffnen, etc.)
 
 <br>--Irgendwann mal:
