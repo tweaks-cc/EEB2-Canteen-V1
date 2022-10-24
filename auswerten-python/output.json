@@ -1,0 +1,44 @@
+{
+    "3.10": [
+        "Minestrone",
+        "Poëlee de poulet aux légumes",
+        "Cœur de blé",
+        null,
+        "Fruit"
+    ],
+    "4.10": [
+        "Potage cerfeuil",
+        "Veau marengo",
+        "légumes oubliés",
+        "Pommes vapeur",
+        "Laitage"
+    ],
+    "6.10": [
+        "Potage champignons",
+        "Nuggets végétarien",
+        "Légumes grillés / riz",
+        null,
+        "Biscuit"
+    ],
+    "7.10": [
+        "Potage choux verts",
+        "Mezze",
+        "Baguette",
+        null,
+        "Fruit"
+    ],
+    "1.10": [
+        "Potage épinards",
+        null,
+        "Gratin de pâtes",
+        null,
+        "Fruit"
+    ],
+    "2.10": [
+        "Potage céleri-rave",
+        "Filet de poisson",
+        "Ratatouille",
+        "Pommes vapeur",
+        "Fruit"
+    ]
+}

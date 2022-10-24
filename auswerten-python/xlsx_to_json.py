@@ -24,37 +24,50 @@ months = {
     "septembre": 9,
     "octobre":   10,
     "novembre":  11,
-    "décembre":  12
+    "décembre":  12,
+    "january":   1,
+    "february":  2,
+    "march":     3,
+    "april":     4,
+    "may":       5,
+    "june":      6,
+    "july":      7,
+    "august":    8,
+    "september": 9,
+    "october":   10,
+    "november":  11,
+    "december":  12,
 }
 
-os.remove("aktuellermonat.json")
+os.remove("output.json")
 
 #Schreibt öffnende Klammer für die JSON
-f = open("aktuellermonat.json", "w")
+f = open("output.json", "w")
 f.write('{')
 f.close()
 
 def processrawtext(rawtext):
-  #Nimmt sich den text des ganzen PDFs und filtert Wochentag und Datum raus
-  splittext = rawtext.split()
-  dates = []
-  i = 0
-  #Geht durch alle Elemente des PDFtextes und holt sich die Datums raus
-  for item in splittext:
-    for month in months:
-      if item == month:
-        date = " ".join(splittext[i-2: i+1])
-        dates.append(date)
-    i += 1
-  return dates
+    #Nimmt sich den text des ganzen PDFs und filtert Wochentag und Datum raus
+    splittext = rawtext.split()
+    dates = []
+    i = 0
+    #Geht durch alle Elemente des PDFtextes und holt sich die Datums raus
+    for item in splittext:
+        for month in months:
+            if item.lower() == month:
+                date = " ".join(splittext[i-2: i+1])
+                dates.append(date)
+        i += 1
+    return dates
 
 
 #Geht durch alle Dateien im Verzeichnis und verarbeitet nur die erste PDF
 for file in filelist:
   if file.endswith(".pdf"):
     with pdfplumber.open(f"menues/{file}") as rawpdf:
-      rawtext = rawpdf.pages[0].extract_text()
-      datelist = processrawtext(rawtext)
+        print(file)
+        rawtext = rawpdf.pages[0].extract_text()
+        datelist = processrawtext(rawtext.lower())
 
 
 #Wertet alle xlsx Tabellen aus
@@ -102,17 +115,17 @@ for file in filelist:
         if i != len(filelist)-1:
             dictstring += ","
 
-        f = open("aktuellermonat.json", "a")
+        f = open("output.json", "a")
         f.write(dictstring)
         f.close()
         i += 1
 
 #Schliesst JSON mit End-Klammer
-with open("aktuellermonat.json", "a") as f:
+with open("output.json", "a") as f:
     f.write("}")
 
 #Datums werden in die JSON eingetragen
-with open("aktuellermonat.json", "r") as f:
+with open("output.json", "r") as f:
     jsonfile = json.loads(f.read())
 
 #Mantag = 1
@@ -129,10 +142,10 @@ for j in range(len(datelist)-3):
             4: datelist[j+3]
         }
 
-with open("aktuellermonat.json", "w") as f:
+with open("output.json", "w") as f:
     f.write(json.dumps(jsonfile))
 
-with open("aktuellermonat.json", "r") as f:
+with open("output.json", "r") as f:
     jsonfile = json.loads(f.read())
 
 
@@ -161,10 +174,10 @@ for wint in range(4):
 	for dint in range(4):
 		day = jsonfile[f"Week{wint+1}"][dint][0][1]
 		month = monthtoint(jsonfile[f"Week{wint+1}"][dint][0][2])
-		jsonfile[f"{day}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
+		jsonfile[f"{day[0:1]}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
 		jsonfile[f"Week{wint+1}"][dint].pop(0)
 	
 	del jsonfile[f"Week{wint+1}"]
 
-with open("aktuellermonat.json", "w") as f:
+with open("output.json", "w") as f:
 	f.write(json.dumps(jsonfile))
