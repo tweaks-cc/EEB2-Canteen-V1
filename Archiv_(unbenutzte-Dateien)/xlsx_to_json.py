@@ -1,3 +1,8 @@
+# Buggy af, funktioniert nicht
+# Nur als Archiv für die Codeschnipsel zu gebrauchen
+
+
+
 import pandas as pd
 import pdfplumber
 import json
@@ -70,6 +75,8 @@ for file in filelist:
         datelist = processrawtext(rawtext.lower())
 
 
+"_________________________"
+
 #Wertet alle xlsx Tabellen aus
 #Packt alle Tabellen in eine JSON
 i = 1
@@ -124,6 +131,8 @@ for file in filelist:
 with open("output.json", "a") as f:
     f.write("}")
 
+"----------"
+
 #Datums werden in die JSON eingetragen
 with open("output.json", "r") as f:
     jsonfile = json.loads(f.read())
@@ -145,9 +154,12 @@ for j in range(len(datelist)-3):
 with open("output.json", "w") as f:
     f.write(json.dumps(jsonfile))
 
+exit()
+
 with open("output.json", "r") as f:
     jsonfile = json.loads(f.read())
-
+    print("file")
+    print(jsonfile)
 
 
 #Formatiert die Infos in der JSON schöner
@@ -167,17 +179,20 @@ for k in range(4):
 	jsonfile[f"Week{k+1}"] = speicher
 	if k <= 3: del jsonfile[f"Date{k+1}"]
 
+print(jsonfile)
+
 def monthtoint(monthstr):
 	return months[monthstr]
 
 for wint in range(4):
-	for dint in range(4):
-		day = jsonfile[f"Week{wint+1}"][dint][0][1]
-		month = monthtoint(jsonfile[f"Week{wint+1}"][dint][0][2])
-		jsonfile[f"{day[0:1]}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
-		jsonfile[f"Week{wint+1}"][dint].pop(0)
+    for dint in range(4):
+        day = jsonfile[f"Week{wint+1}"][dint][0][1]
+        month = monthtoint(jsonfile[f"Week{wint+1}"][dint][0][2])
+        jsonfile[f"{day[0:1]}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
+        print(jsonfile[f"Week{wint+1}"][dint])
+        jsonfile[f"Week{wint+1}"][dint].pop(0)
 	
-	del jsonfile[f"Week{wint+1}"]
+    del jsonfile[f"Week{wint+1}"]
 
 with open("output.json", "w") as f:
 	f.write(json.dumps(jsonfile))
