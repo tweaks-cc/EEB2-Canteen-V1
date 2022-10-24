@@ -1,3 +1,8 @@
+# Buggy af, funktioniert nicht
+# Nur als Archiv für die Codeschnipsel zu gebrauchen
+
+
+
 import pandas as pd
 import pdfplumber
 import json
