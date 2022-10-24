@@ -2,11 +2,13 @@
 
 # Wie die XLSXs heißen sollen, nachdem sie heruntergeladen wurde.
 
-danachWoche1=../auswerten-python/menues/inputWoche1.xlsx
-danachWoche2=../auswerten-python/menues/inputWoche2.xlsx
-danachWoche3=../auswerten-python/menues/inputWoche3.xlsx
-danachWoche4=../auswerten-python/menues/inputWoche4.xlsx
-
+wocheMinus3Post=../auswerten-python/menues/input-$(date --date="Monday -3 Week" +"%d")-$(date --date="Tuesday -3 Week" +"%d")-$(date --date="Thursday -3 Week" +"%d")-$(date --date="Friday -3 Week" +"%d")-$(date "+%B").xlsx
+wocheMinus2Post=../auswerten-python/menues/input-$(date --date="Monday -2 Week" +"%d")-$(date --date="Tuesday -2 Week" +"%d")-$(date --date="Thursday -2 Week" +"%d")-$(date --date="Friday -2 Week" +"%d")-$(date "+%B").xlsx
+wocheMinus1Post=../auswerten-python/menues/input-$(date --date="Monday -1 Week" +"%d")-$(date --date="Tuesday -1 Week" +"%d")-$(date --date="Thursday -1 Week" +"%d")-$(date --date="Friday -1 Week" +"%d")-$(date "+%B").xlsx
+woche0Post=../auswerten-python/menues/input-$(date --date="Monday +0 Week" +"%d")-$(date --date="Tuesday +0 Week" +"%d")-$(date --date="Thursday +0 Week" +"%d")-$(date --date="Friday +0 Week" +"%d")-$(date "+%B").xlsx
+woche1Post=../auswerten-python/menues/input-$(date --date="Monday +1 Week" +"%d")-$(date --date="Tuesday +1 Week" +"%d")-$(date --date="Thursday +1 Week" +"%d")-$(date --date="Friday +1 Week" +"%d")-$(date "+%B").xlsx
+woche2Post=../auswerten-python/menues/input-$(date --date="Monday +2 Week" +"%d")-$(date --date="Tuesday +2 Week" +"%d")-$(date --date="Thursday +2 Week" +"%d")-$(date --date="Friday +2 Week" +"%d")-$(date "+%B").xlsx
+woche3Post=../auswerten-python/menues/input-$(date --date="Monday +3 Week" +"%d")-$(date --date="Tuesday +3 Week" +"%d")-$(date --date="Thursday +3 Week" +"%d")-$(date --date="Friday +3 Week" +"%d")-$(date "+%B").xlsx
 
 # Definitionen der Farben.
 
@@ -78,58 +80,97 @@ fi
 
 # Wie die XLSXs heißen, bevor sie heruntergeladen werden.
 
-davorWoche1=Semaine-$(date '+%W')-$(date --date="this Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="this Friday" +"%d")-$monat-$(date '+%Y').xlsx
-davorWoche2=Semaine-$(date --date="next Week" '+%W')-$(date --date="next Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="next Friday" +"%d")-$monat-$(date '+%Y').xlsx
-davorWoche3=Semaine-$(date --date="2 Weeks" '+%W')-$(date --date="2 Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="2 Friday" +"%d")-$monat-$(date '+%Y').xlsx
-davorWoche4=Semaine-$(date --date="3 Weeks" '+%W')-$(date --date="3 Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="3 Friday" +"%d")-$monat-$(date '+%Y').xlsx
+wocheMinus3Prae=Semaine-$(date --date="-3 Week" +"%W")-$(date --date="Monday -3 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday -3 Week" +"%d")-$monat-$(date '+%Y').xlsx
+wocheMinus2Prae=Semaine-$(date --date="-2 Week" +"%W")-$(date --date="Monday -2 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday -2 Week" +"%d")-$monat-$(date '+%Y').xlsx
+wocheMinus1Prae=Semaine-$(date --date="-1 Week" +"%W")-$(date --date="Monday -1 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday -1 Week" +"%d")-$monat-$(date '+%Y').xlsx
+woche0Prae=Semaine-$(date --date="+0 Week" +"%W")-$(date --date="Monday +0 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday +0 Week" +"%d")-$monat-$(date '+%Y').xlsx
+woche1Prae=Semaine-$(date --date="+1 Week" +"%W")-$(date --date="Monday +1 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday +1 Week" +"%d")-$monat-$(date '+%Y').xlsx
+woche2Prae=Semaine-$(date --date="+2 Week" +"%W")-$(date --date="Monday +2 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday +2 Week" +"%d")-$monat-$(date '+%Y').xlsx
+woche3Prae=Semaine-$(date --date="+3 Week" +"%W")-$(date --date="Monday +3 Week" +"%d")-$monat-$(date '+%Y')-$(date --date="Friday +3 Week" +"%d")-$monat-$(date '+%Y').xlsx
 
 # Falls es schon mehrere inputWocheX.xlsx im Ordner gibt, mussen sie gelöscht werden, sonst wird das Skript nicht funktionieren.
 
-rm $danachWoche1
-rm $danachWoche2
-rm $danachWoche3
-rm $danachWoche4
+rm $wocheMinus3Post
+rm $wocheMinus2Post
+rm $wocheMinus1Post
+rm $woche0Post
+rm $woche1Post
+rm $woche2Post
+rm $woche3Post
 
 
 # Die XLSXs werden gefetcht.
 
-if [ -f "$danachWoche1" ];
+if [ -f "$wocheMinus3Post" ];
 then
     :
 else
     echo
-    echo -e "${BRed}VERSUCHE WOCHE 1${NC}"
-    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche1
-    mv -v $davorWoche1 $danachWoche1 && echo -e "${BGreen}WOCHE 1 ERFOLGREICH${NC}"
-    echo
-fi
-
-if [ -f "$danachWoche2" ];
-then
-    :
-else
-    echo -e "${BRed}VERSUCHE WOCHE 2${NC}"
-    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche2
-    mv -v $davorWoche2 $danachWoche2 && echo -e "${BGreen}WOCHE 2 ERFOLGREICH${NC}"
+    echo -e "${BRed}VERSUCHE VORVORLETZTE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$wocheMinus3Prae
+    mv -v $wocheMinus3Prae $wocheMinus3Post && echo -e "${BGreen}VORVORLETZTE WOCHE ERFOLGREICH${NC}"
     echo
 fi
 
-if [ -f "$danachWoche3" ];
+if [ -f "$wocheMinus2Post" ];
 then
     :
 else
-    echo -e "${BRed}VERSUCHE WOCHE 3${NC}"
-    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche3
-    mv -v $davorWoche3 $danachWoche3 && echo -e "${BGreen}WOCHE 3 ERFOLGREICH${NC}"
+    echo
+    echo -e "${BRed}VERSUCHE VORLETZTE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$wocheMinus2Prae
+    mv -v $wocheMinus2Prae $wocheMinus2Post && echo -e "${BGreen}VORLETZTE WOCHE ERFOLGREICH${NC}"
     echo
 fi
 
-if [ -f "$danachWoche4" ];
+if [ -f "$wocheMinus1Post" ];
 then
     :
 else
-    echo -e "${BRed}VERSUCHE WOCHE 4${NC}"
-    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche4
-    mv -v $davorWoche4 $danachWoche4 && echo -e "${BGreen}WOCHE 4 ERFOLGREICH${NC}"
+    echo
+    echo -e "${BRed}VERSUCHE LETZTE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$wocheMinus1Prae
+    mv -v $wocheMinus1Prae $wocheMinus1Post && echo -e "${BGreen}LETZTE WOCHE ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$woche0Post" ];
+then
+    :
+else
+    echo
+    echo -e "${BRed}VERSUCHE DIESE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$woche0Prae
+    mv -v $woche0Prae $woche0Post && echo -e "${BGreen}DIESE WOCHE ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$woche1Post" ];
+then
+    :
+else
+    echo -e "${BRed}VERSUCHE NÄCHSTE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$woche1Prae
+    mv -v $woche1Prae $woche1Post && echo -e "${BGreen}NÄCHSTE WOCHE ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$woche2Post" ];
+then
+    :
+else
+    echo -e "${BRed}VERSUCHE ÜBERNÄCHSTE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$woche2Prae
+    mv -v $woche2Prae $woche2Post && echo -e "${BGreen}ÜBERNÄCHSTE WOCHE ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$woche3Post" ];
+then
+    :
+else
+    echo -e "${BRed}VERSUCHE ÜBERÜBERNÄCHSTE WOCHE${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$woche3Prae
+    mv -v $woche3Prae $woche3Post && echo -e "${BGreen}ÜBERÜBERNÄCHSTE WOCHE ERFOLGREICH${NC}"
     echo
 fi
