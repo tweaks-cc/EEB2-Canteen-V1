@@ -14,30 +14,18 @@ filelist.sort() #  Sortiert die Dateien nach Name(Datum)
 
 # Monatsstring Englisch/Französisch zu Zahl (bsp. Januar: 1)
 months = {
-    "janvier":   1,
-    "février":   2,
-    "mars":      3,
-    "avril":     4,
-    "mai":       5,
-    "juin":      6,
-    "juillet":   7,
-    "août":      8,
-    "septembre": 9,
-    "octobre":   10,
-    "novembre":  11,
-    "décembre":  12,
-    "january":   1,
-    "february":  2,
-    "march":     3,
+    "januar":    1,
+    "februar":   2,
+    "märz":     3,
     "april":     4,
-    "may":       5,
-    "june":      6,
-    "july":      7,
+    "mai":       5,
+    "juni":      6,
+    "juli":      7,
     "august":    8,
     "september": 9,
-    "october":   10,
+    "oktober":   10,
     "november":  11,
-    "december":  12,
+    "dezember":  12,
 }
 
 # Zum entfernen aus dict
@@ -115,6 +103,7 @@ for k in range(4):
 		if i % 5 == 0:
 			speicher[int(i/5)] = [
             jsonfile[f"Date{k+1}"][str(d)],
+            jsonfile[f"Date{k+1}"][str(d)][0],
             jsonfile[f"Week{k+1}"][str(i)],
             jsonfile[f"Week{k+1}"][str(i+1)],
             jsonfile[f"Week{k+1}"][str(i+2)],
@@ -129,20 +118,15 @@ for k in range(4):
 with open("output.json", "w") as f:
 	f.write(json.dumps(jsonfile))
 
-exit("0")
-
-print(jsonfile)
 
 def monthtoint(monthstr):
-	return months[monthstr]
+	return months[monthstr.lower()]
 
 for wint in range(4):
-    print(wint)
     for dint in range(4):
         day = jsonfile[f"Week{wint+1}"][dint][0][1]
         month = monthtoint(jsonfile[f"Week{wint+1}"][dint][0][2])
-        jsonfile[f"{day[0:1]}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
-        print(jsonfile[f"Week{wint+1}"][dint])
+        jsonfile[f"{day}.{month}"] = jsonfile[f"Week{wint+1}"][dint]
         jsonfile[f"Week{wint+1}"][dint].pop(0)
 	
     del jsonfile[f"Week{wint+1}"]
