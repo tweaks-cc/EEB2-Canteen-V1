@@ -74,7 +74,7 @@ fi
 
 # Wie die XLSX heißt, bevor sie heruntergeladen wird.
 
-davor=https://www.woluweparents.org/wp-content/uploads/2022/09/Semaine-$(date '+%W')-$(date --date="this Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="this Friday" +"%d")-$monat-$(date '+%Y').xlsx
+davor=Semaine-$(date '+%W')-$(date --date="this Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="this Friday" +"%d")-$monat-$(date '+%Y').xlsx
 
 # Falls es schon eine input.xlsx im Ordner gibt, muss sie gelöscht werden, sonst wird das Skript nicht funktionieren.
 
