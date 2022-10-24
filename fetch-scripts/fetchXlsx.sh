@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Wie die XLSX heißen soll, nachdem sie heruntergeladen wurde.
+# Wie die XLSXs heißen sollen, nachdem sie heruntergeladen wurde.
 
-danach=../auswerten-python/menues/input.xlsx
+danachWoche1=../auswerten-python/menues/inputWoche1.xlsx
+danachWoche2=../auswerten-python/menues/inputWoche2.xlsx
+danachWoche3=../auswerten-python/menues/inputWoche3.xlsx
+danachWoche4=../auswerten-python/menues/inputWoche4.xlsx
+
 
 # Definitionen der Farben.
 
@@ -72,23 +76,60 @@ then
     monat="janv"
 fi
 
-# Wie die XLSX heißt, bevor sie heruntergeladen wird.
+# Wie die XLSXs heißen, bevor sie heruntergeladen werden.
 
-davor=Semaine-$(date '+%W')-$(date --date="this Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="this Friday" +"%d")-$monat-$(date '+%Y').xlsx
+davorWoche1=Semaine-$(date '+%W')-$(date --date="this Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="this Friday" +"%d")-$monat-$(date '+%Y').xlsx
+davorWoche2=Semaine-$(date --date="next Week" '+%W')-$(date --date="next Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="next Friday" +"%d")-$monat-$(date '+%Y').xlsx
+davorWoche3=Semaine-$(date --date="2 Weeks" '+%W')-$(date --date="2 Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="2 Friday" +"%d")-$monat-$(date '+%Y').xlsx
+davorWoche4=Semaine-$(date --date="3 Weeks" '+%W')-$(date --date="3 Monday" +"%d")-$monat-$(date '+%Y')-$(date --date="3 Friday" +"%d")-$monat-$(date '+%Y').xlsx
 
-# Falls es schon eine input.xlsx im Ordner gibt, muss sie gelöscht werden, sonst wird das Skript nicht funktionieren.
+# Falls es schon mehrere inputWocheX.xlsx im Ordner gibt, mussen sie gelöscht werden, sonst wird das Skript nicht funktionieren.
 
-rm $danach
+rm $danachWoche1
+rm $danachWoche2
+rm $danachWoche3
+rm $danachWoche4
 
-# Die XLSX wird gefetcht.
 
-if [ -f "$danach" ];
+# Die XLSXs werden gefetcht.
+
+if [ -f "$danachWoche1" ];
 then
     :
 else
     echo
-    echo -e "${BRed}VERSUCHE${NC}"
-    wget -nv https://www.woluweparents.org/wp-content/uploads/2022/09/$davor
-    mv -v $davor $danach && echo -e "${BGreen}ERFOLGREICH${NC}"
+    echo -e "${BRed}VERSUCHE WOCHE 1${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche1
+    mv -v $davorWoche1 $danachWoche1 && echo -e "${BGreen}WOCHE 1 ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$danachWoche2" ];
+then
+    :
+else
+    echo -e "${BRed}VERSUCHE WOCHE 2${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche2
+    mv -v $davorWoche2 $danachWoche2 && echo -e "${BGreen}WOCHE 2 ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$danachWoche3" ];
+then
+    :
+else
+    echo -e "${BRed}VERSUCHE WOCHE 3${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche3
+    mv -v $davorWoche3 $danachWoche3 && echo -e "${BGreen}WOCHE 3 ERFOLGREICH${NC}"
+    echo
+fi
+
+if [ -f "$danachWoche4" ];
+then
+    :
+else
+    echo -e "${BRed}VERSUCHE WOCHE 4${NC}"
+    wget -nv https://www.woluweparents.org/wp-content/uploads/$(date '+%Y')/$(date '+%m')/$davorWoche4
+    mv -v $davorWoche4 $danachWoche4 && echo -e "${BGreen}WOCHE 4 ERFOLGREICH${NC}"
     echo
 fi
