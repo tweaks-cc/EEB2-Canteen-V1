@@ -88,7 +88,7 @@ then
 else
     echo
     echo -e "${BRed}VERSUCHE${NC}"
-    wget -nv https://www.woluweparents.org/wp-content/uploads/2022/09/$davor
+    wget -nv $davor
     mv -v $davor $danach && echo -e "${BGreen}ERFOLGREICH${NC}"
     echo
 fi
