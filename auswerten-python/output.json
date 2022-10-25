@@ -1,5 +1,5 @@
 {
-    "03.10": [
+    "drei.zehn": [
         "Lundi",
         "Minestrone",
         "Poëlee de poulet aux légumes",
@@ -7,7 +7,7 @@
         null,
         "Fruit"
     ],
-    "04.10": [
+    "vier.zehn": [
         "Mardi",
         "Potage cerfeuil",
         "Veau marengo",
@@ -15,7 +15,7 @@
         "Pommes vapeur",
         "Laitage"
     ],
-    "06.10": [
+    "sechs.zehn": [
         "Jeudi",
         "Potage champignons",
         "Nuggets végétarien",
@@ -23,7 +23,7 @@
         null,
         "Biscuit"
     ],
-    "07.10": [
+    "sieben.zehn": [
         "Vendredi",
         "Potage choux verts",
         "Mezze",
@@ -31,7 +31,7 @@
         null,
         "Fruit"
     ],
-    "10.10": [
+    "zehn.zehn": [
         "Lundi",
         "Potage potiron",
         null,
@@ -39,7 +39,7 @@
         null,
         "Fruit"
     ],
-    "11.10": [
+    "elf.zehn": [
         "Mardi",
         "Crème de volaille",
         "Carbonnade de bœuf",
@@ -47,7 +47,7 @@
         "Purées",
         "Fruit"
     ],
-    "13.10": [
+    "dreizehn.zehn": [
         "Jeudi",
         "Potage courgettes",
         "Sauté de veau",
@@ -55,7 +55,7 @@
         "Pépinettes",
         "Biscuit"
     ],
-    "14.10": [
+    "vierzehn.zehn": [
         "Vendredi",
         "Potage carottes",
         "Saucisse porc fromage",
@@ -63,7 +63,7 @@
         "Quartier pdt",
         "Fruit"
     ],
-    "17.10": [
+    "siebzehn.zehn": [
         "Lundi",
         "Potage tomate mascarpone",
         "Burger de légumes",
@@ -71,7 +71,7 @@
         null,
         "Fruit"
     ],
-    "18.10": [
+    "achtzehn.zehn": [
         "Mardi",
         "Potage épinards",
         null,
@@ -79,7 +79,7 @@
         null,
         "Fruit"
     ],
-    "20.10": [
+    "zwanzig.zehn": [
         "Jeudi",
         "Potage à l'oignon",
         "Blanquette dinde",
@@ -87,7 +87,7 @@
         "Riz",
         "Fruit"
     ],
-    "21.10": [
+    "einundzwanzig.zehn": [
         "Vendredi",
         "Potage de saison",
         "Lard",
@@ -95,7 +95,7 @@
         "Pomme vapeur",
         "Laitage"
     ],
-    "24.10": [
+    "vierundzwanzig.zehn": [
         "Lundi",
         "Potage andalou",
         null,
@@ -103,7 +103,7 @@
         null,
         "Fruit"
     ],
-    "25.10": [
+    "fuenfundzwanzig.zehn": [
         "Mardi",
         "Potage thaï coco",
         "Boulette liégeoise",
@@ -111,7 +111,7 @@
         null,
         "Laitage"
     ],
-    "27.10": [
+    "siebenundzwanzig.zehn": [
         "Jeudi",
         "Potage choux-fleurs",
         null,
@@ -119,7 +119,7 @@
         null,
         "Biscuit"
     ],
-    "28.10": [
+    "achtundzwanzig.zehn": [
         "Vendredi",
         "Potage céleri-rave",
         "Filet de poisson",

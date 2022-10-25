@@ -24,6 +24,40 @@ zuentfernen = [
     "Mollusques", "Lupin", "Date"
 ]
 
+zahlen = {
+    "01": "eins",
+    "02": "zwei",
+    "03": "drei",
+    "04": "vier",
+    "05": "fuenf",
+    "06": "sechs",
+    "07": "sieben",
+    "08": "acht",
+    "09": "neun",
+    "10": "zehn",
+    "11": "elf",
+    "12": "zwoelf",
+    "13": "dreizehn",
+    "14": "vierzehn",
+    "15": "fuenfzehn",
+    "16": "sechzehn",
+    "17": "siebzehn",
+    "18": "achtzehn",
+    "19": "neunzehn",
+    "20": "zwanzig",
+    "21": "einundzwanzig",
+    "22": "zweiundzwanzig",
+    "23": "dreiundzwanzig",
+    "24": "vierundzwanzig",
+    "25": "fuenfundzwanzig",
+    "26": "sechsundzwanzig",
+    "27": "siebenundzwanzig",
+    "28": "achtundzwanzig",
+    "29": "neunundzwanzig",
+    "30": "dreissig",
+    "31": "einunddreissig"
+}
+
 # Entfernt die JSON falls existent
 try: os.remove("output.json")
 except FileNotFoundError: "Erstes mal, oder Datei nicht da"
@@ -121,7 +155,7 @@ for file in filelist:
             month = monthtoint(jsondict[f"Week{i}"][dayofweek][0][2])   # Datumsliste [Wochentag, Datum, __Monat__], den Monatsstring zur Zahl mit Funktion Z.50
 
             # Erstellt den Tag mit dem Namensformat Tag.Monat und packt den entsprechenden Tag rein
-            jsondict[f"{day}.{month}"] = jsondict[f"Week{i}"][dayofweek]
+            jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"] = jsondict[f"Week{i}"][dayofweek]
             # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
 
