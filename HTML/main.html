@@ -1,31 +1,22 @@
 <!DOCTYPE html>
+    <html>
+        <head>
+            <script src="varstoimport.js"></script>
+            <script>
+                // Importiert die Variablen aus der js-Datei
+                var datumheute = importeddatumstr        // Heutiges Datum
+                var eatdict = importedessensdict        // Dictionary mit dem ganzen Essen
 
-<!--Hello from Python-->
+                var eatstring   // Liste des heutigen Essens
 
-<html>
-    <head>
-        <title>Kantinenmenü</title>
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <script>
-            var replaced = <!--Hello from Python-->
-        </script>
-        <py-script>
-            print("Hello World")
-            pyscript.write("pythontext", "Deine Mudda")
-
-            #here starts the fun part
-            with open("octobre.json", "r") as file:
-                jsonfile = json.loads(file.read())
-            pyscript.write("pythontext", jsonfile["10.10"])
-
-        </py-script>
-    </head>
-
-    <body>
-        <p>Hello</p>
-        <p id="pythontext"></p>
-    </body>
-
-</html>
+                // Geht einmal durch alle Teile der Liste des Datums aus dem Dict
+                // "atdict[datumheute][index]" muss eindeutig verbessert werden
+                for (index in eatdict[datumheute]) {
+                    console.log(eatdict[datumheute][index])
+                    if (eatdict[datumheute][index] != null) { eatstring += eatdict[datumheute][index]}
+                }
+                document.write(eatstring)
+                
+            </script>
+        </head>
+    </html>

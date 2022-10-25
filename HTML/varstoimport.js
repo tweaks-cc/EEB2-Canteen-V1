@@ -1,8 +1,50 @@
-var testvar = "Hallo aus der js datei"
+// Macht den ganzen Datumsmist
+const date = new Date();
+var monat = date.getMonth() + 1
+var tagdatum = date.getDate()
 
-var zahlen
+const zahlen = {
+    "1": "eins",
+    "2": "zwei",
+    "3": "drei",
+    "4": "vier",
+    "5": "fuenf",
+    "6": "sechs",
+    "7": "sieben",
+    "8": "acht",
+    "9": "neun",
+    "10": "zehn",
+    "11": "elf",
+    "12": "zwoelf",
+    "13": "dreizehn",
+    "14": "vierzehn",
+    "15": "fuenfzehn",
+    "16": "sechzehn",
+    "17": "siebzehn",
+    "18": "achtzehn",
+    "19": "neunzehn",
+    "20": "zwanzig",
+    "21": "einundzwanzig",
+    "22": "zweiundzwanzig",
+    "23": "dreiundzwanzig",
+    "24": "vierundzwanzig",
+    "25": "fuenfundzwanzig",
+    "26": "sechsundzwanzig",
+    "27": "siebenundzwanzig",
+    "28": "achtundzwanzig",
+    "29": "neunundzwanzig",
+    "30": "dreissig",
+    "31": "einunddreissig"
+}
 
-var essensdict = {
+function monthinttostr(monthstr) {
+    return zahlen[monthstr]
+}
+
+var importeddatumstr = monthinttostr(tagdatum) + "." + monthinttostr(monat)
+
+// Ist halt der Dict mit all dem Essen
+var importedessensdict = {
     "drei.zehn": [
         "Lundi",
         "Minestrone",
