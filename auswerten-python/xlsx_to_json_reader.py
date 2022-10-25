@@ -69,7 +69,7 @@ with open("output.json", "w") as file: file.write("{")
 months = {
     "januar":    1,
     "februar":   2,
-    "märz":     3,
+    "märz":      3,
     "april":     4,
     "mai":       5,
     "juni":      6,
@@ -89,7 +89,7 @@ def monthtoint(monthstr):
 # Packt alle Tabellen in eine JSON
 
 # Formatbeispiel:
-# "3.10": [
+# "drei.zehn": [
 #   "Lundi",
 #   "Minestrone",
 #   "Poëlee de poulet aux légumes",
