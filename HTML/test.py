@@ -1,6 +1,5 @@
-with open("main.html", "r") as html:
-    htmlcontent = html.read()
+import os
 
-htmlcontent = htmlcontent.replace('"to replace"','"<!--Hello from Python-->"')
-with open("main.html", "w") as html:
-    html.write(htmlcontent)
+with open("output.js", "w") as outputfile:
+    with open("..//Auswerten-Python//octobre.json", "r") as outputjson:
+        outputfile.write("const essensdict = " + outputjson.read())
