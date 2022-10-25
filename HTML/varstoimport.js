@@ -1,15 +1,17 @@
 var testvar = "Hallo aus der js datei"
 
+var zahlen
+
 var essensdict = {
-    "Tag": [
+    "drei.zehn": [
         "Lundi",
         "Minestrone",
         "Poëlee de poulet aux légumes",
-        "Cœur de blé",  
+        "Cœur de blé",
         null,
         "Fruit"
     ],
-    "Tag.04.10": [
+    "vier.zehn": [
         "Mardi",
         "Potage cerfeuil",
         "Veau marengo",
@@ -17,7 +19,7 @@ var essensdict = {
         "Pommes vapeur",
         "Laitage"
     ],
-    "06-10": [
+    "sechs.zehn": [
         "Jeudi",
         "Potage champignons",
         "Nuggets végétarien",
@@ -25,7 +27,7 @@ var essensdict = {
         null,
         "Biscuit"
     ],
-    "vier.zehn": [
+    "sieben.zehn": [
         "Vendredi",
         "Potage choux verts",
         "Mezze",
@@ -33,7 +35,7 @@ var essensdict = {
         null,
         "Fruit"
     ],
-    "10.10": [
+    "zehn.zehn": [
         "Lundi",
         "Potage potiron",
         null,
@@ -41,7 +43,7 @@ var essensdict = {
         null,
         "Fruit"
     ],
-    "11.10": [
+    "elf.zehn": [
         "Mardi",
         "Crème de volaille",
         "Carbonnade de bœuf",
@@ -49,7 +51,7 @@ var essensdict = {
         "Purées",
         "Fruit"
     ],
-    "13.10": [
+    "dreizehn.zehn": [
         "Jeudi",
         "Potage courgettes",
         "Sauté de veau",
@@ -57,7 +59,7 @@ var essensdict = {
         "Pépinettes",
         "Biscuit"
     ],
-    "14.10": [
+    "vierzehn.zehn": [
         "Vendredi",
         "Potage carottes",
         "Saucisse porc fromage",
@@ -65,7 +67,7 @@ var essensdict = {
         "Quartier pdt",
         "Fruit"
     ],
-    "17.10": [
+    "siebzehn.zehn": [
         "Lundi",
         "Potage tomate mascarpone",
         "Burger de légumes",
@@ -73,7 +75,7 @@ var essensdict = {
         null,
         "Fruit"
     ],
-    "18.10": [
+    "achtzehn.zehn": [
         "Mardi",
         "Potage épinards",
         null,
@@ -81,7 +83,7 @@ var essensdict = {
         null,
         "Fruit"
     ],
-    "20.10": [
+    "zwanzig.zehn": [
         "Jeudi",
         "Potage à l'oignon",
         "Blanquette dinde",
@@ -89,7 +91,7 @@ var essensdict = {
         "Riz",
         "Fruit"
     ],
-    "21.10": [
+    "einundzwanzig.zehn": [
         "Vendredi",
         "Potage de saison",
         "Lard",
@@ -97,7 +99,7 @@ var essensdict = {
         "Pomme vapeur",
         "Laitage"
     ],
-    "24.10": [
+    "vierundzwanzig.zehn": [
         "Lundi",
         "Potage andalou",
         null,
@@ -105,7 +107,7 @@ var essensdict = {
         null,
         "Fruit"
     ],
-    "25.10": [
+    "fuenfundzwanzig.zehn": [
         "Mardi",
         "Potage thaï coco",
         "Boulette liégeoise",
@@ -113,7 +115,7 @@ var essensdict = {
         null,
         "Laitage"
     ],
-    "27.10": [
+    "siebenundzwanzig.zehn": [
         "Jeudi",
         "Potage choux-fleurs",
         null,
@@ -121,7 +123,7 @@ var essensdict = {
         null,
         "Biscuit"
     ],
-    "28.10": [
+    "achtundzwanzig.zehn": [
         "Vendredi",
         "Potage céleri-rave",
         "Filet de poisson",
