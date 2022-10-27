@@ -2,6 +2,7 @@
 const date = new Date();
 var monat = date.getMonth() + 1
 var tagdatum = date.getDate()
+var zahlendatum = tagdatum + "." + monat    
 
 const zahlen = {
     "1": "eins",
@@ -36,12 +37,61 @@ const zahlen = {
     "30": "dreissig",
     "31": "einunddreissig"
 }
+const zahlenworte = {
+    "eins":             1,
+    "zwei":             2,
+    "drei":             3,
+    "vier":             4,
+    "fuenf":            5,
+    "sechs":            6,
+    "sieben":           7,
+    "acht":             8,
+    "neun":             9,
+    "zehn":             10,
+    "elf":              11,
+    "zwoelf":           12,
+    "dreizehn":         13,
+    "vierzehn":         14,
+    "fuenfzehn":        15,
+    "sechzehn":         16,
+    "siebzehn":         17,
+    "achtzehn":         18,
+    "neunzehn":         19,
+    "zwanzig":          20,
+    "einundzwanzig":    21,
+    "zweiundzwanzig":   22,
+    "dreiundzwanzig":   23,
+    "vierundzwanzig":   24,
+    "fuenfundzwanzig":  25,
+    "sechsundzwanzig":  26,
+    "siebenundzwanzig": 27,
+    "achtundzwanzig":   28,
+    "neunundzwanzig":   29,
+    "dreissig":         30,
+    "einunddreissig":   31 
+}
+const wtag_fr_to_de = {
+    "Lundi": "Montag",
+    "Mardi":"Dienstag",
+    "Mercredi": "Mittwoch",
+    "Jeudi": "Donnerstag",
+    "Vendredi": "Freitag"
+}
 
 function monthinttostr(monthstr) {
     return zahlen[monthstr]
 }
+function monthstrtoint(monthint) {
+    return zahlenworte[str(monthint)]
+}
 
 var importeddatumstr = monthinttostr(tagdatum) + "." + monthinttostr(monat)
+
+const suppenli = document.getElementById("Suppe")
+const haupt1li = document.getElementById("Haupt1")
+const haupt2li = document.getElementById("Haupt2")
+const haupt3li = document.getElementById("Haupt3")
+const nachtischli = document.getElementById("Dessert")
 
 // Ist halt der Dict mit all dem Essen
 var importedessensdict = {
