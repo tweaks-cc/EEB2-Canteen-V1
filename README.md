@@ -1,6 +1,10 @@
 # Kantine TODO
 
-<br>HTML Seite machen (Branch: HTML-add)
+<br>-HTML:
+<br> Code kann auf deutsch
+<br> Seiteninhalt englisch | später, zweite/dritte Seite auf Französisch/Deusch etc.
+<br> Zuerst JS innerhalb der Seite dann als externes script
+<br> CSS immer extern
 
 <br>--Andere TODOs:
 

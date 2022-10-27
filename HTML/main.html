@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="main.css">
+            <title>Kantinenmenü</title>
+            <script src="varstoimport.js"></script>
+            <script>
+                function main() {
+                // Importiert die Variablen aus der js-Datei
+                var aktuellesdatum = importeddatumstr      // Heutiges Datum
+                var zahldatum = zahlendatum
+                var eatdict = importedessensdict         // Dictionary mit dem ganzen Essen
+                                                        //
+                var eatstring = ""                     // Liste des heutigen Essens
+
+                // Geht einmal durch alle Teile der Liste des Datums aus dem Dict
+                var essensliste = eatdict[aktuellesdatum]
+                for (index in essensliste) {
+                    if (essensliste[index]  == null) {eatstring += " ," }
+                    else {eatstring += essensliste[index] + ","}
+                }
+                var eatlist = eatstring.split(",")
+                // Formatiert das Datum
+                var formatiertesdatum = wtag_fr_to_de[eatlist[0]] + ", der " + zahldatum
+
+                // Packt das Essen in die Liste #essensliste
+                document.getElementById("Datum").innerHTML   = formatiertesdatum
+                document.getElementById("Suppe").innerHTML   = eatlist[1]
+                document.getElementById("Haupt1").innerHTML  = eatlist[2]
+                document.getElementById("Haupt2").innerHTML  = eatlist[3]
+                document.getElementById("Haupt3").innerHTML  = eatlist[4]
+                document.getElementById("Dessert").innerHTML = eatlist[5]
+                }
+            </script>
+        </head>
+        <body onload="main()">
+            <p id="Datum"></p>
+            <ul id="essensliste">
+                <li id="Suppe">a</li>
+                <li id="Haupt1">a</li>
+                <li id="Haupt2">a</li>
+                <li id="Haupt3">a</li>
+                <li id="Dessert">a</li>
+            </ul>
+        </body>
+    </html>
