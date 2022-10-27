@@ -2,7 +2,7 @@
 const date = new Date();
 var monat = date.getMonth() + 1
 var tagdatum = date.getDate()
-var zahlendatum = tagdatum + "." + monat    
+var zahlendatum = tagdatum + "." + monat
 
 const zahlen = {
     "1": "eins",
