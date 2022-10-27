@@ -2,3 +2,4 @@ Buttons für Datum vor und back
 logik für vor und back
 funcs-skelette sind schon in main.html
 überleg mal ob schon js extern
+informier dich mal über fetchen von light/dark von gerät
