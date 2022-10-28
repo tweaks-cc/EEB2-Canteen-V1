@@ -5,17 +5,15 @@
         <title>Kantinenmenü</title>
         <script src="varstoimport.js"></script>
     <script>
-        var eatdict = importedessensdict         // Dictionary mit dem ganzen Essen
+        // Importiert die Variablen aus der js-Datei
+        var eatdict = importedessensdict                     // Dictionary mit dem ganzen Essen
+        var aktuellesdatum = createdatelist(zahlendatum)    // Heutiges Datum
 
-        function main() {
-            // Importiert die Variablen aus der js-Datei
-            var aktuellesdatum = importeddatumstr      // Heutiges Datum
-            var zahldatum = zahlendatum
-
-            var eatlist = getlistbydate(aktuellesdatum)
+        function main(datumliste) {
+            var eatlist  = getlistbydate(datumliste[0])
             
             // Formatiert das Datum
-            var formatiertesdatum = wtag_fr_to_de[eatlist[0]] + ", der " + zahldatum
+            var formatiertesdatum = wtag_fr_to_de[eatlist[0]] + ", der " + datumliste[1]
 
             // Packt das Essen in die Liste #essensliste
             document.getElementById("Datum").innerHTML   = formatiertesdatum
@@ -42,27 +40,54 @@
 
         function getadate(aktuellesdatum, backforth) {
             // Jeweils checken ob dass neue datum valide ist 
-            if (backforth == custom ) { /* Datum geht halt zum angegebenen Datum */ }
-            if (backforth == "back" ) { /* Datum geht halt eins zurück           */ }
-            if (backforth == "forth") { /* Datum geht halt eins vor              */ }
+            if (backforth == "custom" ) {console.log("custom") /* Datum geht halt zum angegebenen Datum */ }
+            if (backforth == "back" )   {
+                // Datum geht eins zurück
+                console.log("back", aktuellesdatum)
+                var datumintsplit = aktuellesdatum[1].split(".")
+            }
+            if (backforth == "forth")   {
+                // Datum geht eins vor
+                console.log("forth", aktuellesdatum)
+                var datumintsplit = aktuellesdatum[1].split(".")
+                datumintsplit[0] = String(parseInt(datumintsplit[0]) + 0)
+                checkdate(zuwortdatum(datumintsplit))
+            }
+
         }
 
         function checkdate(date, back) {
-            if (eatdict[date] != undefined) { return date }
+            if (back) {/* Suche nächstes valides Datum nach hinten */}
+            if (eatdict[date] == undefined) { console.log("Fehlaa", date); return date }
+            else {console.log("richtiges datum"); console.log(date)}
             // Dann halt checken ob Mittwoch oder Wochenende
             // Und dann return nächstes valides Datum
-            if (back) {/* Suche nächstes valides Datum nach hinten */}
+        }
+
+        function createdatelist(zahldatum) {
+            // Macht eine Liste aus
+            // [datum_als_worte, datum_als_zahlen]
+            // datum_als_worte ist eigentlich nur zum bekommen des essens in der json
+            var datumslist = [zuwortdatum(zahldatum), zahldatum]
+            return datumslist
+        }
+
+        function datumsänderung(backforth) {
+            var newdate = getadate(aktuellesdatum, backforth)
+
         }
 </script>
     </head>
-    <body onload="main()">
+    <body onload="main(aktuellesdatum)">
         <p id="Datum"></p>
         <ul id="essensliste">
-            <li id="Suppe">a</li>
-            <li id="Haupt1">a</li>
-            <li id="Haupt2">a</li>
-            <li id="Haupt3">a</li>
-            <li id="Dessert">a</li>
+            <li id="Suppe"></li>
+            <li id="Haupt1"></li>
+            <li id="Haupt2"></li>
+            <li id="Haupt3"></li>
+            <li id="Dessert"></li>
         </ul>
+        <button onclick="datumsänderung('back')">Zurück</button>
+        <button onclick="datumsänderung('forth')">Vor</button>
     </body>
 </html>

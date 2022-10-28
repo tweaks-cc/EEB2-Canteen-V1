@@ -85,13 +85,20 @@ function monthstrtoint(monthint) {
     return zahlenworte[str(monthint)]
 }
 
-var importeddatumstr = monthinttostr(tagdatum) + "." + monthinttostr(monat)
-
+function zuwortdatum(datumint) {
+    console.log(typeof datumint)
+    if (typeof datumint == Array) { datumintsplit = datumint }
+    else { var datumintsplit = datumint.split(".") }
+    datumstr = monthinttostr(datumintsplit[0]) + "." + monthinttostr(datumintsplit[1])
+    return datumstr
+}
+/*
 const suppenli = document.getElementById("Suppe")
 const haupt1li = document.getElementById("Haupt1")
 const haupt2li = document.getElementById("Haupt2")
 const haupt3li = document.getElementById("Haupt3")
 const nachtischli = document.getElementById("Dessert")
+*/
 
 // Ist halt der Dict mit all dem Essen
 var importedessensdict = {
