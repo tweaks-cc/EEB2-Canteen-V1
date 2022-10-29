@@ -2,9 +2,10 @@
 
 <br>-HTML:
 <br> Custom Datum?
-<br>
-<br> Code kann auf deutsch
-<br> Seiteninhalt englisch | später, zweite/dritte Seite auf Französisch/Deusch etc.
+<br> Aufräumen der Variablen, bitte vars auf deutsch und funcs auf englisch
+<br> Sprachimplementierung
+<br> >Code und comments auf deutsch
+<br> >Seiteninhalt englisch | später, zweite/dritte Seite auf Französisch/Deusch etc.
 <br> Die übersetzungen kann man ja in der gleichnahmigen .js unterbringen und dann eifnach sprache[wort]
 <br> CSS immer extern
 
