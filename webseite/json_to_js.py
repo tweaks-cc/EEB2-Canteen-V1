@@ -21,8 +21,8 @@ for key in neuerdict:
         neue_elemente.append(key)
     """
     else:
-        # Wenn vorhanden, printet er das
         # An sich nur für debuggen
+        # Wenn vorhanden, printet er das
         print("fand", key)
     """
 
