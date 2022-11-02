@@ -1,17 +1,17 @@
 // Importiert die Variablen aus der js-Datei
-var eatdict = importedessensdict                     // Dictionary mit dem ganzen Essen
-var aktuellesdatum = [zuwortdatum(zahlendatum), zahlendatum]    // Heutiges Datum
-
+var essensdict = importedessensdict                                 // Dictionary mit dem ganzen Essen
+var aktuellesdatum = [tostringdate(zahlendatum), zahlendatum]    // Heutiges Datum
+var sprache = englishlang      // Standard-sprache: Englisch
 
 function main(datumliste) {
     // Liste des Essens von Datum
     var eatlist = []
     // Geht einmal durch alle Teile der Liste des Datums aus dem Dict
-    var essensliste = eatdict[datumliste[0]] // datumsliste[0] da [datumalsworte, datumalszahlen]
+    var essensliste = essensdict[datumliste[0]] // datumsliste[0] da [datumalsworte, datumalszahlen]
     for (index in essensliste) {
         // Wenn null, also wenn weniger Teile als max; einfach Leerzeichen statt null/dem Element selber
         if (essensliste[index] == null) {
-            eatlist.push(" ")
+            eatlist.push("      ")
         }
         // ansonsten den Teil selber hinzufügen
         else {
@@ -20,7 +20,7 @@ function main(datumliste) {
     }
 
     // Formatiert das Datum damit es in die "Überschrift kann"
-    var formatiertesdatum = wtag_fr_to_de[eatlist[0]] + ", der " + datumliste[1]
+    var formatiertesdatum = sprache[eatlist[0]] + ", "+ sprache["der"] + datumliste[1]
 
     // Packt das Essen in die Liste #essensliste im Body
     document.getElementById("Datum").innerHTML   = formatiertesdatum
@@ -47,7 +47,7 @@ function getadate(aktuellesdatum, backforth) {
         var datumintsplit = aktuellesdatum[1].split(".")
         datumintsplit[0] = String(parseInt(datumintsplit[0]) + 1)
         // Nach dem verändern des Tages, Datumsarray wieder zum String zahlalswort.zahlalswort
-        var datumwort = zuwortdatum(datumintsplit)
+        var datumwort = tostringdate(datumintsplit)
         // Guckt ob neues Datum valide
         return checkdate(datumwort, backforth, datumintsplit, recursiondepth, originalesdatum)
     }
@@ -58,7 +58,7 @@ function getadate(aktuellesdatum, backforth) {
         var datumintsplit = aktuellesdatum[1].split(".")
         datumintsplit[0] = String(parseInt(datumintsplit[0]) - 1)
         // Nach dem verändern des Tages, Datumsarray wieder zum String zahlalswort.zahlalswort
-        var datumwort = zuwortdatum(datumintsplit)
+        var datumwort = tostringdate(datumintsplit)
         // Guckt ob neues Datum valide
         return checkdate(datumwort, backforth, datumintsplit, recursiondepth, originalesdatum)
     }
@@ -74,16 +74,16 @@ function checkdate(date, backforth, numberdate, recursiondepth, originalesdatum)
         return originalesdatum
     }
     // Das Suchen passiert durch das rekursive rufen der Funktion checkdate()
-    else if (eatdict[date] == undefined) {
+    else if (essensdict[date] == undefined) {
         // Checkt ob neues Datum älter oder neuer sein soll
         if (backforth == "forth") {
             numberdate[0] = String(parseInt(numberdate[0]) + 1)
-            var worddate = zuwortdatum(numberdate)
+            var worddate = tostringdate(numberdate)
         }
 
         if (backforth == "back") {
             numberdate[0] = String(parseInt(numberdate[0]) - 1)
-            var worddate = zuwortdatum(numberdate)
+            var worddate = tostringdate(numberdate)
         }
 
         // Geht jetzt solange rekursiv weiter bis Datum valide
@@ -98,7 +98,7 @@ function checkdate(date, backforth, numberdate, recursiondepth, originalesdatum)
 }
 
 
-function datumsänderung(backforth) {
+function changeddate(backforth) {
     // Wird gerufen, beim drücken einer der beiden Buttons im body
     // Holt sich das neue Datum, entweder davor oder danach
     var neuesdatum = getadate(aktuellesdatum, backforth)

@@ -9,6 +9,9 @@
         <script src="javascript/mainfuncs|logic.js"></script>
     </head>
     <body onload="main(aktuellesdatum)">
+        <button onclick="sprache = germanlang;  main(aktuellesdatum)"> Deutsch</button>
+        <button onclick="sprache = englishlang; main(aktuellesdatum)">English</button>
+        <button onclick="sprache = frenchlang;  main(aktuellesdatum)"> Français</button>
         <p id="Datum"></p>
         <ul id="essensliste">
             <li id="Suppe"></li>
@@ -17,7 +20,7 @@
             <li id="Haupt3"></li>
             <li id="Dessert"></li>
         </ul>
-        <button onclick="datumsänderung('back')">Zurück</button>
-        <button onclick="datumsänderung('forth')">Vor</button>
+        <button onclick="changeddate('back')">Zurück</button>
+        <button onclick="changeddate('forth')">Vor</button>
     </body>
 </html>

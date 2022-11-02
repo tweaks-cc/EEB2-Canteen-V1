@@ -1,9 +1,24 @@
-const deutschdict  = {
-    "der": "der",
+const germanlang = {
+    "der":      "der ",
+    "Lundi":    "Montag",
+    "Mardi":    "Dienstag",
+    "Mercredi": "Mittwoch",
+    "Jeudi":    "Donnerstag",
+    "Vendredi": "Freitag"
 }
-const frenchdict   = {
-    "der": "le",
+const frenchlang = {
+    "der":      "le ",
+    "Lundi":    "Lundi",
+    "Mardi":    "Mardi",
+    "Mercredi": "Mercred",
+    "Jeudi":    "Jeudi",
+    "Vendredi": "Vendredi"
 }
-const englischdict = {
-    "der": "the"
+const englishlang = {
+    "der":      "the ",
+    "Lundi":    "Monday",
+    "Mardi":    "Tuesday",
+    "Mercredi": "Wednesday",
+    "Jeudi":    "Thursday",
+    "Vendredi": "Friday"
 }

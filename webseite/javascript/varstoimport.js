@@ -1,7 +1,7 @@
 // Gönnt sich das aktuelle Datum des Computers
-const date = new Date();
-var monat = date.getMonth() + 1
-var tagdatum = date.getDate()
+const datum = new Date();
+var monat = datum.getMonth() + 1
+var tagdatum = datum.getDate()
 var zahlendatum = tagdatum + "." + monat
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
 var zahlendatum = "13.10"
@@ -72,13 +72,6 @@ const zahlenworte = {
     "dreissig":         30,
     "einunddreissig":   31 
 }
-const wtag_fr_to_de = {
-    "Lundi": "Montag",
-    "Mardi":"Dienstag",
-    "Mercredi": "Mittwoch",
-    "Jeudi": "Donnerstag",
-    "Vendredi": "Freitag"
-}
 
 function monthinttostr(monthstr) {
     return zahlen[monthstr]
@@ -87,7 +80,7 @@ function monthstrtoint(monthint) {
     return zahlenworte[str(monthint)]
 }
 
-function zuwortdatum(datumint) {
+function tostringdate(datumint) {
     // Nimmt ein Datum als Zahlen, entweder als Array oder String
     // Entweder er splittet den String oder gibt das Array direkt weiter
     var datumintsplit = ""
