@@ -1,7 +1,19 @@
-body {
-    background-color: #b7b7b7;
-}
+
+body {background-color: whitesmoke;}
+
+/* Tabelle */
 
 th, td {
-    background-color: white;
+    background-color: lightsteelblue;
+    color: black;
+}
+
+th {
+    background-color: steelblue;
+    color: white;
+}
+
+td:hover {
+    background-color: firebrick;
+    color: white;
 }

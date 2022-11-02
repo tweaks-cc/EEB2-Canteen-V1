@@ -9,39 +9,44 @@
 
 /* Importiert Dark-Mode, falls Dark-Mode die Präferenz im Browser ist */
 
-@media (prefers-color-scheme: dark) {
-    @import "styleDark.css";
-}
+@media (prefers-color-scheme: dark) {@import "styleDark.css";}
 
 /* Normales Theming */
-
-#essensliste {
-    list-style: circle;
-}
-
-h1 {
-    text-decoration: underline;
-}
-
-th, td {
-    padding: 5px;
-    text-align: center;
-}
-
-th {
-    text-align: left;
-}
-
-button {
-    border: none;
-    border-radius: 4px;
-    text-align: center;
-    font-size: smaller;
-}
 
 body {
     font-family: 'Roboto', sans-serif;
     font-size: large;
-    margin-left: 25%;
-    margin-right: 25%;
+    text-align: center;
 }
+
+h1 {text-decoration: underline;}
+
+div {
+    width: 40%;
+    margin: auto;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    margin-top: 4px;
+    padding: 4px;
+    text-align: center;
+    font-size: smaller;
+    background-color: steelblue;
+    color: white;
+}
+
+/* Tabelle */
+
+table {
+    empty-cells: hide;
+    width: 100%;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+th {text-align: center;}
