@@ -1,5 +1,6 @@
 # Kantine TODO
-
+<br>WICHTIG: ÜBERSETZUNGEN SIND NOCH NICHT KORRIGIERT
+<br>
 <br>--Hauptziel dieses Branches:
 <br>Hinzufügen eines Python-scripts, welches drei verschiedene JSON erstellt
 <br>Eine für jede Sprache
