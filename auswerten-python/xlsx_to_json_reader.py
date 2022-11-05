@@ -77,10 +77,6 @@ monate = {
 def monthtoint(monatsstr):
 	return monate[monatsstr.lower()]
 
-# Entfernt die JSON falls existent
-try: os.remove("output.json")
-except FileNotFoundError: "Erstes mal, oder Datei nicht da"
-
 # Schreibt öffnende Klammer für die JSON
 with open("output.json", "w") as file: file.write("{")
 
