@@ -35,9 +35,12 @@ Suppenlist_de = Suppenstr_de.split(";")
 # Muss, weil leeres Element am ende der Liste wegen dem loop Z.27/28
 Suppenlist_de.pop()
 
+# Checkt ob Suppen ordentlich übersetzt wurden, passiert iwie manchmal
 if len(Suppenlist_de) != len(Suppen):
+    # Nimmt den fehlenden Teil
     fehlend = len(Suppen) - len(Suppenlist_de)
     neuesuppenliste = Suppen[-fehlend:len(Suppen)]
+    # Gleicher übersetztungsprozess wie oben
     Suppenstr = ""
     for thing in neuesuppenliste:
         Suppenstr += thing + ";"
@@ -46,31 +49,34 @@ if len(Suppenlist_de) != len(Suppen):
     Suppenlist_de.pop()
     
 
+# Geht durch alle Teile und packt sie ins Wörterbuch
 for x in range(len(Suppen)):
     Suppen_de[Suppen[x]] = Suppenlist_de[x]
 
-
+# String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Hauptspeisenteilestr = ""
-
 for thing in Hauptspeisenteile:
+    # Checkt ob Teil None ist, wegen Übersetzungsproblemen
     if thing == None:
         Hauptspeisenteilestr += "german; "
+    # Ersetzt alle / wegen Übersetzungsproblemen
     elif thing.__contains__("/"):
         Hauptspeisenteilestr += thing.replace("/", ",") + "; "
     else:
         Hauptspeisenteilestr += thing + "; "
 
+# Hier wird der String übersetzt | Deutsch
 Hauptspeisenteilestr_de = translator.translate(Hauptspeisenteilestr, src="fr", dest="de").text
+# Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Hauptspeisenteilelist_de = Hauptspeisenteilestr_de.split(";")
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.27/28
 Hauptspeisenteilelist_de.pop()
 
+# Geht durch alle Teile und packt sie ins Wörterbuch
 for x in range(len(Hauptspeisenteile)):
-    # print(x)
-    if Hauptspeisenteilelist_de[x] == "vertaalen":
-        Hauptspeisenteile_de[Hauptspeisenteile[x]] = "_______"
-    else:
         Hauptspeisenteile_de[Hauptspeisenteile[x]] = Hauptspeisenteilelist_de[x]
 
+# Entfernt die Übersetzung für null/none
 Hauptspeisenteile_de[None] = "     "
 Hauptspeisenteile_de.pop(None, 1)
     
