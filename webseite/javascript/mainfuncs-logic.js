@@ -12,7 +12,7 @@ function main(datumliste) {
         eatlist.push(essensliste[index])
     }
 
-    // Formatiert das Datum damit es in die "Überschrift kann"
+    // Formatiert das Datum damit es in die "Überschrift" kann
     var formatiertesdatum = eatlist[0] + ", "+ sprache["le"] + datumliste[1]
 
     // Packt das Essen in die Liste #essensliste im Body
