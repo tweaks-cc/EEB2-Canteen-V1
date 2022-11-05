@@ -1,15 +1,76 @@
 import json
+from colorama import init, Fore, Back
+
+init(autoreset=True)
 
 # Liest den bereits vorhandenen Dict aus
-with open("javascript/essensdict.js", "r") as outputfile:
+with open("javascript/essensdict_fr.js", "r") as outputfile:
     alterdict = outputfile.read()
 
 # Liest den neuen Dict, welcher frisch aus dem xlsx-Leser kommt, aus 
-with open("..//auswerten-python//output.json", "r") as outputjson:
-    neuerdict = json.loads(outputjson.read())
+with open("..//auswerten-python//outputs//output.json", "r", encoding="utf-8") as outputjson:
+    neuerdict = json.loads(outputjson.read())  
 
 # Entfernt den Kommentar und das 'const =' aus dem String aus der JS Datei und wandelt ihn zum Dict um
 alterdict = json.loads(alterdict[66:-1] + "}")
+
+print(Fore.MAGENTA + str(alterdict))
+
+if alterdict == neuerdict:
+    exit("Alles gleich")
+
+for tag in neuerdict:
+    if tag in alterdict:
+        print("is in", end=" ")
+        if neuerdict[tag] != alterdict[tag]:
+            alterdict[tag] = neuerdict[tag]
+            print("buts its not the same")
+        else:
+            print("")
+    else:
+        print("it isnt?")
+        alterdict[tag] = neuerdict[tag]
+
+print(Fore.GREEN + str(alterdict))
+
+with open("")
+
+exit("STOOOP")
+
+for tag in alterdict:
+    for thing in alterdict[tag]:
+        # print(thing)
+        if thing == None: continue
+        if thing.__contains__("é"):
+            print(Fore.CYAN + thing)
+    continue
+
+print("")
+
+for tag in neuerdict:
+    for thing in neuerdict[tag]:
+        print(thing)
+        if thing == None: continue
+        if thing.__contains__("\u00e9"):
+            print(Fore.RED + thing)
+    continue
+
+    alterstring: str = str(alterdict[tag])
+    print(alterstring)
+    neuerstring: str = str(neuerdict[tag])
+    print(neuerstring)
+    if alterstring == neuerstring:
+        print("True")
+    else:
+        print("False")
+    
+    # print(alterdict[thing], neuerdict[thing])
+
+if alterdict == neuerdict:
+    print("Alles gleich")
+    exit()
+
+exit()
 
 # Liste der neuen Elemente/Tage, die sich nicht im alten Dict aus der JS befinden
 neue_elemente = []

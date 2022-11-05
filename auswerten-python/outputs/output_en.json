@@ -1,1 +1,130 @@
-{"drei.zehn": ["Monday", "Minestrone", "Chicken stove with vegetables", "Heart of wheat", "      ", "Fruit"], "vier.zehn": ["Tuesday", "Chervil soup", "Veal Marengo", "forgotten vegetables", "Boiled potatoes", "Dairy"], "sechs.zehn": ["Thursday", "Mushroom soup", "Vegetarian nuggets", "Grilled vegetables, rice", "      ", "Cookie"], "sieben.zehn": ["Friday", "Green cabbage soup", "Mezze", "Baguette", "      ", "Fruit"], "zehn.zehn": ["Monday", " Pumpkin soup", "      ", "Veggie pasta", "      ", "Fruit"], "elf.zehn": ["Tuesday", "Poultry cream", "Beef carbonnade", "Carrots", "Puree", "Fruit"], "dreizehn.zehn": ["Thursday", "Zucchini soup", "Sauteed veal", "Tomatated green beans", "P\u00e9pinettes", "Cookie"], "vierzehn.zehn": ["Friday", "Carrot soup", "Cheese pork sausage", "Broccoli", "PDT district", "Fruit"], "siebzehn.zehn": ["Monday", " Mascarpone tomato soup", "Vegetable burger", "Salad", "      ", "Fruit"], "achtzehn.zehn": ["Tuesday", "Spinach soup", "      ", "Pasta gratin", "      ", "Fruit"], "zwanzig.zehn": ["Thursday", "Onion soup", "Blanquette turkey", "Matching vegetables", "Rice", "Fruit"], "einundzwanzig.zehn": ["Friday", "Seasonal soup", "Bacon", "Pumpkin", "Steam apple", "Dairy"], "vierundzwanzig.zehn": ["Monday", "Andalusian soup", "      ", "Penne spinach cheese", "      ", "Fruit"], "fuenfundzwanzig.zehn": ["Tuesday", "Thai coconut soup", "Li\u00e8ge dumpling", "Carrots puree", "      ", "Dairy"], "siebenundzwanzig.zehn": ["Thursday", "Cauliflower soup", "      ", "Paella chicken", "      ", "Cookie"], "achtundzwanzig.zehn": ["Friday", "Celeriac soup", "Fish fillet", "Ratatouille", "Boiled potatoes", "Fruit"]}
+{
+    "drei.zehn": [
+        "Monday",
+        "Minestrone",
+        "Chicken stove with vegetables",
+        "Heart of wheat",
+        "      ",
+        "Fruit"
+    ],
+    "vier.zehn": [
+        "Tuesday",
+        "Chervil soup",
+        "Veal Marengo",
+        "forgotten vegetables",
+        "Boiled potatoes",
+        "Dairy"
+    ],
+    "sechs.zehn": [
+        "Thursday",
+        "Mushroom soup",
+        "Vegetarian nuggets",
+        "Grilled vegetables, rice",
+        "      ",
+        "Cookie"
+    ],
+    "sieben.zehn": [
+        "Friday",
+        "Green cabbage soup",
+        "Mezze",
+        "Baguette",
+        "      ",
+        "Fruit"
+    ],
+    "zehn.zehn": [
+        "Monday",
+        " Pumpkin soup",
+        "      ",
+        "Veggie pasta",
+        "      ",
+        "Fruit"
+    ],
+    "elf.zehn": [
+        "Tuesday",
+        "Poultry cream",
+        "Beef carbonnade",
+        "Carrots",
+        "Puree",
+        "Fruit"
+    ],
+    "dreizehn.zehn": [
+        "Thursday",
+        "Zucchini soup",
+        "Sauteed veal",
+        "Tomatated green beans",
+        "Pépinettes",
+        "Cookie"
+    ],
+    "vierzehn.zehn": [
+        "Friday",
+        "Carrot soup",
+        "Cheese pork sausage",
+        "Broccoli",
+        "PDT district",
+        "Fruit"
+    ],
+    "siebzehn.zehn": [
+        "Monday",
+        " Mascarpone tomato soup",
+        "Vegetable burger",
+        "Salad",
+        "      ",
+        "Fruit"
+    ],
+    "achtzehn.zehn": [
+        "Tuesday",
+        "Spinach soup",
+        "      ",
+        "Pasta gratin",
+        "      ",
+        "Fruit"
+    ],
+    "zwanzig.zehn": [
+        "Thursday",
+        "Onion soup",
+        "Blanquette turkey",
+        "Matching vegetables",
+        "Rice",
+        "Fruit"
+    ],
+    "einundzwanzig.zehn": [
+        "Friday",
+        "Seasonal soup",
+        "Bacon",
+        "Pumpkin",
+        "Steam apple",
+        "Dairy"
+    ],
+    "vierundzwanzig.zehn": [
+        "Monday",
+        "Andalusian soup",
+        "      ",
+        "Penne spinach cheese",
+        "      ",
+        "Fruit"
+    ],
+    "fuenfundzwanzig.zehn": [
+        "Tuesday",
+        "Thai coconut soup",
+        "Liège dumpling",
+        "Carrots puree",
+        "      ",
+        "Dairy"
+    ],
+    "siebenundzwanzig.zehn": [
+        "Thursday",
+        "Cauliflower soup",
+        "      ",
+        "Paella chicken",
+        "      ",
+        "Cookie"
+    ],
+    "achtundzwanzig.zehn": [
+        "Friday",
+        "Celeriac soup",
+        "Fish fillet",
+        "Ratatouille",
+        "Boiled potatoes",
+        "Fruit"
+    ]
+}

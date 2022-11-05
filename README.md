@@ -18,3 +18,7 @@
 
 <br>--Wäre nice, muss aber nicht:
 <br>XLSX zu JSON Optimierung/Vereinfachung
+
+
+<br>
+<br>Auf der Website mal gucken statt "      " einfach null wegen der Tabelle
