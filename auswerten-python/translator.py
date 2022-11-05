@@ -69,7 +69,7 @@ for thing in Hauptspeisenteile:
 Hauptspeisenteilestr_de = translator.translate(Hauptspeisenteilestr, src="fr", dest="de").text
 # Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Hauptspeisenteilelist_de = Hauptspeisenteilestr_de.split(";")
-# Muss, weil leeres Element am ende der Liste wegen dem loop Z.27/28
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.58/66
 Hauptspeisenteilelist_de.pop()
 
 # Geht durch alle Teile und packt sie ins Wörterbuch
@@ -80,119 +80,138 @@ for x in range(len(Hauptspeisenteile)):
 Hauptspeisenteile_de[None] = "     "
 Hauptspeisenteile_de.pop(None, 1)
     
-#print(Suppen_de)
-#print("\n")
-#print(Hauptspeisenteile_de)
-
+# Öffnet das vorhandene Wörterbuch
 with open("dictionary_fr/suppen_deutsch.json", "r") as file:
     altersuppendict = json.loads(file.read())
 
+# Checkt ob die (neue) Übersetzung schon vorhanden ist
 for neuesuppe in Suppen_de:
     if neuesuppe in altersuppendict:
-        continue
+        continue # Wenn vorhanden, dann einfach nächstes
     else:
         altersuppendict[neuesuppe] = Suppen_de[neuesuppe]
 
+# Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
 with open("dictionary_fr/suppen_deutsch.json", "w") as file:
     file.write(json.dumps(altersuppendict))
 
-
+# Öffnet das vorhandene Wörterbuch
 with open("dictionary_fr/haupt_deutsch.json", "r") as file:
     alterhauptdict = json.loads(file.read())
 
+# Checkt ob die (neue) Übersetzung schon vorhanden ist
 for neuesteil in Hauptspeisenteile_de:
     if neuesteil in alterhauptdict:
-        continue
+        continue # Wenn vorhanden, dann einfach nächstes
     else:
         alterhauptdict[neuesteil] = Hauptspeisenteile_de[neuesteil]
 
-alterhauptdict.pop("none", 1)
+# Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
 with open("dictionary_fr/haupt_deutsch.json", "w") as file:
     file.write(json.dumps(alterhauptdict))
+
 
 """Englisch"""
 
 
+# Erstellt die Listen der ganzen teile des Menüs
 Suppen   = []
 Suppen_en = {}
 Hauptspeisenteile   = []
 Hauptspeisenteile_en = {}
 
+# Füllt die Listen der ganzen teile des Menüs
 for day in originaledatei:
     Suppen.append(originaledatei[day][1])
     Hauptspeisenteile.append(originaledatei[day][2])
     Hauptspeisenteile.append(originaledatei[day][3])
     Hauptspeisenteile.append(originaledatei[day][4])
 
+# String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Suppenstr = ""
-
 for thing in Suppen:
     Suppenstr += thing + ","
 
+# Hier wird der String übersetzt | Deutsch
 Suppenstr_en = translator.translate(Suppenstr, src="fr", dest="en").text
+# Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Suppenlist_en = Suppenstr_en.split(",")
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.132/133
 Suppenlist_en.pop()
 
+# Checkt ob Suppen ordentlich übersetzt wurden, passiert iwie manchmal
+if len(Suppenlist_en) != len(Suppen):
+    # Nimmt den fehlenden Teil
+    fehlend = len(Suppen) - len(Suppenlist_en)
+    neuesuppenliste = Suppen[-fehlend:len(Suppen)]
+    # Gleicher übersetztungsprozess wie oben
+    Suppenstr = ""
+    for thing in neuesuppenliste:
+        Suppenstr += thing + ";"
+    Suppenstr_en = translator.translate(Suppenstr, src="fr", dest="en").text
+    Suppenlist_en += Suppenstr_en.split(";")
+    Suppenlist_en.pop()
 
-for x in range(len(Suppenlist_en)):
-    Suppen_en[Suppen[x]] = Suppenlist_en[x]
+# Geht durch alle Teile und packt sie ins Wörterbuch
+for x in range(len(Suppen)):
+    Suppen_de[Suppen[x]] = Suppenlist_de[x]
 
-
-
-
+# String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Hauptspeisenteilestr = ""
-
 for thing in Hauptspeisenteile:
+    # Checkt ob Teil None ist, wegen Übersetzungsproblemen
     if thing == None:
         Hauptspeisenteilestr += "german; "
+    # Ersetzt alle / wegen Übersetzungsproblemen
     elif thing.__contains__("/"):
         Hauptspeisenteilestr += thing.replace("/", ",") + "; "
     else:
         Hauptspeisenteilestr += thing + "; "
 
+# Hier wird der String übersetzt | Englisch
 Hauptspeisenteilestr_en = translator.translate(Hauptspeisenteilestr, src="fr", dest="en").text
+# Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Hauptspeisenteilelist_en = Hauptspeisenteilestr_en.split(";")
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.160/169
 Hauptspeisenteilelist_en.pop()
 
-lenmin1 = len(Hauptspeisenteilelist_en) - 1
+# Geht durch alle Teile und packt sie ins Wörterbuch
 for x in range(len(Hauptspeisenteile)):
-    # print(x)
-    if Hauptspeisenteilelist_en[x] == "vertaalen":
-        Hauptspeisenteile_en[Hauptspeisenteile[x]] = "_______"
-    else:
         Hauptspeisenteile_en[Hauptspeisenteile[x]] = Hauptspeisenteilelist_en[x]
 
+# Entfernt die Übersetzung für null/none
 Hauptspeisenteile_en[None] = "     "
 Hauptspeisenteile_en.pop(None, 1)
     
-#print(Suppen_en)
-#print("\n")
-#print(Hauptspeisenteile_en)
-
+# Öffnet das vorhandene Wörterbuch
 with open("dictionary_fr/suppen_englisch.json", "r") as file:
     altersuppendict = json.loads(file.read())
 
+# Checkt ob die (neue) Übersetzung schon vorhanden ist
 for neuesuppe in Suppen_en:
     if neuesuppe in altersuppendict:
-        continue
+        continue # Wenn vorhanden, dann einfach nächstes
     else:
         altersuppendict[neuesuppe] = Suppen_en[neuesuppe]
 
+# Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
 with open("dictionary_fr/suppen_englisch.json", "w") as file:
     file.write(json.dumps(altersuppendict))
 
-
+# Öffnet das vorhandene Wörterbuch
 with open("dictionary_fr/haupt_englisch.json", "r") as file:
     alterhauptdict = json.loads(file.read())
 
+# Checkt ob die (neue) Übersetzung schon vorhanden ist
 for neuesteil in Hauptspeisenteile_en:
     if neuesteil in alterhauptdict:
-        continue
+        continue # Wenn vorhanden, dann einfach nächstes
     else:
         alterhauptdict[neuesteil] = Hauptspeisenteile_en[neuesteil]
 
+# Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
 with open("dictionary_fr/haupt_englisch.json", "w") as file:
     file.write(json.dumps(alterhauptdict))
 
-
+# Exit code, bc why not?
 exit("Erfolgreich")
