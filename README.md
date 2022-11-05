@@ -1,15 +1,8 @@
 # Kantine TODO
-
+<br>WICHTIG: ÜBERSETZUNGEN SIND NOCH NICHT KORRIGIERT
 <br>--HTML:
 <br>Custom Datum?
-<br>
-<br>Aufräumen der Variablen, bitte vars auf deutsch und funcs auf englisch;
-<br>Sprache auf der Seite selber bitte fixen:
-<br>> Code und comments auf deutsch
-<br>> Seiteninhalt englisch | später, zweite/dritte Seite auf Französisch/Deusch etc.
-<br>Die übersetzungen kann man ja in der gleichnahmigen .js unterbringen und dann einfach sprache[wort]
-<br>
-<br>CSS immer extern
+<br>Auf der Website mal gucken statt "      " einfach null wegen der Tabelle
 
 <br>--Andere TODOs:
 
@@ -17,5 +10,4 @@
 <br>XLSX zu JSON Optimierung/Vereinfachung
 
 <br>--Irgendwann mal:
-<br>Englische Version, translator oder so
 <br>Allergene
