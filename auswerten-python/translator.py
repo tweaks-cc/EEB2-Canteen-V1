@@ -1,38 +1,38 @@
 # Lutscht sich alle neuen Teile des Monats/Woche und übersetzt alle erstmal auf Deutsch und Englisch
 
-
-
 import json
 from googletrans import Translator
-from colorama import init, Fore, Back, Style
-init(autoreset=True)
 translator = Translator()
 
-
-with open("output.json", "r") as file:
+# Nimmt sich das neueste Menü
+with open("outputs/output.json", "r", encoding="utf-8") as file:
     originaledatei = json.loads(file.read())
     
 
+# Erstellt die Listen der ganzen teile des Menüs
 Suppen   = []
 Suppen_de = {}
 Hauptspeisenteile   = []
 Hauptspeisenteile_de = {}
 
+# Füllt die Listen der ganzen teile des Menüs
 for day in originaledatei:
     Suppen.append(originaledatei[day][1])
     Hauptspeisenteile.append(originaledatei[day][2])
     Hauptspeisenteile.append(originaledatei[day][3])
     Hauptspeisenteile.append(originaledatei[day][4])
 
+# String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Suppenstr = ""
-
 for thing in Suppen:
     Suppenstr += thing + ";"
 
-
-# print(Suppenstr)
-Suppenstr_de = translator.translate(Suppenstr, src="fr", dest="de").text
+# Hier wird der String übersetzt | Deutsch
+try: Suppenstr_de = translator.translate(Suppenstr, src="fr", dest="de").text
+except AttributeError: print(" Funzt iwie nicht, ausser mit der Version hier: pip install googletrans==4.0.0-rc1")
+# Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Suppenlist_de = Suppenstr_de.split(";")
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.27/28
 Suppenlist_de.pop()
 
 if len(Suppenlist_de) != len(Suppen):
@@ -45,12 +45,6 @@ if len(Suppenlist_de) != len(Suppen):
     Suppenlist_de += Suppenstr_de.split(";")
     Suppenlist_de.pop()
     
-"""
-print(len(Suppen))
-print(Suppen)
-print(len(Suppenlist_de))
-print(Suppenlist_de)
-"""
 
 for x in range(len(Suppen)):
     Suppen_de[Suppen[x]] = Suppenlist_de[x]

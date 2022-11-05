@@ -1,7 +1,7 @@
 // Importiert die Variablen aus der js-Datei
-var essensdict = importedessensdict                                 // Dictionary mit dem ganzen Essen
+var essensdict = importedessensdict_en      // Dictionary mit dem ganzen Essen
 var aktuellesdatum = [tostringdate(zahlendatum), zahlendatum]    // Heutiges Datum
-var sprache = englishlang      // Standard-sprache: Englisch
+var sprache = übersetzung_en               // Standard-sprache: Englisch
 
 function main(datumliste) {
     // Liste des Essens von Datum
@@ -20,7 +20,7 @@ function main(datumliste) {
     }
 
     // Formatiert das Datum damit es in die "Überschrift kann"
-    var formatiertesdatum = sprache[eatlist[0]] + ", "+ sprache["der"] + datumliste[1]
+    var formatiertesdatum = eatlist[0] + ", "+ sprache["le"] + datumliste[1]
 
     // Packt das Essen in die Liste #essensliste im Body
     document.getElementById("Datum").innerHTML   = formatiertesdatum
