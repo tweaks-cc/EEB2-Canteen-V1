@@ -9,14 +9,7 @@ function main(datumliste) {
     // Geht einmal durch alle Teile der Liste des Datums aus dem Dict
     var essensliste = essensdict[datumliste[0]] // datumsliste[0] da [datumalsworte, datumalszahlen]
     for (index in essensliste) {
-        // Wenn null, also wenn weniger Teile als max; einfach Leerzeichen statt null/dem Element selber
-        if (essensliste[index] == null) {
-            eatlist.push("      ")
-        }
-        // ansonsten den Teil selber hinzufügen
-        else {
-            eatlist.push(essensliste[index])
-        }
+        eatlist.push(essensliste[index])
     }
 
     // Formatiert das Datum damit es in die "Überschrift kann"
