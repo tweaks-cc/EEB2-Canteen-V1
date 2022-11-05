@@ -58,10 +58,6 @@ zahlen = {
     "31": "einunddreissig"
 }
 
-wochentage_englisch = {
-    "Montag"
-}
-
 # Monatsstring zu Zahl (bsp. Januar: 1)
 monate = {
     "januar":    1,
