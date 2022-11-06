@@ -13,7 +13,6 @@ with open("dictionary_fr/nachtisch_deutsch.json",  "r", encoding="utf-8") as fil
 with open("dictionary_fr/misc_deutsch.json",       "r", encoding="utf-8") as file: misc_de      = json.loads(file.read())
 # Ändert null (JS) zu None (Python)
 haupt_de[None] = None
-del haupt_de["null"]
 
 # Alle Übersetzungsdateien für Englisch
 with open("dictionary_fr/haupt_englisch.json",     "r", encoding="utf-8") as file: haupt_en     = json.loads(file.read())
@@ -22,7 +21,6 @@ with open("dictionary_fr/nachtisch_englisch.json", "r", encoding="utf-8") as fil
 with open("dictionary_fr/misc_englisch.json",      "r", encoding="utf-8") as file: misc_en      = json.loads(file.read())
 # Ändert null (JS) zu None (Python)
 haupt_en[None] = None
-del haupt_en["null"]
 
 
 #--Deutsch--

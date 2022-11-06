@@ -1,6 +1,7 @@
 import json
 import os
 import pandas
+import datetime
 
 # Screenclearing
 try: os.system("cls")
@@ -153,6 +154,8 @@ for file in listedateien:
             jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"] = jsondict[f"Week{i}"][dayofweek]
             # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
+            if jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][1] == None:
+                del jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"]
 
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")
@@ -172,3 +175,6 @@ for file in listedateien:
 # Schliesst JSON mit End-Klammer
 with open("output.json", "a") as f:
     f.write("}")
+
+try: os.system("mv output.json outputs/output.json")
+except: "joa ka windows halt"

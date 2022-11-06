@@ -154,7 +154,7 @@ if len(Suppenlist_en) != len(Suppen):
 
 # Geht durch alle Teile und packt sie ins Wörterbuch
 for x in range(len(Suppen)):
-    Suppen_de[Suppen[x]] = Suppenlist_de[x]
+    Suppen_en[Suppen[x]] = Suppenlist_en[x]
 
 # String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Hauptspeisenteilestr = ""

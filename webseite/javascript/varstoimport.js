@@ -4,7 +4,7 @@ var monat = datum.getMonth() + 1
 var tagdatum = datum.getDate()
 var zahlendatum = tagdatum + "." + monat
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
-var zahlendatum = "13.10"
+// var zahlendatum = "13.10"
 
 const zahlen = {
     "1": "eins",
