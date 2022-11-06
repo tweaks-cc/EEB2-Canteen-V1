@@ -154,8 +154,8 @@ for file in listedateien:
             jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"] = jsondict[f"Week{i}"][dayofweek]
             # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
-            if jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][1] == None:
-                del jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"]
+
+            # Hier muss noch was hin wegen Feiertagen
 
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")
