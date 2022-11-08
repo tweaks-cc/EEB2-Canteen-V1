@@ -6,8 +6,5 @@
 <br>
 <br>--Andere TODOs:
 
-<br>--Wäre nice, muss aber nicht:
-<br>XLSX zu JSON Optimierung/Vereinfachung
-
 <br>--Irgendwann mal:
 <br>Allergene
