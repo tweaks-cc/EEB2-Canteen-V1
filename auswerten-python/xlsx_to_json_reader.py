@@ -1,6 +1,7 @@
 import json
 import os
 import pandas
+import datetime
 
 # Screenclearing
 try: os.system("cls")
@@ -9,9 +10,9 @@ try : os.system("clear")
 except: "ok"
 
 # Listest alle dateien im Menüordner auf
-filelist = os.listdir("menues")
+listedateien = os.listdir("menues")
 # Sortiert die Dateien nach Name(Datum)
-filelist.sort()
+listedateien.sort()
 
 # Zum entfernen aus dict
 zuentfernen = [
@@ -58,15 +59,8 @@ zahlen = {
     "31": "einunddreissig"
 }
 
-# Entfernt die JSON falls existent
-try: os.remove("output.json")
-except FileNotFoundError: "Erstes mal, oder Datei nicht da"
-
-# Schreibt öffnende Klammer für die JSON
-with open("output.json", "w") as file: file.write("{")
-
 # Monatsstring zu Zahl (bsp. Januar: 1)
-months = {
+monate = {
     "januar":    1,
     "februar":   2,
     "märz":      3,
@@ -81,9 +75,11 @@ months = {
     "dezember":  12,
 }
 # Nimmt einen Monat als String und return den Monat als Zahl
-def monthtoint(monthstr):
-	return months[monthstr.lower()]
+def monthtoint(monatsstr):
+	return monate[monatsstr.lower()]
 
+# Schreibt öffnende Klammer für die JSON
+with open("output.json", "w") as file: file.write("{")
 
 # Wertet alle Excel-Tabellen aus
 # Packt alle Tabellen in eine JSON
@@ -99,14 +95,14 @@ def monthtoint(monthstr):
 # ],            # Entweder keine Vorspeise oder Beilage glaube ich
 
 i = 1
-for file in filelist:
+for file in listedateien:
     if file.endswith(".xlsx"):
         print(file) # Dateiname
 
         # Extrahiert text aus Datei
         # Macht es zu einem Dictionary
-        excel_data_df = pandas.read_excel("menues/" + file)
-        jsondict = json.loads(excel_data_df.to_json())
+        excel_data = pandas.read_excel("menues/" + file)
+        jsondict = json.loads(excel_data.to_json())
 
 
         # Formatiert den Dict
@@ -119,12 +115,12 @@ for file in filelist:
         # Packt die Daten jeweils in eine Liste und diese Listen dann in den Dict-Key Date1 - Date4
         # Zieht sich die Daten aus dem Namen der Datei
         # Bsp: ["Lundi", 13, "Oktober"]
-        filename = file.split("-")
+        dateiname = file.split("-")
         jsondict[f"Date{i}"] = {
-            "1": ["Lundi",   filename[1],filename[5][0:-5]],
-            "2": ["Mardi",   filename[2],filename[5][0:-5]],
-            "3": ["Jeudi",   filename[3],filename[5][0:-5]],
-            "4": ["Vendredi",filename[4],filename[5][0:-5]]
+            "1": ["Lundi",   dateiname[1],dateiname[5][0:-5]],
+            "2": ["Mardi",   dateiname[2],dateiname[5][0:-5]],
+            "3": ["Jeudi",   dateiname[3],dateiname[5][0:-5]],
+            "4": ["Vendredi",dateiname[4],dateiname[5][0:-5]]
         }
 
         # Formatiert die sachen zu handlichen Stücken (jeweils ein Tag)
@@ -145,7 +141,7 @@ for file in filelist:
         # Packt die Tage zurück in die Woche
         jsondict[f"Week{i}"] = speicher
         # Entfernt den nun unnötigen Key "Date{x}"
-        if i <= len(filelist): del jsondict[f"Date{i}"]
+        if i <= len(listedateien): del jsondict[f"Date{i}"]
 
         # Geht nun einzeln durch die Tage und formatiert sie final
         for dayofweek in range(4):
@@ -159,6 +155,8 @@ for file in filelist:
             # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
 
+            # Hier muss noch was hin wegen Feiertagen
+
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")
 
@@ -167,7 +165,7 @@ for file in filelist:
         # Fügt bei jeder Woche bis auf die Letzte ein Komma ans Ende an
         dictstring = json.dumps(jsondict)
         dictstring = dictstring[1:-1]
-        if i != len(filelist):
+        if i != len(listedateien):
             dictstring += ","
 
         # Fügt die Woche ans Ende der JSON an
@@ -177,3 +175,6 @@ for file in filelist:
 # Schliesst JSON mit End-Klammer
 with open("output.json", "a") as f:
     f.write("}")
+
+try: os.system("mv output.json outputs/output.json")
+except: "joa ka windows halt"

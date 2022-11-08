@@ -3,14 +3,18 @@
     <head>
         <link rel="stylesheet" href="stylesheets/style.css">
         <title>Canteen Menu</title>
-        <script src="javascript/essensdict.js"></script>
+        <script src="javascript/essensdict_de.js"></script>
+        <script src="javascript/essensdict_en.js"></script>
+        <script src="javascript/essensdict_fr.js"></script>
         <script src="javascript/varstoimport.js"></script>
-        <script src="javascript/uebersetzungen.js"></script>
-        <script src="javascript/mainfuncs|logic.js"></script>
+        <script src="javascript/mainfuncs-logic.js"></script>
     </head>
     <body onload="main(aktuellesdatum)">
         <h1>Canteen Menu</h1>
         <div>
+            <button onclick="sprache = übersetzung_fr; essensdict = importedessensdict_fr ;main(aktuellesdatum)">Français</button>
+            <button onclick="sprache = übersetzung_en; essensdict = importedessensdict_en ;main(aktuellesdatum)">English</button>
+            <button onclick="sprache = übersetzung_de; essensdict = importedessensdict_de ;main(aktuellesdatum)"> Deutsch</button>
             <table id="essensliste">
                 <caption id="Datum"></caption>
                 <tr>
