@@ -1,0 +1,52 @@
+
+/* Import Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Importiert Light-Mode, unabhängig von der Präferenz des Browsers */
+
+@import "styleLight.css";
+
+/* Importiert Dark-Mode, falls Dark-Mode die Präferenz im Browser ist */
+
+@media (prefers-color-scheme: dark) {@import "styleDark.css";}
+
+/* Normales Theming */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    text-align: center;
+}
+
+h1 {text-decoration: underline;}
+
+div {
+    width: 40%;
+    margin: auto;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    margin-top: 4px;
+    padding: 4px;
+    text-align: center;
+    font-size: smaller;
+    background-color: steelblue;
+    color: white;
+}
+
+/* Tabelle */
+
+table {
+    empty-cells: hide;
+    width: 100%;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+th {text-align: center;}
