@@ -5,7 +5,7 @@ WICHTIG: ÜBERSETZUNGEN SIND NOCH NICHT KORRIGIERT
 <br>Auf der Website mal gucken statt "      " einfach null wegen der Tabelle
 <br>
 <br>--Andere TODOs:
-Wikipedia (Hat schon nen branch)
+<br>Wikipedia (Hat schon nen branch)
 <br>
 <br>--Irgendwann mal:
 <br>Allergene
