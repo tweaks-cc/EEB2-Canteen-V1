@@ -1,5 +1,5 @@
 # Kantine TODO
-<br>WICHTIG: ÜBERSETZUNGEN SIND NOCH NICHT KORRIGIERT
+WICHTIG: ÜBERSETZUNGEN SIND NOCH NICHT KORRIGIERT
 <br>--HTML:
 <br>Custom Datum?
 <br>Auf der Website mal gucken statt "      " einfach null wegen der Tabelle
