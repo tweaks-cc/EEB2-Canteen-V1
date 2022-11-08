@@ -1,29 +1,29 @@
 {
-    "drei.elf": [
+    "drei.zehn": [
         "Lundi",
         "Minestrone",
-        "Po\u00eblee de poulet aux l\u00e9gumes",
-        "C\u0153ur de bl\u00e9",
+        "Poëlee de poulet aux légumes",
+        "Cœur de blé",
         null,
         "Fruit"
     ],
-    "vier.elf": [
+    "vier.zehn": [
         "Mardi",
         "Potage cerfeuil",
         "Veau marengo",
-        "l\u00e9gumes oubli\u00e9s",
+        "légumes oubliés",
         "Pommes vapeur",
         "Laitage"
     ],
-    "zwoelf.elf": [
+    "sechs.zehn": [
         "Jeudi",
         "Potage champignons",
-        "Nuggets v\u00e9g\u00e9tarien",
-        "L\u00e9gumes grill\u00e9s / riz",
+        "Nuggets végétarien",
+        "Légumes grillés / riz",
         null,
         "Biscuit"
     ],
-    "sieben.elf": [
+    "sieben.zehn": [
         "Vendredi",
         "Potage choux verts",
         "Mezze",
@@ -31,55 +31,63 @@
         null,
         "Fruit"
     ],
+    "sieben.elf": [
+        "Lundi",
+        null,
+        null,
+        "Feiertag",
+        null,
+        null
+    ],
     "acht.elf": [
         "Mardi",
-        "Soupe aux lentilles tomat\u00e9e",
+        "Soupe aux lentilles tomatée",
         "Cabeza",
-        "Bouqueti\u00e8re / pdt",
+        "Bouquetière / pdt",
         "Jus de viande",
         "Fruit"
     ],
     "zehn.elf": [
         "Jeudi",
         "Potage aux carottes",
-        "Escalope de veau pan\u00e9e",
+        "Escalope de veau panée",
         "Basquaise",
-        "C\u0153ur de bl\u00e9",
+        "Cœur de blé",
         "Laitage"
     ],
     "elf.elf": [
         "Vendredi",
-        "Salade de ma\u00efs compos\u00e9e",
+        "Salade de maïs composée",
         "Burger de quinoa",
-        "Salade de crudit\u00e9",
+        "Salade de crudité",
         null,
         "Fruit"
     ],
-    "zehn.elf": [
+    "zehn.zehn": [
         "Lundi",
         "Potage potiron",
         null,
-        "P\u00e2tes veggie",
+        "Pâtes veggie",
         null,
         "Fruit"
     ],
-    "elf.elf": [
+    "elf.zehn": [
         "Mardi",
-        "Cr\u00e8me de volaille",
-        "Carbonnade de b\u0153uf",
+        "Crème de volaille",
+        "Carbonnade de bœuf",
         "Carottes",
-        "Pur\u00e9es",
+        "Purées",
         "Fruit"
     ],
-    "dreizehn.elf": [
+    "dreizehn.zehn": [
         "Jeudi",
         "Potage courgettes",
-        "Saut\u00e9 de veau",
-        "Haricots verts tomat\u00e9s",
-        "P\u00e9pinettes",
+        "Sauté de veau",
+        "Haricots verts tomatés",
+        "Pépinettes",
         "Biscuit"
     ],
-    "vierzehn.elf": [
+    "vierzehn.zehn": [
         "Vendredi",
         "Potage carottes",
         "Saucisse porc fromage",
@@ -91,21 +99,21 @@
         "Lundi",
         "Potage poireaux curry",
         "Kokkinisto",
-        "P\u00e9pinettes",
+        "Pépinettes",
         null,
         "Fruit"
     ],
     "fuenfzehn.elf": [
         "Mardi",
-        "Bouillon l\u00e9gume asiatiques",
+        "Bouillon légume asiatiques",
         "Semoule",
-        "L\u00e9gumes orientaux",
+        "Légumes orientaux",
         null,
         "Biscuit"
     ],
     "siebzehn.elf": [
         "Jeudi",
-        "Taboul\u00e9",
+        "Taboulé",
         "Filet de poisson",
         "Courgette / Riz",
         "Sauce poisson estragon",
@@ -116,34 +124,34 @@
         "Minestrone",
         "Chipolata / compote",
         "Jus de viande",
-        "Pur\u00e9e maison",
+        "Purée maison",
         "Laitage"
     ],
-    "siebzehn.elf": [
+    "siebzehn.zehn": [
         "Lundi",
         "Potage tomate mascarpone",
-        "Burger de l\u00e9gumes",
+        "Burger de légumes",
         "Salade",
         null,
         "Fruit"
     ],
-    "achtzehn.elf": [
+    "achtzehn.zehn": [
         "Mardi",
-        "Potage \u00e9pinards",
+        "Potage épinards",
         null,
-        "Gratin de p\u00e2tes",
+        "Gratin de pâtes",
         null,
         "Fruit"
     ],
-    "zwanzig.elf": [
+    "zwanzig.zehn": [
         "Jeudi",
-        "Potage \u00e0 l'oignon",
+        "Potage à l'oignon",
         "Blanquette dinde",
-        "L\u00e9gumes assortis",
+        "Légumes assortis",
         "Riz",
         "Fruit"
     ],
-    "einundzwanzig.elf": [
+    "einundzwanzig.zehn": [
         "Vendredi",
         "Potage de saison",
         "Lard",
@@ -170,46 +178,46 @@
     "vierundzwanzig.elf": [
         "Jeudi",
         "Potage cresson",
-        "B\u0153uf / petits pois",
+        "Bœuf / petits pois",
         "Gratin dauphinois",
         "Jus viande",
         "Fruit"
     ],
     "fuenfundzwanzig.elf": [
         "Vendredi",
-        "Cr\u00e8me de ma\u00efs",
+        "Crème de maïs",
         "Filet de poulet",
-        "L\u00e9gumes wok sauce curry",
+        "Légumes wok sauce curry",
         "Riz",
         "Laitage"
     ],
-    "vierundzwanzig.elf": [
+    "vierundzwanzig.zehn": [
         "Lundi",
         "Potage andalou",
         null,
-        "Penne fromage \u00e9pinard",
+        "Penne fromage épinard",
         null,
         "Fruit"
     ],
-    "fuenfundzwanzig.elf": [
+    "fuenfundzwanzig.zehn": [
         "Mardi",
-        "Potage tha\u00ef coco",
-        "Boulette li\u00e9geoise",
-        "pur\u00e9e carottes",
+        "Potage thaï coco",
+        "Boulette liégeoise",
+        "purée carottes",
         null,
         "Laitage"
     ],
-    "siebenundzwanzig.elf": [
+    "siebenundzwanzig.zehn": [
         "Jeudi",
         "Potage choux-fleurs",
         null,
-        "Pa\u00eblla poulet",
+        "Paëlla poulet",
         null,
         "Biscuit"
     ],
-    "achtundzwanzig.elf": [
+    "achtundzwanzig.zehn": [
         "Vendredi",
-        "Potage c\u00e9leri-rave",
+        "Potage céleri-rave",
         "Filet de poisson",
         "Ratatouille",
         "Pommes vapeur",
@@ -220,31 +228,31 @@
         "Potage Saint-germain",
         "Pates",
         "Bolognaise / coulis tomate",
-        "Fromage r\u00e2p\u00e9",
+        "Fromage râpé",
         "Fruit"
     ],
     "neunundzwanzig.elf": [
         "Mardi",
         "Salade de pois chiche",
         null,
-        "Riz fa\u00e7on  pa\u00eblla",
+        "Riz façon  paëlla",
         null,
         "Laitage"
     ],
-    "eins.elf": [
+    "eins.zwoelf": [
         "Jeudi",
         "Tacos shell",
         "Sauce tex mex",
         "Poulet / garnitures",
-        "Fromage r\u00e2p\u00e9",
+        "Fromage râpé",
         "Biscuit"
     ],
-    "zwei.elf": [
+    "zwei.zwoelf": [
         "Vendredi",
-        "Potage \u00e0 l'oignon",
+        "Potage à l'oignon",
         "Blanquette de veau",
-        "L\u00e9gumes assortis",
-        "Pur\u00e9e maison",
+        "Légumes assortis",
+        "Purée maison",
         "Fruit"
     ]
 }

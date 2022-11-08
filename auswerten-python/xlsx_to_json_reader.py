@@ -2,12 +2,13 @@ import json
 import os
 import pandas
 import datetime
+from colorama import init, Fore
+init(autoreset=True)
 
 # Screenclearing
 try: os.system("cls")
 except: "Linuxkek"
-try : os.system("clear")
-except: "ok"
+else: os.system("clear")
 
 # Listest alle dateien im Menüordner auf
 listedateien = os.listdir("menues")
@@ -22,7 +23,7 @@ zuentfernen = [
     "Lait", "Fruits à coques",
     "Céleri", "Moutarde",
     "Graine de sésame", "Sulfite",
-    "Mollusques", "Lupin", "Date"
+    "Mollusques", "Lupin"
 ]
 
 zahlen = {
@@ -59,24 +60,15 @@ zahlen = {
     "31": "einunddreissig"
 }
 
-# Monatsstring zu Zahl (bsp. Januar: 1)
-monate = {
-    "januar":    1,
-    "februar":   2,
-    "märz":      3,
-    "april":     4,
-    "mai":       5,
-    "juni":      6,
-    "juli":      7,
-    "august":    8,
-    "september": 9,
-    "oktober":   10,
-    "november":  11,
-    "dezember":  12,
+zahlzuwochentag = {
+     0:	"Lundi",
+     1:	"Mardi",
+     2:	"Mercredi",
+     3:	"Jeudi",
+     4:	"Vendredi",
+     5:	"Samedi",
+     6:	"Dimanche"
 }
-# Nimmt einen Monat als String und return den Monat als Zahl
-def monthtoint(monatsstr):
-	return monate[monatsstr.lower()]
 
 # Schreibt öffnende Klammer für die JSON
 with open("output.json", "w") as file: file.write("{")
@@ -93,6 +85,12 @@ with open("output.json", "w") as file: file.write("{")
 #   null,       # null bedeutet, dass das Gericht aus weniger Teilen besteht als es maximal gibt  
 #   "Fruit"     # Kann an dritter und fünfter Stelle der Liste passieren
 # ],            # Entweder keine Vorspeise oder Beilage glaube ich
+
+for file in listedateien:
+    if file.startswith("~"):
+        print()
+        del listedateien[listedateien.index(file)]
+        #listedateien.pop(file)
 
 i = 1
 for file in listedateien:
@@ -113,23 +111,34 @@ for file in listedateien:
         for thing in zuentfernen: jsondict.pop(thing)
 
         # Packt die Daten jeweils in eine Liste und diese Listen dann in den Dict-Key Date1 - Date4
-        # Zieht sich die Daten aus dem Namen der Datei
-        # Bsp: ["Lundi", 13, "Oktober"]
-        dateiname = file.split("-")
-        jsondict[f"Date{i}"] = {
-            "1": ["Lundi",   dateiname[1],dateiname[5][0:-5]],
-            "2": ["Mardi",   dateiname[2],dateiname[5][0:-5]],
-            "3": ["Jeudi",   dateiname[3],dateiname[5][0:-5]],
-            "4": ["Vendredi",dateiname[4],dateiname[5][0:-5]]
-        }
+        # Bsp: ["Lundi", 13, 10]
+        jsondict[f"Date{i}"] = {}
+        for x in range(16):
+            if x % 5 == 0:
+                # Nimmt sich den Unix Timestamp aus der Tabelle und verwandelt ihn zu nem gescheiten Datum
+                unixdate = int(str(jsondict["Date"][str(x)])[0:-3])
+                unixtodate = datetime.datetime.fromtimestamp(unixdate)
+                
+                # [Jahr, Monat, Tag] als Zahlen
+                unxto_list = str(unixtodate)[0:10].split("-")
+
+                # Nimmt sich die Liste [Jahr, Monat, Tag] und holt sich den Wochentag des jeweiligen Datums
+                # Dieser ist aber als Zahl von 0 bis 6. Wird nun mit Hilfe des dicts zahlzuwochentag[] zum Wort
+                weekday = zahlzuwochentag[datetime.datetime(int(unxto_list[0]), int(unxto_list[1]), int(unxto_list[2]), 0, 0, 0).weekday()]
+
+                # Hier wird die Liste erstellt; bsp: ["Lundi", 13, 10]
+                jsondict[f"Date{i}"][str((x/5) + 1)[0]] = [weekday, unxto_list[2], unxto_list[1]]
+                
+        # Entfernt den Key "Date", da nicht mehr gebraucht
+        jsondict.pop("Date")
 
         # Formatiert die sachen zu handlichen Stücken (jeweils ein Tag)
         speicher, d = {}, 1
         for k in range(20):
             if k % 5 == 0:
                 speicher[int(k/5)] = [
-                jsondict[f"Date{i}"][str(int(k/5)+1)],      # Datums liste aus den drei Teilen, Bsp: ["Lundi", 13, "Oktober"] (siehe Zeile 87-94)
-                jsondict[f"Date{i}"][str(int(k/5)+1)][0],   # Nur der Wochentag
+                jsondict[f"Date{i}"][str(k/5+1)[0]],        # Datums liste aus den drei Teilen, Bsp: ["Lundi", 13, 10] (siehe Zeile 114-128)
+                jsondict[f"Date{i}"][str(k/5+1)[0]][0],     # Nur der Wochentag
                                                             # Die verschiedenen Teile des Essens:
                 jsondict[f"Week{i}"][str(k)],               # Suppe
                 jsondict[f"Week{i}"][str(k+1)],             # Hauptspeise
@@ -147,15 +156,16 @@ for file in listedateien:
         for dayofweek in range(4):
 
             # Definiert den jeweiligen Tag und Monat des Tages
-            day = jsondict[f"Week{i}"][dayofweek][0][1]                 # In Woche{x}, Tag x, Datumsliste [Wochentag, __Datum__, Monat], das Datum
-            month = monthtoint(jsondict[f"Week{i}"][dayofweek][0][2])   # Datumsliste [Wochentag, Datum, __Monat__], den Monatsstring zur Zahl mit Funktion Z.50
+            day = jsondict[f"Week{i}"][dayofweek][0][1]          # In Woche{x}, Tag x, Datumsliste [Wochentag, __Datum__, Monat], das Datum
+            month = jsondict[f"Week{i}"][dayofweek][0][2]        # Datumsliste [Wochentag, Datum, __Monat__], den Monat
 
             # Erstellt den Tag mit dem Namensformat Tag.Monat und packt den entsprechenden Tag rein
-            jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"] = jsondict[f"Week{i}"][dayofweek]
+            jsondict[f"{zahlen[day]}.{zahlen[month]}"] = jsondict[f"Week{i}"][dayofweek]
             # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
-
-            # Hier muss noch was hin wegen Feiertagen
+            
+            # Fals der Tag ein Feirtag sein sollte, wenn es also keine Suppe gibt (Tag[1] == None) dann einfach statt dem Feiertagsnamen "Feiertag" reinschreiben
+            if jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][1] == None: jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][3] = "Feiertag" 
 
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")
@@ -177,4 +187,5 @@ with open("output.json", "a") as f:
     f.write("}")
 
 try: os.system("mv output.json outputs/output.json")
-except: "joa ka windows halt"
+except : "joa ka windows halt"
+else: os.system("move output.json outputs/output.json")
