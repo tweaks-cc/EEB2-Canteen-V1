@@ -4,7 +4,7 @@ var monat = datum.getMonth() + 1
 var tagdatum = datum.getDate()
 var zahlendatum = tagdatum + "." + monat
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
-// var zahlendatum = "13.10"
+// var zahlendatum = "28.11"
 
 var wochentag = datum.getDay()
 
@@ -79,7 +79,7 @@ function monthinttostr(monthstr) {
     return zahlen[monthstr]
 }
 function monthstrtoint(monthint) {
-    return zahlenworte[str(monthint)]
+    return String(zahlenworte[monthint])
 }
 
 const übersetzung_de = {"le": "der ", "Mittwoch": "Mittwoch" }
