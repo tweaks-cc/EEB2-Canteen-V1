@@ -6,6 +6,8 @@ var zahlendatum = tagdatum + "." + monat
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
 // var zahlendatum = "13.10"
 
+var wochentag = datum.getDay()
+
 const zahlen = {
     "1": "eins",
     "2": "zwei",
@@ -80,9 +82,9 @@ function monthstrtoint(monthint) {
     return zahlenworte[str(monthint)]
 }
 
-const übersetzung_de = {"le": "der "}
-const übersetzung_en = {"le": "the "}
-const übersetzung_fr = {"le": "le " }
+const übersetzung_de = {"le": "der ", "Mittwoch": "Mittwoch" }
+const übersetzung_en = {"le": "the ", "Mittwoch": "Wednesday"}
+const übersetzung_fr = {"le": "le " , "Mittwoch": "Mercredi" }
 
 function tostringdate(datumint) {
     // Nimmt ein Datum als Zahlen, entweder als Array oder String

@@ -1,27 +1,46 @@
 // Importiert die Variablen aus der js-Datei
-var essensdict = importedessensdict_en      // Dictionary mit dem ganzen Essen
 var aktuellesdatum = [tostringdate(zahlendatum), zahlendatum]    // Heutiges Datum
+var essensdict = importedessensdict_en      // Dictionary mit dem ganzen Essen | Standard: Englisch
 var sprache = übersetzung_en               // Standard-sprache: Englisch
+var startup = true
 
 function main(datumliste) {
-    // Liste des Essens von Datum
-    var eatlist = []
-    // Geht einmal durch alle Teile der Liste des Datums aus dem Dict
-    var essensliste = essensdict[datumliste[0]] // datumsliste[0] da [datumalsworte, datumalszahlen]
-    for (index in essensliste) {
-        eatlist.push(essensliste[index])
+    if (wochentag == 3 && startup)  {
+        console.log(wochentag, startup)
+        startup = false
+        var formatiertesdatum = sprache["Mittwoch"] + ", " + sprache["le"] + zahlendatum
+    
+        document.getElementById("Datum").style.fontWeight = "bold"
+        document.getElementById("Datum").innerHTML   = formatiertesdatum
+        document.getElementById("Suppe").innerHTML   = null
+        document.getElementById("Haupt1").innerHTML  = null
+        document.getElementById("Haupt2").innerHTML  = sprache["Mittwoch"]
+        document.getElementById("Haupt3").innerHTML  = null
+        document.getElementById("Dessert").innerHTML = null
+        
+    }
+    else {
+        document.getElementById("Datum").style.fontWeight = "normal"
+        // Liste des Essens von Datum
+        var eatlist = []
+        // Geht einmal durch alle Teile der Liste des Datums aus dem Dict
+        var essensliste = essensdict[datumliste[0]] // datumsliste[0] da [datumalsworte, datumalszahlen]
+        for (index in essensliste) {
+            eatlist.push(essensliste[index])
+        }
+
+        // Formatiert das Datum damit es in die "Überschrift" kann
+        var formatiertesdatum = eatlist[0] + ", " + sprache["le"] + datumliste[1]
+
+        // Packt das Essen in die Liste #essensliste im Body
+        document.getElementById("Datum").innerHTML   = formatiertesdatum
+        document.getElementById("Suppe").innerHTML   = eatlist[1]
+        document.getElementById("Haupt1").innerHTML  = eatlist[2]
+        document.getElementById("Haupt2").innerHTML  = eatlist[3]
+        document.getElementById("Haupt3").innerHTML  = eatlist[4]
+        document.getElementById("Dessert").innerHTML = eatlist[5]
     }
 
-    // Formatiert das Datum damit es in die "Überschrift" kann
-    var formatiertesdatum = eatlist[0] + ", "+ sprache["le"] + datumliste[1]
-
-    // Packt das Essen in die Liste #essensliste im Body
-    document.getElementById("Datum").innerHTML   = formatiertesdatum
-    document.getElementById("Suppe").innerHTML   = eatlist[1]
-    document.getElementById("Haupt1").innerHTML  = eatlist[2]
-    document.getElementById("Haupt2").innerHTML  = eatlist[3]
-    document.getElementById("Haupt3").innerHTML  = eatlist[4]
-    document.getElementById("Dessert").innerHTML = eatlist[5]
 }
 
 
