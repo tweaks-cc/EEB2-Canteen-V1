@@ -5,6 +5,7 @@ var sprache = übersetzung_en               // Standard-sprache: Englisch
 var startup = true
 
 function main(datumliste) {
+    aktuellesdatum = datumliste
     if (wochentag == 3 && startup)  {
         startup = false
         var formatiertesdatum = sprache["Mittwoch"] + ", " + sprache["le"] + zahlendatum
@@ -46,12 +47,7 @@ function main(datumliste) {
 function getadate(aktuellesdatum, backforth) {
     var recursiondepth = 0
     var originalesdatum = aktuellesdatum
-    // Jeweils checken ob dass neue datum valide ist 
-    if (backforth == "custom" ) {
-        console.log("custom")
-        /* Datum geht dann halt zum angegebenen Datum */
-    }
-
+    // Jeweils checken ob dass neue datum valide ist
     if (backforth == "forth") {
         // Datum geht eins vor
         // Formatiert das angegebene Datum zuerst von zahl.zahl zu einem Array [Tag, Monat]
@@ -170,4 +166,34 @@ function changeddate(backforth) {
     var neuesdatum = getadate(aktuellesdatum, backforth)
     aktuellesdatum = neuesdatum
     main(aktuellesdatum)
+}
+
+
+function searchcustomdate(lang) {
+    // Wenn reload oder halt Seite geladen dann Datumsinput leeren
+    if (lang == "reset") {document.getElementById("customdate").value =  ""; return}
+    // Wenn Sprache gewechselt und keine Fehlermeldung, einfach stoppen
+    // Falls aber Fehlermeldung da sein sollte wird sie übersetzt 
+    if (lang == "lang" && document.getElementById("fehlermeldung").innerHTML == "") {return}
+    // Wenn ein custom Datum gesucht wird nimmt er sich das Datum welches als bsp. 2022-11-14 ankommt
+    // Dieses splittet er und entfernt das erste Elemnt mit .shift()
+    customdate = document.getElementById("customdate").value.split("-")
+    if (customdate == "") {
+        document.getElementById("fehlermeldung").innerHTML = sprache["dateempty"]
+        return
     }
+    customdate.shift()
+    // Dann vertauscht er Tag und Monat wegen der anderen Schreibweise: 11,14 => 14,11 (richtige Schreibweise)
+    var temp = customdate[1]
+    customdate[1] = customdate[0]
+    customdate[0] = temp
+    // Macht das Datum zum string: zahlwort.zahlwort ums im Essensdict nachzuschauen
+    customstringdate = tostringdate(customdate)
+    // Wenn vorhanden stell die Webseite auf dieses Datum
+    if (essensdict[customstringdate]) {
+        main([customstringdate, customdate.join(".")])
+    }
+    else {
+        document.getElementById("fehlermeldung").innerHTML = sprache["customnotfound"]
+    }
+}

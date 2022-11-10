@@ -82,12 +82,28 @@ function monthstrtoint(monthint) {
     return String(zahlenworte[monthint])
 }
 
-const übersetzung_de = {"le": "der ", "Mittwoch": "Mittwoch" }
-const übersetzung_en = {"le": "the ", "Mittwoch": "Wednesday"}
-const übersetzung_fr = {"le": "le " , "Mittwoch": "Mercredi" }
+const übersetzung_de = {
+    "le": "der ",
+    "Mittwoch": "Mittwoch",
+    "customnotfound": "Dieses Datum ist nicht im Menü.",
+    "dateempty": "Gib bitte zuerst ein valides Datum ein."
+}
+const übersetzung_en = {
+    "le": "the ",
+    "Mittwoch": "Wednesday",
+    "customnotfound": "This date is not in the menu.",
+    "dateempty": "Please enter a valid date first."
+}
+const übersetzung_fr = {
+    "le": "le ",
+    "Mittwoch": "Mercredi",
+    "customnotfound": "Cette date n'est pas dans le menu.",
+    "dateempty": "Veuillez d'abord entrer une date valide."
+}
 
 function tostringdate(datumint) {
     // Nimmt ein Datum als Zahlen, entweder als Array oder String
+    // [Tag, Monat]
     // Entweder er splittet den String oder gibt das Array direkt weiter
     var datumintsplit = ""
     if (typeof datumint == "string" ) {
