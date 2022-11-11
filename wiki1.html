@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Create a new object to interact with the server
+        async function search(item) {
+            console.log()
+            var xhr = new XMLHttpRequest();
+
+            var url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='${item}'`;
+
+            // Provide 3 arguments (GET/POST, The URL, Async True/False)
+            xhr.open('GET', url, true);
+
+            // Once request has loaded...
+            xhr.onload = function () {
+                // Parse the request into JSON
+                var data = JSON.parse(this.response);
+
+                // Log the data object
+                console.log(data);
+
+
+                // Log the page objects
+                console.log(data.query.pages)
+
+                // Loop through the data object
+                // Pulling out the titles of each page
+                for (var i in data.query.pages) {
+                    console.log(data.query.pages[i].extract)
+                    /*
+                    var title = "Fort_Capuzzo";
+                    $.getJSON("http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=timestamp|user|comment|content&titles=" + title + "&format=json&callback=?", function (data) {
+                        console.log(data);
+                    });
+                    /*console.log(data.query.pages[i].title);
+                    var div = document.createElement("a");
+                    div.innerHTML = data.query.pages[i].title
+                    div.href = `https://en.wikipedia.org/wiki/${data.query.pages[i].title}`
+                    document.body.appendChild(div)
+                */}
+            }
+            // Send request to the server asynchronously
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <a id="linklink" href="">Hello</a>
+    <div id="link"></div>
+    <input type="text" id="inputtext" placeholder="Search">
+    <button onclick="search(document.getElementById('inputtext'))">clicky click click</button>
+</body>
+</html>
