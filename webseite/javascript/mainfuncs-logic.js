@@ -42,8 +42,7 @@ function main(datumliste) {
 
 }
 
-function checkweekend(datumliste) {
-    console.log(datumliste)
+function checkweekend() {
     if (wochentag == 0 || wochentag == 6) {
         changeddate("forth")
     }
