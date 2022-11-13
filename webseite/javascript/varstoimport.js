@@ -80,9 +80,9 @@ function monthstrtoint(monthint) {
     return zahlenworte[str(monthint)]
 }
 
-const übersetzung_de = {"le": "der "}
-const übersetzung_en = {"le": "the "}
-const übersetzung_fr = {"le": "le " }
+const übersetzung_de = {"le": "der ", "wiki": "de"}
+const übersetzung_en = {"le": "the ", "wiki": "en"}
+const übersetzung_fr = {"le": "le " , "wiki": "fr"}
 
 function tostringdate(datumint) {
     // Nimmt ein Datum als Zahlen, entweder als Array oder String

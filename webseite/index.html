@@ -8,6 +8,7 @@
         <script src="javascript/essensdict_fr.js"></script>
         <script src="javascript/varstoimport.js"></script>
         <script src="javascript/mainfuncs-logic.js"></script>
+        <script src="js-wiki/wiki.js"></script>
     </head>
     <body onload="main(aktuellesdatum)">
         <h1>Canteen Menu</h1>
@@ -23,15 +24,23 @@
                     <th style="border-top-right-radius: 8px;">Dessert</th>
                 </tr>
                 <tr>
-                    <td id="Suppe" style="border-bottom-left-radius: 8px;"></td>
-                    <td id="Haupt1" onclick="console.log('Helloworld')"></td>
-                    <td id="Haupt2" onclick="console.log('Helloworld')"></td>
-                    <td id="Haupt3" onclick="console.log('Helloworld')"></td>
-                    <td id="Dessert" style="border-bottom-right-radius: 8px;"></td>
+                    <td id="Suppe"   onclick="search(document.getElementById('Suppe').innerText)"style="border-bottom-left-radius: 8px;"></td>
+                    <td id="Haupt1"  onclick="search(document.getElementById('Haupt1').innerText)"></td>
+                    <td id="Haupt2"  onclick="search(document.getElementById('Haupt2').innerText)"></td>
+                    <td id="Haupt3"  onclick="search(document.getElementById('Haupt3').innerText)"></td>
+                    <td id="Dessert" onclick="search(document.getElementById('Dessert').innerText)"style="border-bottom-right-radius: 8px;"></td>
                 </tr>
             </table>
             <button onclick="changeddate('back')" style="float: left;">Back</button>
             <button onclick="changeddate('forth')" style="float: right;">Next</button>
+            <ul>
+                <button id="search1" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search1').innerHTML]"></button>
+                <button id="search2" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search2').innerHTML]"></button>
+                <button id="search3" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search3').innerHTML]"></button>
+                <button id="search4" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search4').innerHTML]"></button>
+                <button id="search5" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search5').innerHTML]"></button>
+            </ul>
+            <p id="showsearch" style="width: 100%; background-color: lightcoral;"></p>
         </div>
     </body>
 </html>
