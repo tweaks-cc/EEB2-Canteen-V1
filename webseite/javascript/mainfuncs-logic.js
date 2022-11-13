@@ -9,7 +9,7 @@ function main(datumliste) {
     if (wochentag == 3 && startup)  {
         startup = false
         var formatiertesdatum = sprache["Mittwoch"] + ", " + sprache["le"] + zahlendatum
-    
+
         document.getElementById("Datum").style.fontWeight = "bold"
         document.getElementById("Datum").innerHTML   = formatiertesdatum
         document.getElementById("Suppe").innerHTML   = null
@@ -17,7 +17,6 @@ function main(datumliste) {
         document.getElementById("Haupt2").innerHTML  = sprache["Mittwoch"]
         document.getElementById("Haupt3").innerHTML  = null
         document.getElementById("Dessert").innerHTML = null
-        
     }
     else {
         document.getElementById("Datum").style.fontWeight = "normal"
@@ -41,6 +40,13 @@ function main(datumliste) {
         document.getElementById("Dessert").innerHTML = eatlist[5]
     }
 
+}
+
+function checkweekend(datumliste) {
+    console.log(datumliste)
+    if (wochentag == 0 || wochentag == 6) {
+        changeddate("forth")
+    }
 }
 
 
@@ -161,6 +167,7 @@ function checknewmonthdate(date, backforth, numberdate, recursiondepth, original
 
 
 function changeddate(backforth) {
+    console.log("change")
     // Wird gerufen, beim drücken einer der beiden Buttons im body
     // Holt sich das neue Datum, entweder davor oder danach
     var neuesdatum = getadate(aktuellesdatum, backforth)

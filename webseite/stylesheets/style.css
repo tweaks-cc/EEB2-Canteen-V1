@@ -42,6 +42,7 @@ button {
 table {
     empty-cells: hide;
     width: 100%;
+    border-collapse: collapse;
 }
 
 th, td {

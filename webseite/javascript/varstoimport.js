@@ -86,7 +86,7 @@ const übersetzung_de = {
     "le": "der ",
     "Mittwoch": "Mittwoch",
     "customnotfound": "Dieses Datum ist nicht im Menü.",
-    "dateempty": "Gib bitte zuerst ein valides Datum ein."
+    "dateempty": "Gib bitte zuerst ein valides Datum ein.",
 }
 const übersetzung_en = {
     "le": "the ",
