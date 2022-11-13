@@ -6,9 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>.buttons {display: none;}</style>
     <script>
+        var pagecontent = {}
         //Create a new object to interact with the server
         async function search(item) {
+            document.getElementById("search1").style.display = "inline"
+            document.getElementById("search2").style.display = "inline"
+            document.getElementById("search3").style.display = "inline"
+            document.getElementById("search4").style.display = "inline"
+            document.getElementById("search5").style.display = "inline"
+            pagecontent = {}
             console.log()
             var xhr = new XMLHttpRequest();
 
@@ -33,10 +41,12 @@
                 // Pulling out the titles of each page
                 var x = 1
                 for (var i in data.query.pages) {
+                    pagecontent[data.query.pages[i].title] = data.query.pages[i].extract
                     console.log(data.query.pages[i].extract)
                     document.getElementById(`search${x}`).innerText = data.query.pages[i].title
                     x++
                 }
+                console.log(pagecontent)
             }
             // Send request to the server asynchronously
             xhr.send();
@@ -45,19 +55,17 @@
 </head>
 
 <body>
-    <a id="linklink" href="">Hello</a>
-    <div id="link"></div>
     <input type="text" id="inputtext" placeholder="Search">
     <button onclick="search(document.getElementById('inputtext').value)">clicky click click</button>
-    <button onclick="console.clear()">clear</button>
+    <button onclick="console.clear()">clearconsole</button>
     <ul>
-        <button id="search1" onclick="showtext(self.innerText)"></button>
-        <button id="search2" onclick="showtext(self.innerText)"></button>
-        <button id="search3" onclick="showtext(self.innerText)"></button>
-        <button id="search4" onclick="showtext(self.innerText)"></button>
-        <button id="search5" onclick="showtext(self.innerText)"></button>
+        <button id="search1" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search1').innerHTML]"></button>
+        <button id="search2" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search2').innerHTML]"></button>
+        <button id="search3" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search3').innerHTML]"></button>
+        <button id="search4" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search4').innerHTML]"></button>
+        <button id="search5" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search5').innerHTML]"></button>
     </ul>
-    <p id="showsearch"></p>
+    <p id="showsearch" style="width: 70%; background-color: lightcoral;"></p>
 </body>
 
 </html>
