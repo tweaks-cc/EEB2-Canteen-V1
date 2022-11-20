@@ -48,7 +48,10 @@ for tag in neuerdict_de:
             templist.append(nachtisch_de[thing])
         # Ansonsten (aka. Hauptgangteile) nimmt er die Hauptgangübersetzungen
         else:
+            if thing == "jour férié":
+                thing = "Feiertag"
             templist.append(haupt_de[thing])
+
             #print(thing)
         i += 1
     # Dann ersetzt die Liste der übersetzten Dinge die ursprüngliche (französische) Liste 
@@ -85,6 +88,8 @@ for tag in neuerdict_en:
             templist.append(nachtisch_en[thing])
         # Ansonsten (aka. Hauptgangteile) nimmt er die Hauptgangübersetzungen
         else:
+            if thing == "jour férié":
+                thing = "Holiday"
             templist.append(haupt_en[thing])
             #print(thing)
         i += 1

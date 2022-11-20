@@ -9,7 +9,6 @@ async function search(item) {
     document.getElementById("search4").style.display      = "none"
     document.getElementById("search5").style.display      = "none"
     pagecontent = {}
-    console.log()
     var xhr = new XMLHttpRequest();
 
     
@@ -23,27 +22,27 @@ async function search(item) {
         // Parse the request into JSON
         var data = JSON.parse(this.response);
         
-        return
         try {
             var test = data.query[0]
         }
-        catch() {
-            console.log("hello error")
-            document.getElementById("showsearch").innerHTML       = sprache["wikisearcherror"]
-            document.getElementById("errorspacing").style.display = "inline"
-            return
+        catch (err) {
+            if (err.name == "TypeError") {
+                console.log("page item not found")
+                document.getElementById("showsearch").innerHTML       = sprache["wikisearcherror"]
+                document.getElementById("showsearch").  style.display = "block"
+                document.getElementById("errorspacing").style.display = "block"
+                return
+            }
+            else {
+                console.log(err)
+            }
         }
-        // Log the data object
-        //console.log(data);
-        
-        
-        // Log the page objects
-        //console.log(data.query.pages)
 
         // Loop through the data object
         // Pulling out the titles of each page
         var x = 1
         for (var i in data.query.pages) {
+            if (data.query.pages[i])
             pagecontent[data.query.pages[i].title] = data.query.pages[i].extract
             //console.log(data.query.pages[i].extract)
             document.getElementById(`search${x}`).innerText = data.query.pages[i].title
