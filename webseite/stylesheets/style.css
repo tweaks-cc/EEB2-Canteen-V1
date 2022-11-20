@@ -50,3 +50,7 @@ th, td {
 }
 
 th {text-align: center;}
+
+.buttons {
+    display: none;
+}

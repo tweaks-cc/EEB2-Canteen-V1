@@ -165,7 +165,7 @@ for file in listedateien:
             jsondict[f"Week{i}"][dayofweek].pop(0)
             
             # Fals der Tag ein Feirtag sein sollte, wenn es also keine Suppe gibt (Tag[1] == None) dann einfach statt dem Feiertagsnamen "Feiertag" reinschreiben
-            if jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][1] == None: jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][3] = "Feiertag" 
+            if jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][1] == None: jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][3] = "Jour férié"
 
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")
