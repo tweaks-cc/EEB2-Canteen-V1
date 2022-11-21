@@ -3,10 +3,9 @@ const datum = new Date();
 var monat = datum.getMonth() + 1
 var tagdatum = datum.getDate()
 var zahlendatum = tagdatum + "." + monat
+var wochentag = datum.getDay()
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
 // var zahlendatum = "28.11"
-
-var wochentag = datum.getDay()
 
 const zahlen = {
     "1": "eins",
@@ -83,22 +82,28 @@ function monthstrtoint(monthint) {
 }
 
 const übersetzung_de = {
-    "le": "der ",
-    "Mittwoch": "Mittwoch",
+    "le":             "der ",
+    "wiki":           "de",
+    "Mittwoch":       "Mittwoch",
     "customnotfound": "Dieses Datum ist nicht im Menü.",
-    "dateempty": "Gib bitte zuerst ein valides Datum ein.",
+    "dateempty":      "Gib bitte zuerst ein valides Datum ein.",
+    "wikisearcherror":"Ein Fehler ist beim Suchen aufgetreten.<br>Dieser Begriff konnte nicht gefunden werden.<br>Bitte versuchen sie einen anderen."
 }
 const übersetzung_en = {
-    "le": "the ",
-    "Mittwoch": "Wednesday",
+    "le":             "the ",
+    "wiki":           "en",
+    "Mittwoch":       "Wednesday",
     "customnotfound": "This date is not in the menu.",
-    "dateempty": "Please enter a valid date first."
+    "dateempty":      "Please enter a valid date first.",
+    "wikisearcherror":"An error occured while searching.<br>This term could not be found.<br>Please search another item."
 }
 const übersetzung_fr = {
-    "le": "le ",
-    "Mittwoch": "Mercredi",
+    "le":             "le ",
+    "wiki":           "fr",
+    "Mittwoch":       "Mercredi",
     "customnotfound": "Cette date n'est pas dans le menu.",
-    "dateempty": "Veuillez d'abord entrer une date valide."
+    "dateempty":      "Veuillez d'abord entrer une date valide.",
+    "wikisearcherror":"Un erreur est survenue.<br>Malheureusement, ce terme de recherche est introuvable.<br>Veuillez chercher quelques chose d'autre."
 }
 
 function tostringdate(datumint) {

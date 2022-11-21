@@ -25,6 +25,7 @@ for day in originaledatei:
 # String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Suppenstr = ""
 for thing in Suppen:
+    if thing == None: thing = "german"
     Suppenstr += thing + ";"
 
 # Hier wird der String übersetzt | Deutsch
@@ -130,6 +131,7 @@ for day in originaledatei:
 # String zum übersetzen, ginge auch mit for loop, als EIN string ists aber weniger packages ig
 Suppenstr = ""
 for thing in Suppen:
+    if thing == None: thing = "german"
     Suppenstr += thing + ","
 
 # Hier wird der String übersetzt | Deutsch
