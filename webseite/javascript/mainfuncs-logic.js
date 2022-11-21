@@ -176,6 +176,7 @@ function changeddate(backforth) {
 
 
 function searchcustomdate(lang) {
+    document.getElementById("fehlermeldung").style.display = "none"
     // Wenn reload oder halt Seite geladen dann Datumsinput leeren
     if (lang == "reset") {document.getElementById("customdate").value =  ""; return}
     // Wenn Sprache gewechselt und keine Fehlermeldung, einfach stoppen
@@ -200,6 +201,7 @@ function searchcustomdate(lang) {
         main([customstringdate, customdate.join(".")])
     }
     else {
-        document.getElementById("fehlermeldung").innerHTML = sprache["customnotfound"]
+        document.getElementById("fehlermeldung").style.display = "block"
+        document.getElementById("fehlermeldung").innerHTML     = sprache["customnotfound"]
     }
 }
