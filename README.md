@@ -1,5 +1,5 @@
-# If you want to visit the real canteen-site:
-Go to: [Canteen-menue](https://jofahd.github.io/Kantine/webseite/)
+# If you want to visit the real menu-site:
+Go to: [Canteen-menu](https://jofahd.github.io/Kantine/webseite/)
 
 
 
