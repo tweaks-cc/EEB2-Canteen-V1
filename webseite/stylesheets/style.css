@@ -85,3 +85,12 @@ th {text-align: center;}
 td:hover {
     font-weight: bolder;
 }
+
+/* Handys */
+
+@media only screen and (max-width: 600px) {
+    div {
+        width: 100%;
+        margin: auto;
+    }
+} 
