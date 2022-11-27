@@ -4,16 +4,14 @@ body {background-color: whitesmoke;}
 /* Tabelle */
 
 th, td {
-    background-color: lightsteelblue;
+    background-color: #d3dcf8;
     color: black;
 }
 
 th {
-    background-color: steelblue;
+    background-color: royalblue;
     color: white;
 }
 
 td:hover {
-    background-color: firebrick;
-    color: white;
 }
