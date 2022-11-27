@@ -13,63 +13,63 @@
     </head>
     <body onload="checkweekend(); main(aktuellesdatum); searchcustomdate('reset')">
         <h1>Canteen Menu</h1>
-    <div>
-        <div id="buttonsOben">
-            <button onclick='
-                sprache = übersetzung_fr;
-                essensdict = importedessensdict_fr ;
-                main(aktuellesdatum);
-                document.getElementById("searchdate").innerText ="Chercher la date"
-                searchcustomdate("lang")'>Français
-            </button>
-            <button onclick='
-                sprache = übersetzung_en;
-                essensdict = importedessensdict_en ;
-                main(aktuellesdatum);
-                document.getElementById("searchdate").innerText ="Search date"
-                searchcustomdate("lang")'>English
-            </button>
-            <button onclick='
-                sprache = übersetzung_de;
-                essensdict = importedessensdict_de ;
-                main(aktuellesdatum);
-                document.getElementById("searchdate").innerText ="Datum suchen"
-                searchcustomdate("lang")'>Deutsch
-            </button>
-        </div>
+        <div id="kontent">
+            <div id="buttonsOben">
+                <button onclick='
+                    sprache = übersetzung_fr;
+                    essensdict = importedessensdict_fr ;
+                    main(aktuellesdatum);
+                    document.getElementById("searchdate").innerText ="Chercher la date"
+                    searchcustomdate("lang")'>Français
+                </button>
+                <button onclick='
+                    sprache = übersetzung_en;
+                    essensdict = importedessensdict_en ;
+                    main(aktuellesdatum);
+                    document.getElementById("searchdate").innerText ="Search date"
+                    searchcustomdate("lang")'>English
+                </button>
+                <button onclick='
+                    sprache = übersetzung_de;
+                    essensdict = importedessensdict_de ;
+                    main(aktuellesdatum);
+                    document.getElementById("searchdate").innerText ="Datum suchen"
+                    searchcustomdate("lang")'>Deutsch
+                </button>
+            </div>
         
-        <table id="essensliste">
-            <caption id="Datum"></caption>
-            <tr>
-                <th style="border-top-left-radius: 8px;">Soup</th>
-                <th colspan="3">Dishes</th>
-                <th style="border-top-right-radius: 8px;">Dessert</th>
-            </tr>
-            <tr>
-                <td id="Suppe"   onclick="search(document.getElementById('Suppe').  innerText)"style="border-bottom-left-radius: 8px; background-color: #a7b9f1;"></td>
-                <td id="Haupt1"  onclick="search(document.getElementById('Haupt1'). innerText)"></td>
-                <td id="Haupt2"  onclick="search(document.getElementById('Haupt2'). innerText)"></td>
-                <td id="Haupt3"  onclick="search(document.getElementById('Haupt3'). innerText)"></td>
-                <td id="Dessert" onclick="search(document.getElementById('Dessert').innerText)"style="border-bottom-right-radius: 8px; background-color: #a7b9f1;"></td>
-            </tr>
-        </table>
-        <div id="buttonsUnten">
-            <button onclick="changeddate('back')"  style="float: left; ">Back</button>
-            <input  id="customdate" type="date">
-            <button id="searchdate" onclick="searchcustomdate()">Search date</button>
-            <button onclick="changeddate('forth')" style="float: right;">Next</button>
-        </div>
+            <table id="essensliste">
+                <caption id="Datum"></caption>
+                <tr>
+                    <th style="border-top-left-radius: 8px;">Soup</th>
+                    <th colspan="3">Dishes</th>
+                    <th style="border-top-right-radius: 8px;">Dessert</th>
+                </tr>
+                <tr>
+                    <td id="Suppe"   onclick="search(document.getElementById('Suppe').  innerText)"style="border-bottom-left-radius: 8px; background-color: #a7b9f1;"></td>
+                    <td id="Haupt1"  onclick="search(document.getElementById('Haupt1'). innerText)"></td>
+                    <td id="Haupt2"  onclick="search(document.getElementById('Haupt2'). innerText)"></td>
+                    <td id="Haupt3"  onclick="search(document.getElementById('Haupt3'). innerText)"></td>
+                    <td id="Dessert" onclick="search(document.getElementById('Dessert').innerText)"style="border-bottom-right-radius: 8px; background-color: #a7b9f1;"></td>
+                </tr>
+            </table>
+            <div id="buttonsUnten">
+                <button onclick="changeddate('back')"  style="float: left; ">Back</button>
+                <input  id="customdate" type="date">
+                <button id="searchdate" onclick="searchcustomdate()">Search date</button>
+                <button onclick="changeddate('forth')" style="float: right;">Next</button>
+            </div>
         
-        <p id="fehlermeldung"></p>
-        <ul>
-            <button id="search1" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search1').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-            <button id="search2" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search2').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-            <button id="search3" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search3').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-            <button id="search4" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search4').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-            <button id="search5" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search5').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-        </ul>
-        <br id="errorspacing" style="display: none;">
-        <p  id="showsearch"></p>
-    </div>
+            <p id="fehlermeldung"></p>
+            <ul>
+                <button id="search1" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search1').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
+                <button id="search2" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search2').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
+                <button id="search3" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search3').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
+                <button id="search4" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search4').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
+                <button id="search5" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search5').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
+            </ul>
+            <br id="errorspacing" style="display: none;">
+            <p  id="showsearch"></p>
+        </div>
     </body>
 </html>
