@@ -2,6 +2,7 @@
 /* Import Font */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 /* Importiert Light-Mode, unabhängig von der Präferenz des Browsers */
 
@@ -19,10 +20,13 @@ body {
     text-align: center;
 }
 
-h1 {text-decoration: underline;}
+h1 {
+    font-family: 'Roboto Slab', serif;
+    text-decoration: underline;
+}
 
-div {
-    width: 40%;
+#kontent {
+    width: 100%;
     margin: auto;
 }
 
@@ -36,30 +40,17 @@ div {
     width: 100%;
 }
 
-button {
-    border: 4px solid #1f49c7;
-    border-radius: 8px;
-    padding: 6px;
-    text-align: center;
-    font-size: smaller;
-    background-color: royalblue;
-    color: white;
-}
-
-input {
+button, input {
     font-family: 'Roboto', sans-serif;
-    border: 4px solid royalblue;
+    border-style: solid;
+    border-width: 4px;
     border-radius: 8px;
     padding: 6px;
     text-align: center;
     font-size: smaller;
-    background-color: #1f49c7;
-    color: white;
 }
 
 .buttons {
-    border-color: #b03636;
-    background-color: indianred;
     margin-bottom: 4px;
 }
 
@@ -88,9 +79,9 @@ td:hover {
 
 /* Handys */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 1200px) {
     #kontent {
-        width: 100%;
+        width: 40%;
         margin: auto;
     }
 }
