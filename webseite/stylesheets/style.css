@@ -4,13 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-/* Importiert Light-Mode, unabhängig von der Präferenz des Browsers */
+/* Importiert Light-Mode */
 
 @import "styleLight.css";
 
-/* Importiert Dark-Mode, falls Dark-Mode die Präferenz im Browser ist */
+/* Importiert Dark-Mode */
 
-@media (prefers-color-scheme: dark) {@import "styleDark.css";}
+@import "styleDark.css";
 
 /* Normales Theming */
 
