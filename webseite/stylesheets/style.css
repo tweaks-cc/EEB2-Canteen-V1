@@ -16,7 +16,7 @@
 
 body, div {
     font-family: 'Roboto', sans-serif;
-    font-size: x-large;
+    font-size: xx-large;
     text-align: center;
 }
 
@@ -47,7 +47,7 @@ button, input {
     border-radius: 8px;
     padding: 6px;
     text-align: center;
-    font-size: medium;
+    font-size: x-large;
 }
 
 .buttons {
@@ -85,7 +85,7 @@ td:hover {
     }
 
     button, input {
-        font-size: smaller;
+        font-size: medium;
     }
 
     #kontent {
