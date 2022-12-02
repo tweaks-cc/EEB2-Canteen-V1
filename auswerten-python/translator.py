@@ -82,7 +82,7 @@ Hauptspeisenteile_de[None] = "     "
 Hauptspeisenteile_de.pop(None, 1)
     
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/suppen_deutsch.json", "r") as file:
+with open("dictionary_fr/suppen_deutsch.json", "r", encoding="utf-16") as file:
     altersuppendict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -93,11 +93,11 @@ for neuesuppe in Suppen_de:
         altersuppendict[neuesuppe] = Suppen_de[neuesuppe]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/suppen_deutsch.json", "w") as file:
+with open("dictionary_fr/suppen_deutsch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(altersuppendict))
 
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/haupt_deutsch.json", "r") as file:
+with open("dictionary_fr/haupt_deutsch.json", "r", encoding="utf-16") as file:
     alterhauptdict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -108,7 +108,7 @@ for neuesteil in Hauptspeisenteile_de:
         alterhauptdict[neuesteil] = Hauptspeisenteile_de[neuesteil]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/haupt_deutsch.json", "w") as file:
+with open("dictionary_fr/haupt_deutsch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(alterhauptdict))
 
 
@@ -186,7 +186,7 @@ Hauptspeisenteile_en[None] = "     "
 Hauptspeisenteile_en.pop(None, 1)
     
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/suppen_englisch.json", "r") as file:
+with open("dictionary_fr/suppen_englisch.json", "r", encoding="utf-16") as file:
     altersuppendict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -197,11 +197,11 @@ for neuesuppe in Suppen_en:
         altersuppendict[neuesuppe] = Suppen_en[neuesuppe]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/suppen_englisch.json", "w") as file:
+with open("dictionary_fr/suppen_englisch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(altersuppendict))
 
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/haupt_englisch.json", "r") as file:
+with open("dictionary_fr/haupt_englisch.json", "r", encoding="utf-16") as file:
     alterhauptdict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -212,7 +212,7 @@ for neuesteil in Hauptspeisenteile_en:
         alterhauptdict[neuesteil] = Hauptspeisenteile_en[neuesteil]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/haupt_englisch.json", "w") as file:
+with open("dictionary_fr/haupt_englisch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(alterhauptdict))
 
 # Exit code, bc why not?
