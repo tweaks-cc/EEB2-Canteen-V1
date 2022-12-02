@@ -1,0 +1,20 @@
+
+/* Wendet Dark-Mode an, falls es die Präferenz im Browser ist. */
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #101010;
+        color: white;
+    }
+
+    #Suppe, #Dessert {
+        background-color: #0e2058;
+    }
+
+    /* Tabelle */
+
+    td {
+        background-color: #07102c;
+    }
+}

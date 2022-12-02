@@ -1,0 +1,34 @@
+
+body {background-color: whitesmoke;}
+
+button {
+    border-color: #1f49c7;
+    background-color: royalblue;
+    color: white;
+}
+
+input {
+    border-color: royalblue;
+    background-color: #1f49c7;
+    color: white;
+}
+
+.buttons {
+    border-color: #b03636;
+    background-color: indianred;
+}
+
+#Suppe, #Dessert {
+    background-color: #a7b9f1;
+}
+
+/* Tabelle */
+
+td {
+    background-color: #d3dcf8;
+}
+
+th {
+    background-color: royalblue;
+    color: white;
+}
