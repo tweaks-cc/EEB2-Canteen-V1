@@ -5,7 +5,7 @@ from googletrans import Translator
 translator = Translator()
 
 # Nimmt sich das neueste Menü
-with open("outputs/output.json", "r", encoding="utf-8") as file:
+with open("outputs/output.json", "r", encoding="utf-16") as file:
     originaledatei = json.loads(file.read())
     
 
@@ -83,6 +83,7 @@ Hauptspeisenteile_de.pop(None, 1)
     
 # Öffnet das vorhandene Wörterbuch
 with open("dictionary_fr/suppen_deutsch.json", "r", encoding="utf-16") as file:
+
     altersuppendict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -138,7 +139,7 @@ for thing in Suppen:
 Suppenstr_en = translator.translate(Suppenstr, src="fr", dest="en").text
 # Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Suppenlist_en = Suppenstr_en.split(",")
-# Muss, weil leeres Element am ende der Liste wegen dem loop Z.132/133
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.116/133
 Suppenlist_en.pop()
 
 # Checkt ob Suppen ordentlich übersetzt wurden, passiert iwie manchmal
@@ -201,7 +202,7 @@ with open("dictionary_fr/suppen_englisch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(altersuppendict))
 
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/haupt_englisch.json", "r", encoding="utf-16") as file:
+with open("dictionary_fr/haupt_englisch.json", "r", encoding=("utf-16")) as file:
     alterhauptdict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist

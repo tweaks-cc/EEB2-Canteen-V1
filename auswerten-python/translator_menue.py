@@ -3,24 +3,24 @@
 import json
 
 # Liest als erstes den originalen Dict aus (Original ist auf Französisch)
-with open("outputs/output.json", "r", encoding="utf-8") as file:
+with open("outputs/output.json", "r", encoding="utf-16") as file:
     originalerdict = json.loads(file.read())
 
 # Alle Übersetzungsdateien für Deutsch
-with open("dictionary_fr/haupt_deutsch.json",      "r", encoding="utf-8") as file: haupt_de     = json.loads(file.read())
-with open("dictionary_fr/suppen_deutsch.json",     "r", encoding="utf-8") as file: suppen_de    = json.loads(file.read())
-with open("dictionary_fr/nachtisch_deutsch.json",  "r", encoding="utf-8") as file: nachtisch_de = json.loads(file.read())
-with open("dictionary_fr/misc_deutsch.json",       "r", encoding="utf-8") as file: misc_de      = json.loads(file.read())
+with open("dictionary_fr/haupt_deutsch.json",      "r", encoding="utf-16") as file: haupt_de     = json.loads(file.read())
+with open("dictionary_fr/suppen_deutsch.json",     "r", encoding="utf-16") as file: suppen_de    = json.loads(file.read())
+with open("dictionary_fr/nachtisch_deutsch.json",  "r", encoding="utf-16") as file: nachtisch_de = json.loads(file.read())
+with open("dictionary_fr/misc_deutsch.json",       "r", encoding="utf-16") as file: misc_de      = json.loads(file.read())
 # Ändert null (JS) zu None (Python)
 haupt_de[None]     = None
 suppen_de[None]    = None
 nachtisch_de[None] = None
 
 # Alle Übersetzungsdateien für Englisch
-with open("dictionary_fr/haupt_englisch.json",     "r", encoding="utf-8") as file: haupt_en     = json.loads(file.read())
-with open("dictionary_fr/suppen_englisch.json",    "r", encoding="utf-8") as file: suppen_en    = json.loads(file.read())
-with open("dictionary_fr/nachtisch_englisch.json", "r", encoding="utf-8") as file: nachtisch_en = json.loads(file.read())
-with open("dictionary_fr/misc_englisch.json",      "r", encoding="utf-8") as file: misc_en      = json.loads(file.read())
+with open("dictionary_fr/haupt_englisch.json",     "r", encoding="utf-16") as file: haupt_en     = json.loads(file.read())
+with open("dictionary_fr/suppen_englisch.json",    "r", encoding="utf-16") as file: suppen_en    = json.loads(file.read())
+with open("dictionary_fr/nachtisch_englisch.json", "r", encoding="utf-16") as file: nachtisch_en = json.loads(file.read())
+with open("dictionary_fr/misc_englisch.json",      "r", encoding="utf-16") as file: misc_en      = json.loads(file.read())
 # Ändert null (JS) zu None (Python)
 haupt_en[None]     = None
 suppen_en[None]    = None
@@ -66,7 +66,7 @@ with open("outputs/output_de.json", "w")as file:
 #--Englisch--
 
 # Originaler Dict wird eingelesen
-with open("outputs/output.json", "r", encoding="utf-8") as file:
+with open("outputs/output.json", "r", encoding="utf-16") as file:
     originalerdict = json.loads(file.read())
 
 neuerdict_en = originalerdict
