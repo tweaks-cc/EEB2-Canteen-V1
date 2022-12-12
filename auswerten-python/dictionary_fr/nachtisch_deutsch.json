@@ -1,6 +1,8 @@
 {
-    "Fruit":   "Frucht",
+    "Fruit": "Frucht",
     "Laitage": "Milchprodukt",
     "Biscuit": "Keks",
-    "Glace":   "Eis"
+    "Glace": "Eis",
+    "Saint Nicolas": "Sankt Nikolaus",
+    "Cake aux pommes": "Apfelkuchen"
 }

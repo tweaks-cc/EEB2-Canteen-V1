@@ -3,9 +3,9 @@
 // essensdict:     // Dictionary mit dem ganzen Essen | Standard: Englisch
 let essensdict = importedessensdict_en
 // Sprache: Einfach alle Texte die übersetzt werden müssen
-let sprache = übersetzung_en
+let sprache    = übersetzung_en
 // Wird benutzt für die Anzeige, dass Mittwoch ist
-let startup = false
+let startup    = false
 
 function main(datum) {
     aktuellesdatum = datum
@@ -14,11 +14,11 @@ function main(datum) {
         let formatiertesdatum = sprache["Mittwoch"] + ", " + sprache["le"] + datum
 
         document.getElementById("Datum").style.fontWeight = "bold"
-        document.getElementById("Datum").innerHTML = formatiertesdatum
-        document.getElementById("Suppe").innerHTML = null
-        document.getElementById("Haupt1").innerHTML = null
-        document.getElementById("Haupt2").innerHTML = sprache["Mittwoch"]
-        document.getElementById("Haupt3").innerHTML = null
+        document.getElementById("Datum").  innerHTML = formatiertesdatum
+        document.getElementById("Suppe").  innerHTML = null
+        document.getElementById("Haupt1"). innerHTML = null
+        document.getElementById("Haupt2"). innerHTML = sprache["Mittwoch"]
+        document.getElementById("Haupt3"). innerHTML = null
         document.getElementById("Dessert").innerHTML = null
     }
     else {
@@ -61,53 +61,48 @@ function getadate(aktuellesdatum, backforth) {
 }
 
 function checkdate(backforth, datum, recursiondepth, originalesdatum, newmonth) {
-    console.log(newmonth)
     // Bekommt das Datum als float: Tag.Monat
     // Checkt ob Datum valide/im Essensdict
     // Wenn Datum nicht valide dann wird nach dem nächsten validen Datum gesucht (bis valide oder max recursion)
     recursiondepth += 1
     // Sobald max recursion,         testet er nächsten Monat
     // Sobald max Tag in Monat (31), testet er nächsten Monat
-    if (recursiondepth == 31 || String(datum).split(".")[0] == 33 || String(datum).split(".")[0] == -1) {
-        if (newmonth == true) {
-            newmonth = false
+    if (recursiondepth == 31 || String(datum).split(".")[0] == 31 || String(datum).split(".")[0] == 0) {
+        if (newmonth) {
             return originalesdatum
         }
         // Wenn nach vorne Monat + 1
         if (backforth == "forth") {
-            let split = String(datum).split(".")
+            let split = datum.split(".")
             // Neues Datum jetzt Monat + 1 und Tag = 0 => Anfang des Monats
-            let neuesdatum = "0" + "." + String(parseInt(parseInt(String(originalesdatum).split(".")[1])) + 1)
-            return checkdate(backforth, neuesdatum, 0 /*Recursiondepth*/, originalesdatum, true)
+            let neuesdatum = parseFloat(0 + "." + (parseInt(split[1]) + 1))
         }
         // Wenn nach hinten Monat - 1
         else if (backforth == "back") {
-            let split = String(datum).split(".")
+            let split = datum.split(".")
             // Neues Datum jetzt Monat - 1 und Tag = 32 => Ende des Monats
-            let neuesdatum = "32" + "." + String(parseInt(parseInt(String(originalesdatum).split(".")[1])) - 1)
-            return checkdate(backforth, neuesdatum, 0 /*Recursiondepth*/, originalesdatum, true)
+            let neuesdatum = parseFloat(32 + "." + (parseInt(split[1])- 1))
         }
+        return checkdate(backforth, neuesdatum, 0 /*Recursiondepth*/, originalesdatum, true)
     }
     // Das Suchen passiert durch das rekursive Rufen der Funktion checkdate()
-    else if (essensdict[datum] == undefined) {
+    else if (essensdict[date] == undefined) {
         // Macht Datum entweder neuer oder älter => backforth
         // Wenn nach vorne Tag + 1
         if (backforth == "forth") {
-            let split = String(datum).split(".")
-            let neuesdatum = (parseInt(split[0]) + 1) + "." + split[1]
-            return checkdate(backforth, neuesdatum, recursiondepth, originalesdatum, newmonth)
+            let split = datum.split(".")
+            let neuesdatum = parseFloat((parseInt(split[0]) + 1) + "." + split[1])
         }
         // Wenn nach hinten Tag - 1
         else if (backforth == "back") {
-            let split = String(datum).split(".")
-            let neuesdatum = (parseInt(split[0]) - 1) + "." + split[1]
-            return checkdate(backforth, neuesdatum, recursiondepth, originalesdatum, newmonth)
+            let split = datum.split(".")
+            let neuesdatum = parseFloat((parseInt(split[0]) - 1) + "." + split[1])
         }
+        return checkdate(backforth, neuesdatum, recursiondepth, originalesdatum)
     }
     else /*Datum sollte valide sein, wenn nicht Bug => Issue pls*/ {
         // Wenn Datum valide, returnt er das Datum und schliesst den recursion-loop
-        newmonth = false
-        return datum
+        return neuesdatum
     }
 }
 
@@ -143,7 +138,7 @@ function searchcustomdate(whatfor) {
     // Dann vertauscht er Tag und Monat wegen der Schreibweise: 11,14 => 14, 11 (richtige Schreibweise)
     let temp = customdate[1]
     customdate[1] = customdate[0]
-    customdate[0] = temp
+    customdate[0] = temp 
     // Macht Datum aus Array zu Float Tag.Monat mit .join(".") und guckt of im essensdict
     customdate = customdate.join(".")
     if (essensdict[customdate]) {
@@ -155,7 +150,7 @@ function searchcustomdate(whatfor) {
     // Falls nicht im Essensdict => Fehlermeldung: "customnotfound"
     else {
         document.getElementById("fehlermeldung").style.display = "block"
-        document.getElementById("fehlermeldung").innerHTML = sprache["customnotfound"]
+        document.getElementById("fehlermeldung").innerHTML     = sprache["customnotfound"]
     }
 
 }

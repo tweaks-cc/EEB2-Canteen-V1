@@ -2,10 +2,10 @@
 const datum = new Date();
 var monat = datum.getMonth() + 1
 var tagdatum = datum.getDate()
-var zahlendatum = tagdatum + "." + monat
+var aktuellesdatum = tagdatum + "." + monat
 var wochentag = datum.getDay()
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
-// var zahlendatum = "28.11"
+var aktuellesdatum = 8.11
 
 const übersetzung_de = {
     "le":             "der ",
