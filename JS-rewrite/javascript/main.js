@@ -8,10 +8,12 @@ let sprache    = übersetzung_en
 let startup    = false
 
 function main(datum) {
+    console.log("maindatum", datum)
     aktuellesdatum = datum
+    console.log("mainaktdatum", aktuellesdatum)
     if (wochentag == 3 && startup) {
         // Formatiert das Datum damit es in die "Überschrift" kann
-        let formatiertesdatum = sprache["Mittwoch"] + ", " + sprache["le"] + datum
+        let formatiertesdatum = sprache["Mittwoch"] + ", " + sprache["le"] + tostringdate(datum)
 
         document.getElementById("Datum").style.fontWeight = "bold"
         document.getElementById("Datum").  innerHTML = formatiertesdatum
@@ -23,10 +25,12 @@ function main(datum) {
     }
     else {
         // Liste des Essens von Datum
-        let eatlist = essensdict[datum]
+        console.log("main", aktuellesdatum)
+        tostringdate(aktuellesdatum)
+        let eatlist = essensdict[tostringdate(aktuellesdatum)]
 
         // Formatiert das Datum damit es in die "Überschrift" kann
-        let formatiertesdatum = eatlist[0] + ", " + sprache["le"] + datum
+        let formatiertesdatum = eatlist[0] + ", " + sprache["le"] + tostringdate(datum)
 
         // Packt das Essen in die Liste #essensliste im Body
         document.getElementById("Datum").innerHTML = formatiertesdatum
@@ -50,67 +54,83 @@ function getadate(aktuellesdatum, backforth) {
     // Jeweils checken ob das neue Datum valide ist
     if (backforth == "forth") {
         // Datum geht eins vor
-        let datum = aktuellesdatum + 1
+        console.log(aktuellesdatum)
+        let datum = [parseInt(aktuellesdatum[0]) + 1, aktuellesdatum[1]]
+        if (String(datum[0]).length == 1) { datum[0] = "0" + String(datum[0]) }
+        console.log("getter", datum)
         return checkdate(backforth, datum, recursiondepth, originalesdatum)
     }
     else if (backforth == "back") {
         // Datum geht eins zurück
-        let datum = aktuellesdatum - 1
+        let datum = [parseInt(aktuellesdatum[0]) - 1, aktuellesdatum[1]]
+        if (String(datum[0]).length == 1) { datum[0] = "0" + String(datum[0]) }
+        console.log("getter",datum)
         return checkdate(backforth, datum, recursiondepth, originalesdatum)
     }
 }
 
 function checkdate(backforth, datum, recursiondepth, originalesdatum, newmonth) {
-    // Bekommt das Datum als float: Tag.Monat
+    // Bekommt das Datum als Array
     // Checkt ob Datum valide/im Essensdict
     // Wenn Datum nicht valide dann wird nach dem nächsten validen Datum gesucht (bis valide oder max recursion)
     recursiondepth += 1
     // Sobald max recursion,         testet er nächsten Monat
     // Sobald max Tag in Monat (31), testet er nächsten Monat
-    if (recursiondepth == 31 || String(datum).split(".")[0] == 31 || String(datum).split(".")[0] == 0) {
+    
+    console.log("vor else", datum)
+    console.log("origdate", originalesdatum)
+    var neuesdatum = "moin moin"
+    if (recursiondepth == 31 || datum[0] == "31" || datum[0] == "00") {
         if (newmonth) {
             return originalesdatum
         }
         // Wenn nach vorne Monat + 1
         if (backforth == "forth") {
-            let split = datum.split(".")
+            var neuesdatum = [0, parseInt(datum[1]) + 1]
+            if (String(datum[1]).length == 1) { datum[1] = "0" + String(datum[1]) }
             // Neues Datum jetzt Monat + 1 und Tag = 0 => Anfang des Monats
-            let neuesdatum = parseFloat(0 + "." + (parseInt(split[1]) + 1))
         }
         // Wenn nach hinten Monat - 1
         else if (backforth == "back") {
-            let split = datum.split(".")
+            var neuesdatum = [0, parseInt(datum[1]) - 1]
+            if (String(datum[1]).length == 1) { datum[1] = "0" + String(datum[1]) }
             // Neues Datum jetzt Monat - 1 und Tag = 32 => Ende des Monats
-            let neuesdatum = parseFloat(32 + "." + (parseInt(split[1])- 1))
         }
+        console.log("here")
         return checkdate(backforth, neuesdatum, 0 /*Recursiondepth*/, originalesdatum, true)
     }
     // Das Suchen passiert durch das rekursive Rufen der Funktion checkdate()
-    else if (essensdict[date] == undefined) {
+    else if (essensdict[tostringdate(datum)] == undefined) {
+        console.log("here22")
         // Macht Datum entweder neuer oder älter => backforth
         // Wenn nach vorne Tag + 1
         if (backforth == "forth") {
-            let split = datum.split(".")
-            let neuesdatum = parseFloat((parseInt(split[0]) + 1) + "." + split[1])
+            console.log("servus")
+            neuesdatum = [parseInt(datum[0]) + 1, datum[1]]
+            if (String(neuesdatum[0]).length == 1) { neuesdatum[0] = "0" + String(neuesdatum[0]) }
+            console.log("servyusdate", neuesdatum)
         }
         // Wenn nach hinten Tag - 1
         else if (backforth == "back") {
-            let split = datum.split(".")
-            let neuesdatum = parseFloat((parseInt(split[0]) - 1) + "." + split[1])
+            console.log("servus22")
+            neuesdatum = [parseInt(datum[0]) - 1, datum[1]]
+            if (String(neuesdatum[0]).length == 1) { neuesdatum[0] = "0" + String(neuesdatum[0]) }
         }
+        console.log("vor return", neuesdatum)
         return checkdate(backforth, neuesdatum, recursiondepth, originalesdatum)
     }
     else /*Datum sollte valide sein, wenn nicht Bug => Issue pls*/ {
         // Wenn Datum valide, returnt er das Datum und schliesst den recursion-loop
-        return neuesdatum
+        console.log("lastereturn", datum)
+        return datum
     }
 }
 
 function changeddate(backforth) {
     // Wird gerufen, beim drücken der Backforth buttons
     // Holt sich das neue datum, entweder neuer oder älter
-    let tempdate = getadate(aktuellesdatum, backforth)
-    aktuellesdatum = tempdate
+    aktuellesdatum = getadate(aktuellesdatum, backforth)
+    console.log("changed", aktuellesdatum)
     main(aktuellesdatum)
 }
 

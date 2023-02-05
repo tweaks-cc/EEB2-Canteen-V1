@@ -1,11 +1,14 @@
 // Gönnt sich das aktuelle Datum des Computers
 const datum = new Date();
 var monat = datum.getMonth() + 1
+if (String(monat).length == 1) {monat = "0" + String(monat)}
 var tagdatum = datum.getDate()
-var aktuellesdatum = tagdatum + "." + monat
+if (String(tagdatum).length == 1) { tagdatum = "0" + String(tagdatum) }
+var aktuellesdatum = [tagdatum, monat]
+console.log("created:", aktuellesdatum)
 var wochentag = datum.getDay()
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
-var aktuellesdatum = 8.11
+var aktuellesdatum = ["01", "01"]
 
 const übersetzung_de = {
     "le":             "der ",
@@ -33,17 +36,11 @@ const übersetzung_fr = {
 }
 
 function tostringdate(datumint) {
-    // Nimmt ein Datum als Zahlen, entweder als Array oder String
+    console.log(datumint)
+    // Nimmt ein Datum als Zahlenarray
     // [Tag, Monat]
-    // Entweder er splittet den String oder gibt das Array direkt weiter
-    var datumintsplit = ""
-    if (typeof datumint == "string" ) {
-        datumintsplit = datumint.split(".")
-    }
-    if (typeof datumint == "object") {
-        datumintsplit = datumint
-    }
-    // Macht aus den Zahlen, die entsprechenden Zahlen als Wörter
-    datumstr = monthinttostr(datumintsplit[0]) + "." + monthinttostr(datumintsplit[1])
-    return datumstr // Returnt das Datum als String: zahlwort.zahlwort
+    // Macht aus dem Array einen String
+    datumstr = datumint[0] + "." + datumint[1]
+    console.log("dstr",datumstr)
+    return datumstr // Returnt das Datum als String: zahl.zahl
 }
