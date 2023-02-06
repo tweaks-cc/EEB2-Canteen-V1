@@ -14,7 +14,12 @@ fetch() {
 	|| curl -f https://www.woluweparents.org/wp-content/uploads/$(date +%Y)/$(date +%m)/Semaine-$(date +%W -d "$1 Weeks")-$(date +%d -d "Sunday -6 Days $1 Weeks")-$(env LC_TIME=fr_FR.UTF-8 date +%B -d "Sunday -6 Days $1 Weeks" | cut -c 1-4 | iconv -t ASCII//TRANSLIT)-$(date +%Y)-$(date +%d -d "Sunday -2 Days $1 Weeks")-$(env LC_TIME=fr_FR.UTF-8 date +%B -d "Sunday -2 Days $1 Weeks" | cut -c 1-4 | iconv -t ASCII//TRANSLIT)-$(date +%Y).xlsx -o $dir/$file
 }
 
-mv -f $dir/input-*.xlsx $bakDir
+if [[ -e $bakDir ]] ; then
+	mv -f $dir/input-*.xlsx $bakDir	
+else
+	mkdir -p $bakDir
+	mv -f $dir/input-*.xlsx $bakDir
+fi
 
 if [[ $weekNum == 0 ]] ; then
 	fetch +0
