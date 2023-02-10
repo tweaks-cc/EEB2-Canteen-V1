@@ -1,29 +1,26 @@
 
-/* Import Schriften */
+/* Import Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 /* Importiert Light-Mode */
+
 @import "styleLight.css";
 
 /* Importiert Dark-Mode */
+
 @import "styleDark.css";
 
-/* Macht bestimmte Objekte nicht auswählbar durch Nutzer */
-h1, button, input, #fehlermeldung, th, #leftBar, #rightBar, #legalNotice {
+h1, button, input, #fehlermeldung, th {
     user-select: none;
 }
-
-/* Schrift-Größe */
-    body {font-size: xx-large;}
-    button, input {font-size: x-large;}
-    #about {font-size: larger;}
-/**/
 
 /* Normales Theming */
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
     text-align: center;
 }
 
@@ -32,13 +29,38 @@ h1 {
     text-decoration: underline;
 }
 
-div, #showsearch {
+div {
     font-size: inherit;
 }
 
 #kontent {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#buttonsOben {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+#buttonsUnten {
+    margin-top: 12px;
+    width: 100%;
+}
+
+button, input {
+    font-family: inherit;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 8px;
+    padding: 6px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.buttons {
+    display: none;
+    margin-bottom: 4px;
 }
 
 #fehlermeldung {
@@ -46,92 +68,42 @@ div, #showsearch {
     font-weight: bolder;
 }
 
-a {color: royalblue;}
+#showsearch {
+    font-size: xx-large;
+}
 
-#leftBar, #rightBar {display: none;}
+/* Tabelle */
 
-/* Knöpfe und Eingabe-Boxen */
-    #buttonsOben {
-        margin-bottom: 12px;
-        width: 100%;
-    }
+table {
+    empty-cells: hide;
+    width: 100%;
+    border-collapse: collapse;
+}
 
-    #buttonsUnten {
-        margin-top: 12px;
-        width: 100%;
+th, td {
+    padding: 6px;
+    text-align: center;
+}
+
+td:hover {font-weight: bolder;}
+
+/* Desktops */
+
+@media only screen and (min-width: 1200px) {
+    body {
+        font-size: large;
     }
 
     button, input {
-        font-family: inherit;
-        border-style: solid;
-        border-width: 4px;
-        border-radius: 8px;
-        padding: 6px;
-        text-align: center;
+        font-size: medium;
     }
 
-    .buttons {
-        display: none;
-        margin-bottom: 4px;
-    }
-/**/
-
-/* Tabelle */
-    table {
-        empty-cells: hide;
-        width: 100%;
-        border-collapse: collapse;
-        text-transform: capitalize;
+    #kontent {
+        width: 40%;
+        margin: auto;
     }
 
-    th, td {
-        padding: 6px;
-        text-align: center;
+    #showsearch {
+        font-size: large;
     }
-
-    td:hover {font-weight: bolder;}
-/**/
-
-/* Legal Notice */
-    #legalNotice {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-    }
-/**/
-
-/* Desktops */
-    /* Wird angewendet, falls die Breite min. 1200px ist. */
-    @media only screen and (min-width: 1200px) {
-
-        /* Schrift-Größe */
-            body {font-size: large;}
-            button, input {font-size: medium;}
-            #legalNotice {font-size: smaller;}
-        /**/
-
-        #kontent {
-            width: 40%;
-            margin: auto;
-        }
-
-        #leftBar, #rightBar {
-            /*display: initial;*/
-            position: absolute;
-            overflow: hidden;
-            height: 100%;
-            width: 25%;
-            top: 0;
-            bottom: 0;
-            text-align: left;
-            font-size: 250%;
-            font-family: 'Roboto Slab', serif;
-            line-height: 90%;
-        }
-
-        #leftBar {left: 0;}
-
-        #rightBar {right: 0;}
-    }
-/**/
+}

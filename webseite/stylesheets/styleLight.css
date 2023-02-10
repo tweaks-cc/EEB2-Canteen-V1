@@ -1,47 +1,34 @@
 
-body {background-color: whitesmoke; /* 10% */}
+body {background-color: whitesmoke;}
 
-#leftBar, #rightBar {
-    color: cornflowerblue;
-    background-color: white;
+button {
+    border-color: #1f49c7;
+    background-color: royalblue;
+    color: white;
 }
 
-/* Knöpfe und Eingabe-Boxen */
-    button {
-        border-color: #1f49c7; /* 45% | -10% */
-        background-color: royalblue; /* 57% ~ 55% */
-        color: white;
-    }
+input {
+    border-color: royalblue;
+    background-color: #1f49c7;
+    color: white;
+}
 
-    input {
-        border-color: royalblue;
-        background-color: #1f49c7;
-        color: white;
-    }
+.buttons {
+    border-color: #b03636;
+    background-color: indianred;
+}
 
-    .buttons {
-        border-color: #b03636; /* 45% | -10% */
-        background-color: indianred; /* 58% ~ 55% */
-    }
-/**/
+#Suppe, #Dessert {
+    background-color: #a7b9f1;
+}
 
 /* Tabelle */
-    td {
-        background-color: #d3dcf8; /* 90% | +35% */
-    }
 
-    th {
-        background-color: royalblue;
-        color: white;
-    }
+td {
+    background-color: #d3dcf8;
+}
 
-    #Suppe, #Dessert {
-        background-color: #a7b9f1; /* 80% | +25% */
-    }
-/**/
-
-/* Legal Notice */
-    #legalNotice {
-        background-color: #E8E8E8; /* 20% | +10% */
-    }
-/**/
+th {
+    background-color: royalblue;
+    color: white;
+}

@@ -1,31 +1,20 @@
 
-/* Wird angewendet, falls Dark-Mode die Präferenz im Browser ist. */
+/* Wendet Dark-Mode an, falls es die Präferenz im Browser ist. */
+
 @media (prefers-color-scheme: dark) {
 
     body {
-        background-color: #202020; /* 20% */
+        background-color: #101010;
         color: white;
     }
 
-    #leftBar, #rightBar {
-        color: royalblue;
-        background-color: black;
+    #Suppe, #Dessert {
+        background-color: #0e2058;
     }
 
     /* Tabelle */
-        td {
-            background-color: #0e2058; /* 20% | -35% */
-        }
 
-        #Suppe, #Dessert {
-            background-color: #153184; /* 30% | -25% */
-        }
-    /**/
-
-    /* Legal Notice */
-        #legalNotice {
-            background-color: #303030; /* 30% | +10% */
-        }
-    /**/
-
+    td {
+        background-color: #07102c;
+    }
 }
