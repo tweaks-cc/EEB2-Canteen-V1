@@ -1,1 +1,0 @@
-shell-scripts/start.sh
