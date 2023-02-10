@@ -100,7 +100,7 @@ function checkdate(backforth, datum, recursiondepth, originalesdatum, newmonth) 
         return checkdate(backforth, neuesdatum, 0 /*Recursiondepth*/, originalesdatum, true)
     }
     // Das Suchen passiert durch das rekursive Rufen der Funktion checkdate()
-    else if (essensdict[tostringdate(datum)] == undefined) {
+    else if (essensdict[tostringdate(datum)] == undefined || essensdict[tostringdate1char(datum)] == undefined) {
         console.log("here22")
         // Macht Datum entweder neuer oder älter => backforth
         // Wenn nach vorne Tag + 1

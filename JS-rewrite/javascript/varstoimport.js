@@ -8,7 +8,7 @@ var aktuellesdatum = [tagdatum, monat]
 console.log("created:", aktuellesdatum)
 var wochentag = datum.getDay()
 // Zu Testzwecken, weil gerade das heutige Datum nicht in der JSON ist
-var aktuellesdatum = ["01", "01"]
+//var aktuellesdatum = ["01", "01"]
 
 const übersetzung_de = {
     "le":             "der ",
@@ -42,5 +42,18 @@ function tostringdate(datumint) {
     // Macht aus dem Array einen String
     datumstr = datumint[0] + "." + datumint[1]
     console.log("dstr",datumstr)
+    return datumstr // Returnt das Datum als String: zahl.zahl
+}
+
+function tostringdate1char(datumint) {
+    console.log("1char", datumint)
+    // Nimmt ein Datum als Zahlenarray
+    // [Tag, Monat]
+    // Macht aus dem Array einen String
+    datumstr = datumint[0] + "." + datumint[1]
+    if ((datumint[1])[0] == "0") {
+        datumint[1] = (datumint[1])[1]
+    }
+    console.log("dstr", datumstr)
     return datumstr // Returnt das Datum als String: zahl.zahl
 }

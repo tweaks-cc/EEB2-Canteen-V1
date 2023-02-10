@@ -1,26 +1,18 @@
 import json
 
-#Debugging
-#from colorama import init, Fore, Back
-#init(autoreset=True)
-
-
 # --Französisch--
 
 
 # Liest den bereits vorhandenen Dict aus
-with open("javascript/essensdict_fr.js", "r") as outputfile:
+with open("javascript/essensdict_fr.js", "r", encoding="UTF-16") as outputfile:
     alterdict = outputfile.read()
 
 # Liest den neuen Dict, welcher frisch aus dem xlsx-Leser kommt, aus 
-with open("..//auswerten-python//outputs//output.json", "r", encoding="utf-8") as outputjson:
-    neuerdict = json.loads(outputjson.read())  
+with open("..//auswerten-python//outputs//output.json", "r", encoding="UTF-16") as outputjson:
+    neuerdict = json.loads(outputjson.read())
 
 # Entfernt den Kommentar und das 'const =' aus dem String aus der JS Datei und wandelt ihn zum Dict um
 alterdict = json.loads(alterdict[69:-1] + "}")
-
-#Debugging
-#print(Fore.MAGENTA + str(alterdict))
 
 # Checkt ob der alte und der neue übereinstimmen
 if alterdict != neuerdict:
@@ -37,13 +29,10 @@ if alterdict != neuerdict:
         else:
             alterdict[tag] = neuerdict[tag]
 
-    #Debugging
-    #print(Fore.GREEN + str(alterdict))
-
     # Zum Schluss wird der aktualisierte Dict wieder in die .js gedrückt
-    with open("javascript/essensdict_fr.js", "w") as outputfile:
+    with open("javascript/essensdict_fr.js", "w", encoding="UTF-16") as outputfile:
         outputfile.write("// Ist halt der Dict mit all dem Essen\nconst importedessensdict_fr = ")
-    with open("javascript/essensdict_fr.js", "a") as outputfile:
+    with open("javascript/essensdict_fr.js", "a", encoding="UTF-16") as outputfile:
         outputfile.write(json.dumps(alterdict))
 
 
@@ -51,18 +40,15 @@ if alterdict != neuerdict:
 
 
 # Liest den bereits vorhandenen Dict aus
-with open("javascript/essensdict_de.js", "r") as outputfile:
+with open("javascript/essensdict_de.js", "r", encoding="UTF-16") as outputfile:
     alterdict = outputfile.read()
 
 # Liest den neuen Dict, welcher frisch aus dem xlsx-Leser kommt, aus 
-with open("..//auswerten-python//outputs//output_de.json", "r", encoding="utf-8") as outputjson:
+with open("..//auswerten-python//outputs//output_de.json", "r", encoding="UTF-16") as outputjson:
     neuerdict = json.loads(outputjson.read())  
 
 # Entfernt den Kommentar und das 'const =' aus dem String aus der JS Datei und wandelt ihn zum Dict um
 alterdict = json.loads(alterdict[69:-1] + "}")
-
-#Debugging
-#print(Fore.MAGENTA + str(alterdict))
 
 # Checkt ob der alte und der neue übereinstimmen
 if alterdict != neuerdict:
@@ -79,13 +65,10 @@ if alterdict != neuerdict:
         else:
             alterdict[tag] = neuerdict[tag]
 
-    #Debugging
-    #print(Fore.GREEN + str(alterdict))
-
     # Zum Schluss wird der aktualisierte Dict wieder in die .js gedrückt
-    with open("javascript/essensdict_de.js", "w") as outputfile:
+    with open("javascript/essensdict_de.js", "w", encoding="UTF-16") as outputfile:
         outputfile.write("// Ist halt der Dict mit all dem Essen\nconst importedessensdict_de = ")
-    with open("javascript/essensdict_de.js", "a") as outputfile:
+    with open("javascript/essensdict_de.js", "a", encoding="UTF-16") as outputfile:
         outputfile.write(json.dumps(alterdict))
 
 
@@ -93,18 +76,15 @@ if alterdict != neuerdict:
 
 
 # Liest den bereits vorhandenen Dict aus
-with open("javascript/essensdict_en.js", "r") as outputfile:
+with open("javascript/essensdict_en.js", "r", encoding="UTF-16") as outputfile:
     alterdict = outputfile.read()
 
 # Liest den neuen Dict, welcher frisch aus dem xlsx-Leser kommt, aus 
-with open("..//auswerten-python//outputs//output_en.json", "r", encoding="utf-8") as outputjson:
+with open("..//auswerten-python//outputs//output_en.json", "r", encoding="UTF-16") as outputjson:
     neuerdict = json.loads(outputjson.read())  
 
 # Entfernt den Kommentar und das 'const =' aus dem String aus der JS Datei und wandelt ihn zum Dict um
 alterdict = json.loads(alterdict[69:-1] + "}")
-
-#Debugging
-#print(Fore.MAGENTA + str(alterdict))
 
 # Checkt ob der alte und der neue übereinstimmen
 if alterdict != neuerdict:
@@ -121,11 +101,8 @@ if alterdict != neuerdict:
         else:
             alterdict[tag] = neuerdict[tag]
 
-    #Debugging
-    #print(Fore.GREEN + str(alterdict))
-
     # Zum Schluss wird der aktualisierte Dict wieder in die .js gedrückt
-    with open("javascript/essensdict_en.js", "w") as outputfile:
+    with open("javascript/essensdict_en.js", "w", encoding="UTF-16") as outputfile:
         outputfile.write("// Ist halt der Dict mit all dem Essen\nconst importedessensdict_en = ")
-    with open("javascript/essensdict_en.js", "a") as outputfile:
+    with open("javascript/essensdict_en.js", "a", encoding="UTF-16") as outputfile:
         outputfile.write(json.dumps(alterdict))

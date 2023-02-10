@@ -37,6 +37,8 @@ for tag in neuerdict_de:
     templist = []
     i = 0
     for thing in neuerdict_de[tag]:
+        try: thing.strip()
+        except: "undefined"
         # Wenn index = 0 (aka. Datum) nimmt er die Datumsübersetzungen
         if   i == 0:
             templist.append(misc_de[thing])
@@ -77,6 +79,8 @@ for tag in neuerdict_en:
     templist = []
     i = 0
     for thing in neuerdict_en[tag]:
+        try: thing.strip()
+        except: "undefined"
         # Wenn index = 0 (aka. Datum) nimmt er die Datumsübersetzungen
         if   i == 0:
             templist.append(misc_en[thing])
