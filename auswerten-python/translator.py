@@ -5,7 +5,7 @@ from googletrans import Translator
 translator = Translator()
 
 # Nimmt sich das neueste Menü
-with open("outputs/output.json", "r", encoding="utf-8") as file:
+with open("outputs/output.json", "r", encoding="utf-16") as file:
     originaledatei = json.loads(file.read())
     
 
@@ -83,7 +83,8 @@ Hauptspeisenteile_de[None] = "     "
 Hauptspeisenteile_de.pop(None, 1)
     
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/suppen_deutsch.json", "r") as file:
+with open("dictionary_fr/suppen_deutsch.json", "r", encoding="utf-16") as file:
+
     altersuppendict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -94,11 +95,11 @@ for neuesuppe in Suppen_de:
         altersuppendict[neuesuppe] = Suppen_de[neuesuppe]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/suppen_deutsch.json", "w") as file:
+with open("dictionary_fr/suppen_deutsch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(altersuppendict))
 
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/haupt_deutsch.json", "r") as file:
+with open("dictionary_fr/haupt_deutsch.json", "r", encoding="utf-16") as file:
     alterhauptdict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -109,7 +110,7 @@ for neuesteil in Hauptspeisenteile_de:
         alterhauptdict[neuesteil] = Hauptspeisenteile_de[neuesteil]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/haupt_deutsch.json", "w") as file:
+with open("dictionary_fr/haupt_deutsch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(alterhauptdict))
 
 
@@ -139,7 +140,7 @@ for thing in Suppen:
 Suppenstr_en = translator.translate(Suppenstr, src="fr", dest="en").text
 # Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Suppenlist_en = Suppenstr_en.split(",")
-# Muss, weil leeres Element am ende der Liste wegen dem loop Z.132/133
+# Muss, weil leeres Element am ende der Liste wegen dem loop Z.116/133
 Suppenlist_en.pop()
 
 # Checkt ob Suppen ordentlich übersetzt wurden, passiert iwie manchmal
@@ -187,7 +188,7 @@ Hauptspeisenteile_en[None] = "     "
 Hauptspeisenteile_en.pop(None, 1)
     
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/suppen_englisch.json", "r") as file:
+with open("dictionary_fr/suppen_englisch.json", "r", encoding="utf-16") as file:
     altersuppendict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -198,11 +199,11 @@ for neuesuppe in Suppen_en:
         altersuppendict[neuesuppe] = Suppen_en[neuesuppe]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/suppen_englisch.json", "w") as file:
+with open("dictionary_fr/suppen_englisch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(altersuppendict))
 
 # Öffnet das vorhandene Wörterbuch
-with open("dictionary_fr/haupt_englisch.json", "r") as file:
+with open("dictionary_fr/haupt_englisch.json", "r", encoding=("utf-16")) as file:
     alterhauptdict = json.loads(file.read())
 
 # Checkt ob die (neue) Übersetzung schon vorhanden ist
@@ -213,7 +214,7 @@ for neuesteil in Hauptspeisenteile_en:
         alterhauptdict[neuesteil] = Hauptspeisenteile_en[neuesteil]
 
 # Packt das Wörterbuch mit den neuen Übersetzungen wieder in die Datei
-with open("dictionary_fr/haupt_englisch.json", "w") as file:
+with open("dictionary_fr/haupt_englisch.json", "w", encoding="utf-16") as file:
     file.write(json.dumps(alterhauptdict))
 
 # Exit code, bc why not?

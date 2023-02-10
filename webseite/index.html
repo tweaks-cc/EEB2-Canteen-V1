@@ -13,7 +13,12 @@
     </head>
     <body onload="checkweekend(); main(aktuellesdatum); searchcustomdate('reset')">
         <h1>Canteen Menu Listings</h1>
+
+        <div id="leftBar">
+        </div>
+
         <div id="kontent">
+
             <div id="buttonsOben">
                 <button onclick='
                     sprache = übersetzung_fr;
@@ -53,6 +58,7 @@
                     <td id="Dessert" onclick="search(document.getElementById('Dessert').innerText)"style="border-bottom-right-radius: 8px;"></td>
                 </tr>
             </table>
+
             <div id="buttonsUnten">
                 <button onclick="changeddate('back')"  style="float: left; ">Back</button>
                 <input  id="customdate" type="date">
@@ -71,5 +77,20 @@
             <br id="errorspacing" style="display: none;">
             <p  id="showsearch"></p>
         </div>
+        
+        <div id="rightBar">
+            <p style="width: 150%;">
+                EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2 APEE EEB2
+            </p>
+        </div>
+    
+        <div id="legalNotice">
+            <p>
+                This <a href="https://github.com/JoFaHD/Kantine" target="_blank">open source</a> project is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">AGPL V3</a>.
+                <br>
+                We are not affiliated in any way or form with the <a href="https://www.eeb2.eu/" target="_blank">EEB2</a> or the <a href="https://www.woluweparents.org/en/" target="_blank">APEEE</a>, this is a personal project by two students.
+            </p>
+        </div>
+
     </body>
 </html>
