@@ -2,8 +2,8 @@ import json
 import os
 import pandas
 import datetime
-from colorama import init, Fore
-init(autoreset=True)
+#from colorama import init, Fore
+#init(autoreset=True)
 
 # Screenclearing
 try: os.system("cls")
@@ -26,39 +26,7 @@ zuentfernen = [
     "Mollusques", "Lupin"
 ]
 
-zahlen = {
-    "01": "eins",
-    "02": "zwei",
-    "03": "drei",
-    "04": "vier",
-    "05": "fuenf",
-    "06": "sechs",
-    "07": "sieben",
-    "08": "acht",
-    "09": "neun",
-    "10": "zehn",
-    "11": "elf",
-    "12": "zwoelf",
-    "13": "dreizehn",
-    "14": "vierzehn",
-    "15": "fuenfzehn",
-    "16": "sechzehn",
-    "17": "siebzehn",
-    "18": "achtzehn",
-    "19": "neunzehn",
-    "20": "zwanzig",
-    "21": "einundzwanzig",
-    "22": "zweiundzwanzig",
-    "23": "dreiundzwanzig",
-    "24": "vierundzwanzig",
-    "25": "fuenfundzwanzig",
-    "26": "sechsundzwanzig",
-    "27": "siebenundzwanzig",
-    "28": "achtundzwanzig",
-    "29": "neunundzwanzig",
-    "30": "dreissig",
-    "31": "einunddreissig"
-}
+zahlenliste = ["01", "02", "03", "04", "05", "06", "07", "08", "09"]
 
 zahlzuwochentag = {
      0:	"Lundi",
@@ -157,15 +125,18 @@ for file in listedateien:
 
             # Definiert den jeweiligen Tag und Monat des Tages
             day = jsondict[f"Week{i}"][dayofweek][0][1]          # In Woche{x}, Tag x, Datumsliste [Wochentag, __Datum__, Monat], das Datum
+            if day in zahlenliste: 
+                print("is drin")
+                day = str(day).replace("0", "") 
             month = jsondict[f"Week{i}"][dayofweek][0][2]        # Datumsliste [Wochentag, Datum, __Monat__], den Monat
+            if month in zahlenliste: month = str(month).replace("0", "")
 
             # Erstellt den Tag mit dem Namensformat Tag.Monat und packt den entsprechenden Tag rein
-            jsondict[f"{zahlen[day]}.{zahlen[month]}"] = jsondict[f"Week{i}"][dayofweek]
-            # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
+            jsondict[f"{day}.{month}"] = jsondict[f"Week{i}"][dayofweek] # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
             
             # Fals der Tag ein Feirtag sein sollte, wenn es also keine Suppe gibt (Tag[1] == None) dann einfach statt dem Feiertagsnamen "Feiertag" reinschreiben
-            if jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][1] == None: jsondict[f"{zahlen[day]}.{zahlen[str(month)]}"][3] = "Jour férié"
+            if jsondict[f"{day}.{str(month)}"][1] == None: jsondict[f"{day}.{str(month)}"][3] = "Jour férié"
 
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")

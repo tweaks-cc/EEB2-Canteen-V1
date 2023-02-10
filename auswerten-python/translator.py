@@ -44,6 +44,7 @@ if len(Suppenlist_de) != len(Suppen):
     # Gleicher übersetztungsprozess wie oben
     Suppenstr = ""
     for thing in neuesuppenliste:
+        if thing == None: thing = "german"
         Suppenstr += thing + ";"
     Suppenstr_de = translator.translate(Suppenstr, src="fr", dest="de").text
     Suppenlist_de += Suppenstr_de.split(";")
