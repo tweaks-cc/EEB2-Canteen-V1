@@ -1,8 +1,10 @@
 # Lutscht sich alle neuen Teile des Monats/Woche und übersetzt alle erstmal auf Deutsch und Englisch
 
 import json
-from googletrans import Translator
-translator = Translator()
+# from googletrans import Translator
+from deepl import deepl
+
+# translator = Translator()
 
 # Nimmt sich das neueste Menü
 with open("outputs/output.json", "r", encoding="utf-16") as file:
@@ -29,8 +31,10 @@ for thing in Suppen:
     Suppenstr += thing + ";"
 
 # Hier wird der String übersetzt | Deutsch
-try: Suppenstr_de = translator.translate(Suppenstr, src="fr", dest="de").text
-except AttributeError: print(" Funzt iwie nicht, ausser mit der Version hier: pip install googletrans==4.0.0-rc1")
+# try: Suppenstr_de = translator.translate(Suppenstr, src="fr", dest="de").text
+# except AttributeError: print(" Funzt iwie nicht, ausser mit der Version hier: pip install googletrans==4.0.0-rc1")
+translator = deepl.DeepLCLI("fr", "de")
+Suppenstr_de = translator.translate(Suppenstr)
 # Überstetzter String wird wieder auseinander gezogen und zur Liste gemacht
 Suppenlist_de = Suppenstr_de.split(";")
 # Muss, weil leeres Element am ende der Liste wegen dem loop Z.27/28
@@ -46,7 +50,7 @@ if len(Suppenlist_de) != len(Suppen):
     for thing in neuesuppenliste:
         if thing == None: thing = "german"
         Suppenstr += thing + ";"
-    Suppenstr_de = translator.translate(Suppenstr, src="fr", dest="de").text
+    Suppenstr_de = translator.translate(Suppenstr).text
     Suppenlist_de += Suppenstr_de.split(";")
     Suppenlist_de.pop()
     
