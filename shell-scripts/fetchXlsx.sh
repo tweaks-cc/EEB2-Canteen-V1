@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-br="printf "\n""
+br="printf \n"
 
 file=input-$(date +%W -d "$1 Weeks")-$(date +%Y -d "$1 Weeks").xlsx
 dir=../auswerten-python/menues
