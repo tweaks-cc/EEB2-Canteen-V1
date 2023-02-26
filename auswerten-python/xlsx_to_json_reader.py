@@ -127,8 +127,16 @@ for file in listedateien:
             jsondict[f"{day}.{month}.{year}"] = jsondict[f"Week{i}"][dayofweek] # Löscht dann die Liste mit den drei Teilen des Datums des jeweiligen Tages
             jsondict[f"Week{i}"][dayofweek].pop(0)
             
-            # Fals der Tag ein Feiertag sein sollte, wenn es also keine Suppe gibt (Tag[1] == None) dann einfach statt dem Feiertagsnamen "Feiertag" reinschreiben
-            if jsondict[f"{day}.{str(month)}.{year}"][1] == None: jsondict[f"{day}.{str(month)}.{year}"][3] = "Jour férié"
+            # Falls Tag während Examen, bewegen des Textes "Menu examen" zu einheitlichen Platz
+            # Falls Tag keine Suppe hat und kein Examen, dann ist es ein Feiertag
+            # --> Ersetzen des Feiertagsnamen mit "Jour férié"
+            # tag[1] = Suppe
+            # tag[0] müsste Wochentag sein
+            if jsondict[f"{day}.{str(month)}.{year}"][2] == "Menu examen":
+                jsondict[f"{day}.{str(month)}.{year}"][2] = None
+                jsondict[f"{day}.{str(month)}.{year}"][3] = "Menu examen"
+            elif jsondict[f"{day}.{str(month)}.{year}"][1] == None:
+                jsondict[f"{day}.{str(month)}.{year}"][3] = "Jour férié"
 
         # Nach dem finalen Formatieren der Tage wird dann die Woche, aus der die Daten genommen wurden, entfernt
         jsondict.pop(f"Week{i}")
