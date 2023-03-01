@@ -1,6 +1,0 @@
-TODO:
-Immer nur neue sachen übersetzen; heisst letztes Datum speichern ig
-Packen der Sachen in die JS für auslesen auf der Webseite
-Am besten immer nur 30 oder 40 Tage in der JS
-Neuschreiben (xD) der JS wegen neuem System
-Maybe direkt nodejs??? naaah

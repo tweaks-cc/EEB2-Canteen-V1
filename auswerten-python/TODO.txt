@@ -1,0 +1,18 @@
+TODO:
+Immer nur neue sachen übersetzen; heisst letztes Datum speichern ig
+Packen der Sachen in die JS für auslesen auf der Webseite
+Am besten immer nur 30 oder 40 Tage in der JS
+Neuschreiben (xD) der JS wegen neuem System
+Maybe direkt nodejs??? naaah
+
+PLAN:
+ Zum einsetzten in der datei muss gemacht werden:
+  Lesen des vorhandenen Menüs, temporäre zusammenfügung des neuen Menüs und des alten
+  ==> Falls length > 40 bis auf vierzig schneiden | Das dann aber permanent, da gekürzte version ja dann verwendet werden soll
+  !! Wichtig von anfang an, dafür am besten nochmal sortieren
+  Dict auch nicht vergessen -> Check, länge des dict zur Kontrolle mit tempdict.__len__()
+  Beim dict halt immer die jeweiligen daten entfernen die ja im array im array an letzter stelle stehen
+  Nachdem gecheckt und gegebenenfalls gekürzt einfach vorhandenes löschen aus der JS Datei und neues einsetzen. Siehe Zeile 82 im translator für anfangs Char
+  einsetzen für Datumsdict und dann dahinter am besten in der neuen zeile für das array
+  --> dafür muss aber der hier noch mit rein: importedEssensDictDE[2]  = [XXX]
+  Da array für die struktur des dicts und des arrays schon vorhanden sind, daten werden nur drübergebügelt Siehe die JS

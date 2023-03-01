@@ -1,20 +1,20 @@
 import json
 from deepl import deepl
 
-# Gets the newest menue/output
+# Gets the newest menu/output
 with open("outputs/output.json", "r", encoding="utf-16") as file:
     untranslatedFile = json.loads(file.read())
 
-dayArray = [] # Array of the menue | was in a dict with date as key
+dayArray = [] # Array of the menu | was in a dict with date as key
 # Dict with date as key, that gives the index of a specific Date in the datearray
 # Takes the old dict, so that the structure and dates are still there, and the index can just replace the content
 indexDict = untranslatedFile
 
 for day in untranslatedFile:
     # Adds the date of the day as the last item
-    dayContent = untranslatedFile[day] # Gets the content/menue of the day
-    dayContent.append(day) # Appends after the menue and weekday in pos 0 the date for correction ig
-    # Puts the contents of the menue dict in the Array
+    dayContent = untranslatedFile[day] # Gets the content/menu of the day
+    dayContent.append(day) # Appends after the menu and weekday in pos 0 the date for correction ig
+    # Puts the contents of the menu dict in the Array
     dayArray.append(dayContent)
 
 
@@ -30,7 +30,7 @@ def sorter(dateOfDay):
 # Sorts the dayArray with the function above
 dayArray = sorted(dayArray, key=sorter)
 
-# Replaces the menue of the day with the index in the datearray where the menue is stored
+# Replaces the menu of the day with the index in the datearray where the menu is stored
 for index, day in enumerate(dayArray):
     # day[-1] is the date of the day, wich is stored in last position of contentlist
     # see line 20
@@ -72,12 +72,17 @@ for dayString in deTranslatedStringArray:
     dayTransArray = dayString.split("¤")
     # Removes the whitespaces that appear in the date | Don't know why, but better get them out
     dayTransArray[-1] = dayTransArray[-1].replace(" ", "")
-    deTranslatedArray.append(dayTransArray)  # Adds the array of the menue in the big array
+    deTranslatedArray.append(dayTransArray)  # Adds the array of the menu in the big array
 
 # Prints the final translated array for debugging | can be removed
 print(deTranslatedArray, "\n")
-with open("../JS-rewrite/javascript/essensdict_de.js") as dictDeJS:
-    print()
+
+with open("../JS-rewrite/menus/menu_dict_de.js") as dictDeJS:
+    DEtext = dictDeJS.read()
+    # CharIndex 137 is the beginning of where we can put the data
+    print(DEtext[137:-1], "\n")
+
+exit("temp")
 
 # ---Englisch translation
 
@@ -115,7 +120,7 @@ for dayString in enTranslatedStringArray:
     dayArray = dayString.split("¤")
     # Removes the whitespaces that appear in the date | Don't know why, but better get them out
     dayArray[-1] = dayArray[-1].replace(" ", "")
-    enTranslatedArray.append(dayArray)  # Adds the array of the menue in the big array
+    enTranslatedArray.append(dayArray)  # Adds the array of the menu in the big array
 
 # Prints the final translated array for debugging | can be removed
 print(enTranslatedArray)
