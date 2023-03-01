@@ -61,7 +61,8 @@ deString = deString[0:-1]
 # Translation using the DeeplCLI at https://github.com/eggplants/deepl-cli
 translator = deepl.DeepLCLI("fr", "de")
 
-translatedStr = translator.translate(deString)
+try: translatedStr = translator.translate(deString)
+except TimeoutError: exit("TimeoutError. Please repeat execution")
 
 # Here is the process for getting the string that was needed for it to be translated back to an array of arrays
 deTranslatedStringArray = translatedStr.split("§")  # First split to get an array of strings
@@ -74,7 +75,7 @@ for dayString in deTranslatedStringArray:
     deTranslatedArray.append(dayTransArray)  # Adds the array of the menue in the big array
 
 # Prints the final translated array for debugging | can be removed
-print(deTranslatedArray)
+print(deTranslatedArray, "\n")
 
 # ---Englisch translation
 
@@ -101,7 +102,8 @@ enString = enString[0:-1]
 # Translation using the DeeplCLI at https://github.com/eggplants/deepl-cli
 translator = deepl.DeepLCLI("fr", "en")
 
-translatedStr = translator.translate(enString)
+try: translatedStr = translator.translate(enString)
+except TimeoutError: exit("TimeoutError. Please repeat execution")
 
 # Here is the process for getting the string that was needed for it to be translated back to an array of arrays
 enTranslatedStringArray = translatedStr.split("§")  # First split to get an array of strings
