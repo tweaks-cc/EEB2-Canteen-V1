@@ -2,7 +2,7 @@ import json
 from deepl import deepl
 
 # Gets the newest menue/output
-with open("../outputs/output.json", "r", encoding="utf-16") as file:
+with open("outputs/output.json", "r", encoding="utf-16") as file:
     untranslatedFile = json.loads(file.read())
 
 dayArray = [] # Array of the menue | was in a dict with date as key
@@ -76,6 +76,8 @@ for dayString in deTranslatedStringArray:
 
 # Prints the final translated array for debugging | can be removed
 print(deTranslatedArray, "\n")
+with open("../JS-rewrite/javascript/essensdict_de.js") as dictDeJS:
+    print()
 
 # ---Englisch translation
 

@@ -1,7 +1,6 @@
 TODO:
-Englische Übersetzung --> exakt gleicher Code wir für Deutsch nur halt mit englisch .__.
-Gucken ob Übersetzung abspeichern oder einfach immer neu übersetzen
-Wenn neu übersetzen, dann immer nur neue sachen übersetzen; heisst letztes Datum speichern ig
+Immer nur neue sachen übersetzen; heisst letztes Datum speichern ig
 Packen der Sachen in die JS für auslesen auf der Webseite
+Am besten immer nur 30 oder 40 Tage in der JS
 Neuschreiben (xD) der JS wegen neuem System
-Maybe direkt nodejs???
+Maybe direkt nodejs??? naaah
