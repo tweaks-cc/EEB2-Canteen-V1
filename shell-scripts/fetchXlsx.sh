@@ -31,10 +31,10 @@ fetch() {
 }
 
 if [[ -e $bakDir ]] ; then
-	mv -f $dir/input-*.xlsx $bakDir	
+	mv -f $dir/input-*.xlsx $bakDir 2> /dev/null
 else
-	mkdir -p $bakDir
-	mv -f $dir/input-*.xlsx $bakDir
+	mkdir -p $bakDir 2> /dev/null
+	mv -f $dir/input-*.xlsx $bakDir 2> /dev/null
 fi
 
 if [[ $weekNum == 0 ]] ; then
