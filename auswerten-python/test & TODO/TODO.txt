@@ -16,3 +16,8 @@ PLAN:
   einsetzen für Datumsdict und dann dahinter am besten in der neuen zeile für das array
   --> dafür muss aber der hier noch mit rein: importedEssensDictDE[2]  = [XXX]
   Da array für die struktur des dicts und des arrays schon vorhanden sind, daten werden nur drübergebügelt Siehe die JS
+
+
+
+Bitte herausfinden warum bei Examen noch Nachtisch??? Und wie entfernen
+-> weil in der xlsxto... None geht iwie nicht gerade, da nach deepl einfach nachtischindex ganz weg

@@ -74,9 +74,9 @@ for dayString in deTranslatedStringArray:
     dayTransArray[-1] = dayTransArray[-1].replace(" ", "")
     deTranslatedArray.append(dayTransArray)  # Adds the array of the menu in the big array
 
-for dayArr in deTranslatedArray:
-    for dayPart in dayArr:
-        if dayPart == "Prüfungsmenü" or dayPart == "Menüprüfung": print()
+for index1, dayArr in enumerate(deTranslatedArray):
+    for index2, dayPart in enumerate(dayArr):
+        if dayPart == "Prüfungsmenü" or dayPart == "Menüprüfung": deTranslatedArray[index1][index2] = "Examensmenü"
 
 # Prints the final translated array for debugging | can be removed
 for day in deTranslatedArray: print(day)
