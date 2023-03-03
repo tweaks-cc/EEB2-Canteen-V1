@@ -74,16 +74,45 @@ for dayString in deTranslatedStringArray:
     dayTransArray[-1] = dayTransArray[-1].replace(" ", "")
     deTranslatedArray.append(dayTransArray)  # Adds the array of the menu in the big array
 
+for dayArr in deTranslatedArray:
+    for dayPart in dayArr:
+        if dayPart == "Prüfungsmenü" or dayPart == "Menüprüfung": print()
+
 # Prints the final translated array for debugging | can be removed
 for day in deTranslatedArray: print(day)
 print("\n")
 
+# Reads the menu from the file and makes it into a real var that can be interacted with
+# Name of the var won't be seen as valid, as it technically doesn't exist
+
+with open("../JS-rewrite/menus/menu_de.js", encoding="UTF-16") as menuDeJS:
+    DEtext = menuDeJS.read()
+    # CharIndex 137 is the beginning of where we can put the data
+    exec(DEtext[4:])
+    print(importedEssensDictDE)
+    # print(DEtext[137:-1], "\n")
+
+# Here the new menu is inserted into the JS-file
+# --Notes--
+# importedEssensDictDE = ["Index 0 = Info |-| Index 1 = Date-Index-Dict |-| Index 2 = Menu-Array", "", ""]
+# CharIndex 137 is the beginning of where we can put the data
+# Vars to be inserted:
+# deTranslatedArray is the array of the menu
+# indexDict should be the dict for the Date-Index relation
+# Text to be inserted should be something like this:
+#    Has to be a formattable string for easy insertion of data
+# importedEssensDictDE[1]  = {indexDict} \n
+# importedEssensDictDe[2]  = {deTranslatedDe}
+# For writing file[137:] to replace all text from 137 is the best, because old things don't need to be remembered | already got checked by the read
+
+# Actual Code
+arrayStructure = 'var importedEssensDictDE = ["Index 0 = Info |-| Index 1 = Date-Index-Dict |-| Index 2 = Menu-Array", "", ""]'
+with open("../JS-rewrite/menus/menu_de.js", "w", encoding="UTF-16") as menuJsDe:
+    newContent = f"{arrayStructure}\nimportedEssensDictDE[1]  = {indexDict}\nimportedEssensDictDE[2]  = {deTranslatedArray}"
+    menuJsDe.write(newContent)
+
 exit("temp")
 
-with open("../JS-rewrite/menus/menu_dict_de.js") as dictDeJS:
-    DEtext = dictDeJS.read()
-    # CharIndex 137 is the beginning of where we can put the data
-    print(DEtext[137:-1], "\n")
 
 
 
