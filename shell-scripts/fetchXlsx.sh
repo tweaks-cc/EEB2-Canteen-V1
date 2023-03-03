@@ -68,5 +68,5 @@ elif [[ $weekNum == 4 ]] ; then
 	fetch -1
 	fetch +0
 else
-	echo "not found"
+	echo "$(tput bold setaf 1)Week number value of '$weekNum' impossible - Debugging needed$(tput sgr0)"
 fi
