@@ -132,9 +132,16 @@ for file in listedateien:
             # --> Ersetzen des Feiertagsnamen mit "Jour férié"
             # tag[1] = Suppe
             # tag[0] müsste Wochentag sein
+            # "Hello".lo
             if jsondict[f"{day}.{str(month)}.{year}"][2] == "Menu examen":
                 jsondict[f"{day}.{str(month)}.{year}"][2] = None
                 jsondict[f"{day}.{str(month)}.{year}"][3] = "Menu examen"
+            elif jsondict[f"{day}.{str(month)}.{year}"][2] != None and jsondict[f"{day}.{str(month)}.{year}"][2].strip().lower().startswith("pizza"):
+                temp = jsondict[f"{day}.{str(month)}.{year}"][2]
+                jsondict[f"{day}.{str(month)}.{year}"][2] = jsondict[f"{day}.{str(month)}.{year}"][3]
+                jsondict[f"{day}.{str(month)}.{year}"][3] = temp
+                temp = None
+                continue
             elif jsondict[f"{day}.{str(month)}.{year}"][1] == None:
                 jsondict[f"{day}.{str(month)}.{year}"][3] = "Jour férié"
 

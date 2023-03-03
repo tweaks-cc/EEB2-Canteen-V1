@@ -75,14 +75,17 @@ for dayString in deTranslatedStringArray:
     deTranslatedArray.append(dayTransArray)  # Adds the array of the menu in the big array
 
 # Prints the final translated array for debugging | can be removed
-print(deTranslatedArray, "\n")
+for day in deTranslatedArray: print(day)
+print("\n")
+
+exit("temp")
 
 with open("../JS-rewrite/menus/menu_dict_de.js") as dictDeJS:
     DEtext = dictDeJS.read()
     # CharIndex 137 is the beginning of where we can put the data
     print(DEtext[137:-1], "\n")
 
-exit("temp")
+
 
 # ---Englisch translation
 
