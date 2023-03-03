@@ -1,0 +1,1 @@
+readvar = ["Oh Hi...This is in a file", "This is index 1"]
