@@ -1,7 +1,5 @@
 #! /usr/bin/env sh
 
-br="printf \n"
-
 weekNum="$(printf $((
 $(date +%-W) - $(date +%-W -d "$(date +%Y)/$(date +%m)/01")
 )))"
