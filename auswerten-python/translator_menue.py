@@ -45,7 +45,7 @@ for tag in neuerdict_de:
             templist.append(suppen_de[thing])
         # Wenn index = 5 (aka. Nachtisch) nimmt er die Nachtischübersetzungen
         elif i == 5:
-            templist.append(nachtisch_de[thing.strip()])
+            templist.append(nachtisch_de[thing])
         # Ansonsten (aka. Hauptgangteile) nimmt er die Hauptgangübersetzungen
         else:
             if thing == "jour férié":
@@ -85,7 +85,7 @@ for tag in neuerdict_en:
             templist.append(suppen_en[thing])
         # Wenn index = 5 (aka. Nachtisch) nimmt er die Nachtischübersetzungen
         elif i == 5:
-            templist.append(nachtisch_en[thing.strip()])
+            templist.append(nachtisch_en[thing])
         # Ansonsten (aka. Hauptgangteile) nimmt er die Hauptgangübersetzungen
         else:
             if thing == "jour férié":
