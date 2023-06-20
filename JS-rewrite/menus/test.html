@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menu Analysis</title>
+	<script src="menu_analysis_funcs.js"></script>
+    <script src="menu_de.js"></script>
+    <script>
+        const menu = new Menu(Object.keys(importedEssensDictDE[1]), importedEssensDictDE[1], importedEssensDictDE[2]);
+    </script>
+</head>
+<body>
+	<p id="output" style="border: 1px solid black; padding: 10px;">Hello world</p>
+    <button onclick="console.log(menu.dates)">Log menu</button>
+    <button onclick="console.log(menu.findDateAfter('09.11.2022'))">After</button>
+    <button onclick="console.log(menu.findDateBefore('09.11.2022'))">Before</button>
+    <button onclick="console.log(menu.dates)">Log .dates</button>
+    <button onclick="console.clear()">Clear</button>
+</body>
+</html>

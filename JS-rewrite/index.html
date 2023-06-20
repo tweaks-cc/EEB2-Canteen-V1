@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head onload="startup()">
         <link rel="stylesheet" href="stylesheets/style.css">
+
         <title>Canteen Menu</title>
-        <script src="javascript/essensdict_de.js"></script>
-        <script src="javascript/essensdict_en.js"></script>
-        <script src="javascript/essensdict_fr.js"></script>
-        <script src="javascript/varstoimport.js"></script>
-        <script src="javascript/zahlentoimport.js"></script>
-        <script src="javascript/main.js"></script>
-        <!--<script src="javascript/wiki.js"></script>-->
+
+        <script src="menus/menu_de.js"></script>
+	    <script src="menus/menu_analysis_funcs.js"></script>
+        <script>
+            //setup
+            const dateToday    = new Date();
+            if (String(dateToday.getDate()).length == 1) { day = "0" + String(dateToday.getDate()) };
+            if (String(dateToday.getMonth()).length == 1) { month = "0" + String(dateToday.getMonth() + 1) };
+            const dateTodayStr = `${day}.${month}.${dateToday.getFullYear()}`
+        </script>
+
     </head>
-    <body onload="checkweekend(); main(aktuellesdatum); searchcustomdate('reset')">
+    <body>
         <h1>Canteen Menu Listings</h1>
         <div id="kontent">
             <div id="buttonsOben">
@@ -54,22 +59,11 @@
                 </tr>
             </table>
             <div id="buttonsUnten">
-                <button onclick="changeddate('back')"  style="float: left; ">Back</button>
+                <button onclick="menu.findDateBefore(dateTodayStr)" style="float: left; ">Back</button>
                 <input  id="customdate" type="date">
-                <button id="searchdate" onclick="searchcustomdate()">Search date</button>
-                <button onclick="changeddate('forth')" style="float: right;">Next</button>
+                <button id="searchdate" onclick="specDateButton(document.getElementById('customdate').value)">Search date</button>
+                <button onclick="menu.findDateAfter(dateTodayStr)" style="float: right;">Next</button>
             </div>
-        
-            <p id="fehlermeldung"></p>
-            <ul>
-                <button id="search1" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search1').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-                <button id="search2" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search2').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-                <button id="search3" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search3').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-                <button id="search4" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search4').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-                <button id="search5" class="buttons" onclick="document.getElementById('showsearch').innerText = pagecontent[document.getElementById('search5').innerHTML]; document.getElementById('showsearch').style.display = 'block'"></button>
-            </ul>
-            <br id="errorspacing" style="display: none;">
-            <p  id="showsearch"></p>
         </div>
     </body>
 </html>
