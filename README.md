@@ -1,5 +1,5 @@
 # If you want to visit the real menu-site:
-Go to: [Canteen-menu](https://jofahd.github.io/EEB2-Canteen-V1/webseite)
+Go to: [Canteen-menu](https://tweaks-cc.github.io/EEB2-Canteen-V1/webseite/index.html)
 
 <br><br>
 Feel free to open an Issue or to contribute yourself. We are open to feedback.
