@@ -30,6 +30,8 @@ def sorter(dateOfDay):
 # Sorts the dayArray with the function above
 dayArray = sorted(dayArray, key=sorter)
 
+savedArray = dayArray
+
 # Replaces the menu of the day with the index in the datearray where the menu is stored
 for index, day in enumerate(dayArray):
     # day[-1] is the date of the day, wich is stored in last position of contentlist
@@ -79,8 +81,8 @@ for index1, dayArr in enumerate(deTranslatedArray):
         if dayPart == "Prüfungsmenü" or dayPart == "Menüprüfung": deTranslatedArray[index1][index2] = "Examensmenü"
 
 # Prints the final translated array for debugging | can be removed
-for day in deTranslatedArray: print(day)
-print("\n")
+# for day in deTranslatedArray: print(day)
+# print("\n")
 
 # Reads the menu from the file and makes it into a real var that can be interacted with
 # Name of the var won't be seen as valid, as it technically doesn't exist
@@ -88,9 +90,7 @@ print("\n")
 with open("../JS-rewrite/menus/menu_de.js", encoding="UTF-16") as menuDeJS:
     DEtext = menuDeJS.read()
     # CharIndex 137 is the beginning of where we can put the data
-    exec(DEtext[4:])
-    print(importedEssensDictDE)
-    # print(DEtext[137:-1], "\n")
+    exec(DEtext[4:]) # Removes first 4 chars of string
 
 # Here the new menu is inserted into the JS-file
 # --Notes--
@@ -111,18 +111,13 @@ with open("../JS-rewrite/menus/menu_de.js", "w", encoding="UTF-16") as menuJsDe:
     newContent = f"{arrayStructure}\nimportedEssensDictDE[1]  = {indexDict}\nimportedEssensDictDE[2]  = {deTranslatedArray}"
     menuJsDe.write(newContent)
 
-exit("temp")
-
-
-
-
 # ---Englisch translation
 
 enArray = []
 
 
 # Goes trough every element/day in the original array and joins them with ¤ in between so it can be split again after
-for day in dayArray:
+for day in savedArray:
     dayString = ""
     for thing in day:
         dayString += str(thing) + "¤"
@@ -154,17 +149,34 @@ for dayString in enTranslatedStringArray:
     dayArray[-1] = dayArray[-1].replace(" ", "")
     enTranslatedArray.append(dayArray)  # Adds the array of the menu in the big array
 
-# Prints the final translated array for debugging | can be removed
-print(enTranslatedArray)
 
+for index1, dayArr in enumerate(enTranslatedArray):
+    for index2, dayPart in enumerate(dayArr):
+        if dayPart == "Prüfungsmenü" or dayPart == "Menüprüfung": enTranslatedArray[index1][index2] = "Exammenu"
 
-# After here comes saved for later code and debugging stuffs
-exit()
+# Reads the menu from the file and makes it into a real var that can be interacted with
+# Name of the var won't be seen as valid, as it technically doesn't exist
 
-# Test | Should give the same result as the original array, except other language
-# print(deTranslatedArray[indexdict['28.02.2023']])
-# print(dayArray[indexdict['28.02.2023']])
+with open("../JS-rewrite/menus/menu_en.js", encoding="UTF-16") as menuENJS:
+    ENtext = menuENJS.read()
+    # CharIndex 137 is the beginning of where we can put the data
+    exec(ENtext[4:])
 
-# Test of sorter
-#print(dayArray)
-# print(dayArray[indexdict['28.02.2023']])
+# Here the new menu is inserted into the JS-file
+# --Notes--
+# importedEssensDictDE = ["Index 0 = Info |-| Index 1 = Date-Index-Dict |-| Index 2 = Menu-Array", "", ""]
+# CharIndex 137 is the beginning of where we can put the data
+# Vars to be inserted:
+# deTranslatedArray is the array of the menu
+# indexDict should be the dict for the Date-Index relation
+# Text to be inserted should be something like this:
+#    Has to be a formattable string for easy insertion of data
+# importedEssensDictDE[1]  = {indexDict} \n
+# importedEssensDictDE[2]  = {deTranslatedDE}
+# For writing file[137:] to replace all text from 137 is the best, because old things don't need to be remembered | already got checked by the read
+
+# Actual Code
+arrayStructure = 'var importedEssensDictEN = ["Index 0 = Info |-| Index 1 = Date-Index-Dict |-| Index 2 = Menu-Array", "", ""]'
+with open("../JS-rewrite/menus/menu_en.js", "w", encoding="UTF-16") as menuJsEN:
+    newContent = f"{arrayStructure}\nimportedEssensDictEN[1]  = {indexDict}\nimportedEssensDictEN[2]  = {enTranslatedArray}"
+    menuJsEN.write(newContent)
