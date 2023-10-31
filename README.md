@@ -1,4 +1,4 @@
-# No longer maintained due to a change in the structure of the Apeee-Page.
+# No longer maintained due to a change in the structure of the APEEE-Page.
 <br><br>
 
 # If you want to visit the real menu-site:
