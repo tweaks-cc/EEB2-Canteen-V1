@@ -1,7 +1,7 @@
 # No longer maintained due to a change in the structure of the APEEE-Page.
 <br><br>
 
-# If you want to visit the real menu-site:
+If you want to visit the real menu-site:
 Go to: [Canteen-menu](https://tweaks-cc.github.io/EEB2-Canteen-V1/webseite/index.html)
 
 <br><br>
